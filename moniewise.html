@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Wisemonie - Budget with Clarity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f97316",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        }
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden antialiased">
+    <!-- Top App Bar -->
+    <div
+        class="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#dbdfe6] dark:border-gray-800">
+        <div class="flex items-center p-4 justify-between max-w-5xl mx-auto">
+            <img src="images/wisemonie_logo_optimized.png" alt="Wisemonie Logo"
+                class="h-10 w-auto transition-transform hover:scale-110">
+            <div class="flex items-center justify-end">
+                <button
+                    onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'}); document.getElementById('email-input').focus();"
+                    class="bg-primary hover:bg-orange-700 text-white text-sm font-bold py-2 px-4 rounded-full transition-all hover:scale-105 active:scale-95 animate-[pulse_3s_ease-in-out_infinite]">
+                    Join Waitlist
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <div class="relative flex flex-col w-full max-w-5xl mx-auto">
+        <div class="@container">
+            <div class="flex flex-col gap-6 px-4 py-12 @[480px]:gap-8 @[864px]:flex-row-reverse items-center">
+                <!-- Hero Image -->
+                <div class="w-full @[864px]:w-1/2 flex justify-center reveal delay-300">
+                    <div
+                        class="w-full max-w-[320px] aspect-[9/16] bg-white dark:bg-[#101622] rounded-[32px] shadow-2xl border-8 border-gray-900 dark:border-gray-700 overflow-hidden relative flex flex-col box-border transform hover:translate-y-[-10px] transition-transform duration-500">
+                        <!-- Status Bar -->
+                        <div
+                            class="h-8 w-full flex justify-between px-5 items-center text-[10px] font-bold text-gray-800 dark:text-white mt-1 select-none">
+                            <span>9:41</span>
+                            <div class="flex gap-1.5">
+                                <span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span>
+                                <span class="material-symbols-outlined text-[14px]">wifi</span>
+                                <span class="material-symbols-outlined text-[14px]">battery_full</span>
+                            </div>
+                        </div>
+
+                        <!-- App Header -->
+                        <div class="px-5 py-3 flex justify-between items-center">
+                            <div>
+                                <h3 class="text-primary font-black text-xl tracking-tight">Wisemonie</h3>
+                                <p class="text-[10px] text-gray-500 font-medium">Good Morning, Abraham</p>
+                            </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                                <span
+                                    class="material-symbols-outlined text-lg text-gray-600 dark:text-gray-300">notifications</span>
+                            </div>
+                        </div>
+
+                        <!-- Screen Content -->
+                        <div class="flex-1 px-5 py-2 flex flex-col gap-5 font-display overflow-hidden">
+
+                            <!-- Balance Card -->
+                            <div
+                                class="bg-[#101622] dark:bg-black text-white p-5 rounded-2xl shadow-lg relative overflow-hidden group">
+                                <div
+                                    class="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-2xl -mr-10 -mt-10">
+                                </div>
+                                <p class="text-[10px] font-medium opacity-60 uppercase tracking-wider mb-1">Total
+                                    Balance</p>
+                                <p class="text-2xl font-bold tracking-tight">₦4,250.00</p>
+                                <div class="flex gap-3 mt-4">
+                                    <div class="flex-1 bg-white/10 rounded-lg py-2 flex flex-col items-center">
+                                        <span class="material-symbols-outlined text-[16px] mb-1">add</span>
+                                        <span class="text-[8px] font-bold">Add</span>
+                                    </div>
+                                    <div class="flex-1 bg-white/10 rounded-lg py-2 flex flex-col items-center">
+                                        <span class="material-symbols-outlined text-[16px] mb-1">send</span>
+                                        <span class="text-[8px] font-bold">Send</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Envelope Preview -->
+                            <div class="flex flex-col gap-3">
+                                <div class="flex justify-between items-center">
+                                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Envelopes
+                                    </div>
+                                    <span class="text-[10px] text-primary font-bold">See All</span>
+                                </div>
+                                <div class="space-y-2.5">
+                                    <!-- Env 1 -->
+                                    <div
+                                        class="bg-gray-50 dark:bg-gray-800/50 p-2.5 rounded-xl border border-gray-100 dark:border-gray-800">
+                                        <div class="flex justify-between mb-1.5 items-center">
+                                            <div class="flex items-center gap-2">
+                                                <div
+                                                    class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center">
+                                                    <span class="material-symbols-outlined text-[14px]">home</span>
+                                                </div>
+                                                <span
+                                                    class="text-[11px] font-bold text-gray-800 dark:text-gray-200">Rent</span>
+                                            </div>
+                                            <span
+                                                class="text-[10px] font-bold text-gray-800 dark:text-gray-200">₦1,200</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                                            <div class="bg-green-500 h-1 rounded-full" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Env 2 -->
+                                    <div
+                                        class="bg-gray-50 dark:bg-gray-800/50 p-2.5 rounded-xl border border-gray-100 dark:border-gray-800">
+                                        <div class="flex justify-between mb-1.5 items-center">
+                                            <div class="flex items-center gap-2">
+                                                <div
+                                                    class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center">
+                                                    <span
+                                                        class="material-symbols-outlined text-[14px]">shopping_cart</span>
+                                                </div>
+                                                <span
+                                                    class="text-[11px] font-bold text-gray-800 dark:text-gray-200">Groceries</span>
+                                            </div>
+                                            <span
+                                                class="text-[10px] font-bold text-gray-800 dark:text-gray-200">₦350</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                                            <div class="bg-orange-500 h-1 rounded-full" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom Nav -->
+                        <div
+                            class="h-14 border-t border-gray-100 dark:border-gray-800 flex justify-around items-center bg-white dark:bg-[#101622] px-2">
+                            <div class="flex flex-col items-center gap-0.5 text-primary">
+                                <span
+                                    class="material-symbols-outlined text-[20px] fill-current">account_balance_wallet</span>
+                                <span class="text-[8px] font-bold">Budget</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[20px]">pie_chart</span>
+                                <span class="text-[8px] font-medium">Reports</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[20px]">person</span>
+                                <span class="text-[8px] font-medium">Profile</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Hero Content -->
+                <div
+                    class="flex flex-col gap-6 w-full @[864px]:w-1/2 items-center @[864px]:items-start text-center @[864px]:text-left reveal">
+                    <div class="flex flex-col gap-4">
+                        <h1
+                            class="text-[#111318] dark:text-white text-4xl font-black leading-[1.1] tracking-[-0.033em] @[480px]:text-5xl">
+                            Budget with clarity.<br /><span class="text-primary">Spend with purpose.</span>
+                        </h1>
+                        <h2
+                            class="text-[#616f89] dark:text-gray-400 text-lg font-normal leading-relaxed reveal delay-100">
+                            Stop wondering where your money went. Give every dollar a job with Wisemonie's digital
+                            envelope system.
+                        </h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3 justify-center @[864px]:justify-start w-full reveal delay-200">
+                        <button
+                            onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'}); document.getElementById('email-input').focus();"
+                            class="flex-1 min-w-[140px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary hover:bg-orange-700 transition-colors text-white text-base font-bold leading-normal tracking-[0.015em]">
+                            <span class="truncate">Get Started</span>
+                        </button>
+                        <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})"
+                            class="flex-1 min-w-[140px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#f0f2f4] dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-[#111318] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+                            <span class="truncate">See How It Works</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-[#616f89] dark:text-gray-500">
+                        <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                        <span>Bank-level security &amp; encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Problem Section -->
+    <div class="w-full bg-white dark:bg-[#151c2b] py-16">
+        <div class="max-w-5xl mx-auto flex flex-col gap-10 px-4 @container">
+            <div class="flex flex-col gap-4 text-center items-center">
+                <div
+                    class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-wider">
+                    The Problem</div>
+                <h2
+                    class="text-[#111318] dark:text-white tracking-tight text-3xl font-bold leading-tight @[480px]:text-4xl max-w-[720px]">
+                    Tired of money disappearing?
+                </h2>
+                <p class="text-[#616f89] dark:text-gray-400 text-base font-normal leading-normal max-w-[600px]">
+                    Traditional apps are confusing. Spreadsheets are tedious. Wisemonie fixes the clarity problem by
+                    showing you exactly what's happening.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 @[480px]:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="flex flex-1 gap-4 rounded-xl border border-[#dbdfe6] dark:border-gray-800 bg-background-light dark:bg-background-dark p-6 flex-col items-start hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400">
+                        <span class="material-symbols-outlined text-2xl">bar_chart_off</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-[#111318] dark:text-white text-lg font-bold leading-tight">Confusing Charts</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm font-normal leading-relaxed">Hard to read
+                            graphs that don't tell you if you can afford dinner tonight.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="flex flex-1 gap-4 rounded-xl border border-[#dbdfe6] dark:border-gray-800 bg-background-light dark:bg-background-dark p-6 flex-col items-start hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
+                        <span class="material-symbols-outlined text-2xl">help_center</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-[#111318] dark:text-white text-lg font-bold leading-tight">Unclear Transactions
+                        </h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm font-normal leading-relaxed">Cryptic bank
+                            descriptions leaving you wondering "Where did it go?"</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="flex flex-1 gap-4 rounded-xl border border-[#dbdfe6] dark:border-gray-800 bg-background-light dark:bg-background-dark p-6 flex-col items-start hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
+                        <span class="material-symbols-outlined text-2xl">warning</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-[#111318] dark:text-white text-lg font-bold leading-tight">Month-end Panic</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm font-normal leading-relaxed">Running out of
+                            cash before payday because you overspent early.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Solution Section -->
+    <div class="w-full bg-background-light dark:bg-background-dark py-16">
+        <div class="max-w-5xl mx-auto flex flex-col @[864px]:flex-row gap-12 px-4 items-center">
+            <div class="flex flex-col gap-6 flex-1">
+                <div
+                    class="inline-flex self-start items-center justify-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                    The Solution</div>
+                <h2
+                    class="text-[#111318] dark:text-white tracking-tight text-3xl font-bold leading-tight @[480px]:text-4xl">
+                    Envelope Budgeting for the Digital Age
+                </h2>
+                <p class="text-[#616f89] dark:text-gray-400 text-lg font-normal leading-relaxed">
+                    Clear transaction direction and internal money movement. Sort your income into digital envelopes
+                    immediately.
+                </p>
+                <div class="flex flex-col gap-4 mt-2">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+                        <div>
+                            <h4 class="font-bold text-[#111318] dark:text-white">Allocate Instantly</h4>
+                            <p class="text-sm text-[#616f89] dark:text-gray-400">Split your paycheck into Rent,
+                                Groceries, and Fun instantly.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+                        <div>
+                            <h4 class="font-bold text-[#111318] dark:text-white">Spend Fearlessly</h4>
+                            <p class="text-sm text-[#616f89] dark:text-gray-400">Check your "Dining Out" envelope, not
+                                your total bank balance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 w-full relative">
+                <!-- Abstract visual of envelopes -->
+                <div
+                    class="bg-white dark:bg-[#151c2b] p-6 rounded-2xl shadow-xl border border-[#dbdfe6] dark:border-gray-800">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-sm font-bold text-gray-500">My Envelopes</span>
+                        <span class="material-symbols-outlined text-gray-400">more_horiz</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center p-3 bg-green-50 dark:bg-green-900/10 rounded-lg border border-green-100 dark:border-green-900/20">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 flex items-center justify-center mr-3">
+                                <span class="material-symbols-outlined">home</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold text-[#111318] dark:text-white">Rent</span>
+                                    <span class="font-bold text-green-600 dark:text-green-400">₦1,200</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                    <div class="bg-green-500 h-1.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-100 dark:border-blue-900/20">
+                            <div
+                                class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 flex items-center justify-center mr-3">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold text-[#111318] dark:text-white">Groceries</span>
+                                    <span class="font-bold text-blue-600 dark:text-blue-400">₦350</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                    <div class="bg-blue-500 h-1.5 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center p-3 bg-purple-50 dark:bg-purple-900/10 rounded-lg border border-purple-100 dark:border-purple-900/20 opacity-75">
+                            <div
+                                class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-800 text-purple-600 dark:text-purple-300 flex items-center justify-center mr-3">
+                                <span class="material-symbols-outlined">flight</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold text-[#111318] dark:text-white">Vacation</span>
+                                    <span class="font-bold text-purple-600 dark:text-purple-400">₦80</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                                    <div class="bg-purple-500 h-1.5 rounded-full" style="width: 15%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Key Features (Grid) -->
+    <div id="features" class="w-full bg-white dark:bg-[#151c2b] py-16">
+        <div class="max-w-5xl mx-auto flex flex-col gap-10 px-4">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-[#111318] dark:text-white tracking-tight text-3xl font-bold leading-tight mb-4">
+                    Key Features
+                </h2>
+                <p class="text-[#616f89] dark:text-gray-400">Everything you need to take full control of your financial
+                    life.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Feature 1 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-100">
+                    <span class="material-symbols-outlined text-3xl text-primary">mail</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">Smart Envelopes</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">Create unlimited envelopes for every savings
+                        goal.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-100">
+                    <span class="material-symbols-outlined text-3xl text-primary">pie_chart</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">Allocations</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">Auto-distribute paychecks by percentage or
+                        fixed amount.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-200">
+                    <span class="material-symbols-outlined text-3xl text-primary">sync_alt</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">Internal Transfers</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">Move money between envelopes instantly and
+                        freely.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-200">
+                    <span class="material-symbols-outlined text-3xl text-primary">group</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">P2P Payments</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">Send money to friends directly from specific
+                        envelopes.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-300">
+                    <span class="material-symbols-outlined text-3xl text-primary">account_balance</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">Bank Connect</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">Seamlessly withdraw to your local bank account.
+                    </p>
+                </div>
+                <!-- Feature 6 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-300">
+                    <span class="material-symbols-outlined text-3xl text-primary">history</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">Clean History</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">See exactly where money went, no cryptic codes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- How It Works Section -->
+    <div id="how-it-works" class="w-full bg-background-light dark:bg-background-dark py-16">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[#111318] dark:text-white tracking-tight text-3xl font-bold leading-tight">
+                    How Wisemonie Works
+                </h2>
+            </div>
+            <div class="relative">
+                <!-- Connecting Line -->
+                <div class="absolute left-6 top-6 bottom-6 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+                <!-- Step 1 -->
+                <div class="relative flex gap-6 mb-12 reveal delay-100">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl shrink-0 z-10 shadow-lg border-4 border-background-light dark:border-background-dark">
+                        1</div>
+                    <div class="pt-1">
+                        <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-2">Fund Your Wallet</h3>
+                        <p class="text-[#616f89] dark:text-gray-400">Deposit money into your main Wisemonie account via
+                            bank transfer or card.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative flex gap-6 mb-12 reveal delay-200">
+                    <div
+                        class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 text-primary flex items-center justify-center font-bold text-xl shrink-0 z-10 shadow-lg border-4 border-primary/20">
+                        2</div>
+                    <div class="pt-1">
+                        <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-2">Fill Your Envelopes</h3>
+                        <p class="text-[#616f89] dark:text-gray-400">Allocate funds to your envelopes. Give every single
+                            dollar a specific purpose.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative flex gap-6 reveal delay-300">
+                    <div
+                        class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 text-primary flex items-center justify-center font-bold text-xl shrink-0 z-10 shadow-lg border-4 border-primary/20">
+                        3</div>
+                    <div class="pt-1">
+                        <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-2">Spend with Confidence</h3>
+                        <p class="text-[#616f89] dark:text-gray-400">Spend directly from envelopes. If the envelope is
+                            empty, stop spending or move money.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Wisemonie & CTA -->
+    <div class="w-full bg-white dark:bg-[#151c2b] py-20 border-t border-[#dbdfe6] dark:border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-[#111318] dark:text-white text-3xl font-black mb-6">Why trust Wisemonie?</h2>
+            <div class="flex flex-col md:flex-row gap-8 justify-center mb-12">
+                <div class="flex flex-col items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl text-green-500">lock</span>
+                    <h4 class="font-bold text-[#111318] dark:text-white">Secure</h4>
+                    <p class="text-sm text-[#616f89] dark:text-gray-400 max-w-[200px]">Your data is encrypted with
+                        256-bit AES protection.</p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl text-blue-500">visibility</span>
+                    <h4 class="font-bold text-[#111318] dark:text-white">Transparent</h4>
+                    <p class="text-sm text-[#616f89] dark:text-gray-400 max-w-[200px]">No hidden fees. You see exactly
+                        where every penny goes.</p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl text-purple-500">psychology</span>
+                    <h4 class="font-bold text-[#111318] dark:text-white">Intuitive</h4>
+                    <p class="text-sm text-[#616f89] dark:text-gray-400 max-w-[200px]">Designed for humans, not
+                        accountants.</p>
+                </div>
+            </div>
+            <div id="download" class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-8 md:p-12 border border-primary/20">
+                <h2 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-black mb-4">Start Budgeting Today
+                </h2>
+                <p class="text-[#616f89] dark:text-gray-300 mb-8 text-lg">Join thousands of users who have stopped
+                    wondering where their money went.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto relative">
+                    <input id="email-input"
+                        class="flex-1 rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:border-primary focus:ring-primary h-12 transition-all p-3"
+                        placeholder="Enter your email" type="email" />
+                    <button id="get-app-btn"
+                        class="bg-primary hover:bg-orange-700 text-white font-bold h-12 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]">
+                        Join Waitlist
+                    </button>
+                </div>
+                <p id="email-feedback"
+                    class="mt-4 text-xs text-[#616f89] dark:text-gray-500 h-4 transition-colors duration-300">Available
+                    on iOS and Android. Free 30-day trial.</p>
+
+                <script>
+                    const emailInput = document.getElementById('email-input');
+                    const getAppBtn = document.getElementById('get-app-btn');
+                    const feedbackMsg = document.getElementById('email-feedback');
+                    const originalBtnText = getAppBtn.innerText;
+
+                    getAppBtn.addEventListener('click', () => {
+                        const email = emailInput.value.trim();
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                        // Reset state
+                        emailInput.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+
+                        // Validation
+                        if (!email) {
+                            showFeedback('Please enter your email address.', 'text-red-500');
+                            shakeInput();
+                            return;
+                        }
+                        if (!emailRegex.test(email)) {
+                            showFeedback('Please enter a valid email address.', 'text-red-500');
+                            shakeInput();
+                            return;
+                        }
+
+
+                        // Formspree Integration
+                        startLoading();
+
+                        fetch("https://formspree.io/f/mdkqqyjq", {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ email: email })
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    stopLoading();
+                                    showFeedback('You are on the list! We will be in touch.', 'text-green-600 dark:text-green-400', true);
+                                    emailInput.value = '';
+                                } else {
+                                    throw new Error('Network response was not ok.');
+                                }
+                            })
+                            .catch(error => {
+                                getAppBtn.disabled = false;
+                                getAppBtn.innerText = originalBtnText; // Reset button text
+                                showFeedback('Something went wrong. Please try again.', 'text-red-500');
+                            });
+                    });
+
+                    function showFeedback(msg, colorClass, isSuccess = false) {
+                        feedbackMsg.textContent = msg;
+                        feedbackMsg.className = `mt-4 text-xs h-4 transition-colors duration-300 ${colorClass}`;
+
+                        if (!isSuccess) {
+                            emailInput.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+                        }
+                    }
+
+                    function shakeInput() {
+                        emailInput.classList.add('animate-[shake_0.5s_ease-in-out]');
+                        setTimeout(() => emailInput.classList.remove('animate-[shake_0.5s_ease-in-out]'), 500);
+                    }
+
+                    function startLoading() {
+                        getAppBtn.disabled = true;
+                        getAppBtn.innerHTML = `<span class="material-symbols-outlined animate-spin text-sm">progress_activity</span>`;
+                    }
+
+                    function stopLoading() {
+                        getAppBtn.disabled = false;
+                        getAppBtn.innerText = 'Joined!';
+                        setTimeout(() => {
+                            getAppBtn.innerText = originalBtnText;
+                        }, 3000);
+                    }
+                </script>
+                <style>
+                    @keyframes shake {
+
+                        0%,
+                        100% {
+                            transform: translateX(0);
+                        }
+
+                        25% {
+                            transform: translateX(-5px);
+                        }
+
+                        75% {
+                            transform: translateX(5px);
+                        }
+                    }
+
+                    /* Scroll Reveal Animation Classes */
+                    .reveal {
+                        opacity: 0;
+                        transform: translateY(30px);
+                        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+                    }
+
+                    .reveal.active {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    .reveal.delay-100 {
+                        transition-delay: 100ms;
+                    }
+
+                    .reveal.delay-200 {
+                        transition-delay: 200ms;
+                    }
+
+                    .reveal.delay-300 {
+                        transition-delay: 300ms;
+                    }
+                </style>
+                <script>
+                    // Scroll Reveal Observer
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const observerOptions = {
+                            root: null,
+                            rootMargin: '0px',
+                            threshold: 0.1
+                        };
+
+                        const observer = new IntersectionObserver((entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('active');
+                                    observer.unobserve(entry.target); // Only animate once
+                                }
+                            });
+                        }, observerOptions);
+
+                        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                    });
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-background-light dark:bg-background-dark border-t border-[#dbdfe6] dark:border-gray-800 py-12">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-8">
+            <div class="flex flex-col gap-4">
+                <img src="images/wisemonie_logo_optimized.png" alt="Wisemonie Logo"
+                    class="h-8 w-auto object-contain object-left">
+                <p class="text-[#616f89] dark:text-gray-400 text-sm max-w-xs">
+                    Empowering you to spend with purpose and budget with clarity.
+                </p>
+                <div class="flex gap-4 mt-2">
+                    <a class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                        href="https://x.com/wisemonie_app">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                        href="https://www.instagram.com/wisemonie_app/">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 2.53c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8 text-sm">
+                <div class="flex flex-col gap-2">
+                    <h3 class="font-bold text-[#111318] dark:text-white">Product</h3>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="#features"
+                        onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'}); return false;">Features</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="#">Pricing</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="#">Security</a>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h3 class="font-bold text-[#111318] dark:text-white">Company</h3>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="#">About</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="#">Blog</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-[#dbdfe6] dark:border-gray-800">
+            <p class="text-xs text-[#616f89] dark:text-gray-500 text-center">© 2025 Moniewise Inc. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
