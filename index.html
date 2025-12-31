@@ -5,11 +5,29 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Wisemonie - Budget with Clarity</title>
+
+    <title>Wisemonie - Digital Envelope Budgeting App</title>
+    <meta name="description"
+        content="Take control of your finances with Wisemonie. The secure, transparent digital envelope system that helps you allocate income and spend with purpose." />
+    <meta name="keywords"
+        content="digital envelope system, budgeting app nigeria, expense tracker, save money daily, money management app, p2p payments, personal finance nigeria, wisemonie, salary allocation" />
+    <meta name="author" content="Wisemonie Inc." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wisemonie.com/" />
+    <meta property="og:title" content="Wisemonie - Budget with Clarity" />
+    <meta property="og:description"
+        content="Stop wondering where your money went. Give every Naira a job with Wisemonie's digital envelope system." />
+    <meta property="og:image" content="https://wisemonie.com/images/og-image.jpg" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://wisemonie.com/" />
+    <meta property="twitter:title" content="Wisemonie - Budget with Clarity" />
+    <meta property="twitter:description"
+        content="Stop wondering where your money went. Give every Naira a job with Wisemonie's digital envelope system." />
+    <meta property="twitter:image" content="https://wisemonie.com/images/og-image.jpg" />
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -70,12 +88,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
+
+    <link rel="canonical" href="https://wisemonie.com/" />
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden antialiased">
     <!-- Top App Bar -->
-    <div
+    <header
         class="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#dbdfe6] dark:border-gray-800">
         <div class="flex items-center p-4 justify-between max-w-5xl mx-auto">
             <img src="images/wisemonie_logo_optimized.png" alt="Wisemonie Logo"
@@ -88,9 +108,9 @@
                 </button>
             </div>
         </div>
-    </div>
+    </header>
     <!-- Hero Section -->
-    <div class="relative flex flex-col w-full max-w-5xl mx-auto">
+    <section class="relative flex flex-col w-full max-w-5xl mx-auto">
         <div class="@container">
             <div class="flex flex-col gap-6 px-4 py-12 @[480px]:gap-8 @[864px]:flex-row-reverse items-center">
                 <!-- Hero Image -->
@@ -109,15 +129,27 @@
                         </div>
 
                         <!-- App Header -->
-                        <div class="px-5 py-3 flex justify-between items-center">
-                            <div>
-                                <h3 class="text-primary font-black text-xl tracking-tight">Wisemonie</h3>
-                                <p class="text-[10px] text-gray-500 font-medium">Good Morning, Abraham</p>
+                        <div
+                            class="px-5 py-4 flex justify-between items-center bg-white dark:bg-[#101622] z-10 relative">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">
+                                    A
+                                </div>
+                                <div class="flex flex-col">
+                                    <p class="text-[10px] text-gray-500 font-medium leading-none mb-0.5">Good Morning,
+                                    </p>
+                                    <h3 class="text-[#0F172A] dark:text-white font-bold text-lg leading-none">Abraham
+                                    </h3>
+                                </div>
                             </div>
                             <div
-                                class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                                class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center relative">
                                 <span
-                                    class="material-symbols-outlined text-lg text-gray-600 dark:text-gray-300">notifications</span>
+                                    class="material-symbols-outlined text-[18px] text-gray-800 dark:text-white">notifications</span>
+                                <div
+                                    class="absolute top-2 right-2.5 w-1.5 h-1.5 bg-red-500 rounded-full border border-white dark:border-gray-800">
+                                </div>
                             </div>
                         </div>
 
@@ -126,70 +158,135 @@
 
                             <!-- Balance Card -->
                             <div
-                                class="bg-[#101622] dark:bg-black text-white p-5 rounded-2xl shadow-lg relative overflow-hidden group">
-                                <div
-                                    class="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-2xl -mr-10 -mt-10">
+                                class="bg-[#050B25] text-white p-6 rounded-[24px] relative overflow-hidden shrink-0 shadow-xl">
+                                <!-- Background Gradient Effect -->
+                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl">
                                 </div>
-                                <p class="text-[10px] font-medium opacity-60 uppercase tracking-wider mb-1">Total
-                                    Balance</p>
-                                <p class="text-2xl font-bold tracking-tight">₦4,250.00</p>
-                                <div class="flex gap-3 mt-4">
-                                    <div class="flex-1 bg-white/10 rounded-lg py-2 flex flex-col items-center">
-                                        <span class="material-symbols-outlined text-[16px] mb-1">add</span>
-                                        <span class="text-[8px] font-bold">Add</span>
+
+                                <!-- Top Row -->
+                                <div class="flex justify-between items-start mb-1 h-[26px]">
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Total
+                                        Balance</p>
+                                    <div
+                                        class="flex items-center gap-1 bg-[#0F291E] border border-[#164531] px-2 py-0.5 rounded-full">
+                                        <span
+                                            class="material-symbols-outlined text-[10px] text-[#22C55E]">trending_up</span>
+                                        <span class="text-[9px] font-bold text-[#22C55E]">+2.4%</span>
                                     </div>
-                                    <div class="flex-1 bg-white/10 rounded-lg py-2 flex flex-col items-center">
-                                        <span class="material-symbols-outlined text-[16px] mb-1">send</span>
-                                        <span class="text-[8px] font-bold">Send</span>
+                                </div>
+
+                                <!-- Balance -->
+                                <div class="flex items-baseline gap-1 mb-8">
+                                    <span class="text-lg font-medium text-gray-400">₦</span>
+                                    <h2 class="text-[32px] font-bold tracking-tight text-white leading-none">4,250.00
+                                    </h2>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="flex gap-4 relative z-20 mt-4">
+                                    <div
+                                        class="flex-1 h-12 bg-[#111827] rounded-[16px] flex items-center justify-center gap-2 hover:bg-black transition-colors cursor-pointer group shadow-lg">
+                                        <div
+                                            class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                            <span class="material-symbols-outlined text-[16px] text-white">add</span>
+                                        </div>
+                                        <span class="text-[13px] font-bold text-white">Add</span>
+                                    </div>
+                                    <div
+                                        class="flex-1 h-12 bg-[#3B82F6] rounded-[16px] flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 hover:bg-[#2563EB] transition-colors cursor-pointer group">
+                                        <div
+                                            class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-white">north_east</span>
+                                        </div>
+                                        <span class="text-[13px] font-bold text-white">Send</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Envelope Preview -->
-                            <div class="flex flex-col gap-3">
-                                <div class="flex justify-between items-center">
-                                    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Envelopes
+                            <!-- Smart Envelopes Section -->
+                            <div class="flex flex-col gap-2 mt-1">
+                                <div class="flex justify-between items-end px-1">
+                                    <div>
+                                        <h3 class="text-[13px] font-black text-[#0F172A] dark:text-white">Smart
+                                            Envelopes</h3>
+                                        <p class="text-[9px] text-gray-400">Automated budgeting for your needs</p>
                                     </div>
-                                    <span class="text-[10px] text-primary font-bold">See All</span>
+                                    <span class="text-[10px] text-[#3B82F6] font-bold cursor-pointer">See All</span>
                                 </div>
-                                <div class="space-y-2.5">
-                                    <!-- Env 1 -->
+
+                                <div class="flex flex-col gap-2.5 overflow-hidden pb-1">
+                                    <!-- Rent Card -->
                                     <div
-                                        class="bg-gray-50 dark:bg-gray-800/50 p-2.5 rounded-xl border border-gray-100 dark:border-gray-800">
-                                        <div class="flex justify-between mb-1.5 items-center">
-                                            <div class="flex items-center gap-2">
+                                        class="bg-white dark:bg-[#1E293B] p-3 rounded-[20px] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] border border-gray-50 dark:border-gray-700">
+                                        <div class="flex justify-between items-start mb-3">
+                                            <div class="flex items-center gap-3">
                                                 <div
-                                                    class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center">
-                                                    <span class="material-symbols-outlined text-[14px]">home</span>
+                                                    class="w-9 h-9 rounded-full bg-[#ECFDF5] dark:bg-green-900/20 flex items-center justify-center text-[#10B981]">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">volunteer_activism</span>
                                                 </div>
-                                                <span
-                                                    class="text-[11px] font-bold text-gray-800 dark:text-gray-200">Rent</span>
+                                                <div>
+                                                    <div class="flex items-center gap-1.5">
+                                                        <h4
+                                                            class="text-[12px] font-bold text-[#0F172A] dark:text-white">
+                                                            Rent</h4>
+                                                        <span
+                                                            class="bg-[#ECFDF5] text-[#10B981] text-[7px] font-bold px-1.5 py-0.5 rounded-full uppercase">Auto</span>
+                                                    </div>
+                                                    <p class="text-[9px] text-gray-400 mt-0.5">Due on 25th</p>
+                                                </div>
                                             </div>
-                                            <span
-                                                class="text-[10px] font-bold text-gray-800 dark:text-gray-200">₦1,200</span>
+                                            <div class="text-right">
+                                                <h4 class="text-[12px] font-black text-[#0F172A] dark:text-white">₦1,200
+                                                </h4>
+                                                <p class="text-[8px] text-gray-400 mt-0.5">Target: ₦2,000</p>
+                                            </div>
                                         </div>
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
-                                            <div class="bg-green-500 h-1 rounded-full" style="width: 80%"></div>
+                                        <div class="flex items-center justify-between gap-3">
+                                            <span class="text-[9px] font-medium text-gray-400">Progress</span>
+                                            <span class="text-[9px] font-bold text-[#10B981]">60%</span>
+                                        </div>
+                                        <div
+                                            class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mt-1.5 overflow-hidden">
+                                            <div class="bg-[#10B981] h-full rounded-full w-[60%]"></div>
                                         </div>
                                     </div>
-                                    <!-- Env 2 -->
+
+                                    <!-- Groceries Card -->
                                     <div
-                                        class="bg-gray-50 dark:bg-gray-800/50 p-2.5 rounded-xl border border-gray-100 dark:border-gray-800">
-                                        <div class="flex justify-between mb-1.5 items-center">
-                                            <div class="flex items-center gap-2">
+                                        class="bg-white dark:bg-[#1E293B] p-3 rounded-[20px] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] border border-gray-50 dark:border-gray-700">
+                                        <div class="flex justify-between items-start mb-3">
+                                            <div class="flex items-center gap-3">
                                                 <div
-                                                    class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center">
+                                                    class="w-9 h-9 rounded-full bg-[#FFF7ED] dark:bg-orange-900/20 flex items-center justify-center text-[#F59E0B]">
                                                     <span
-                                                        class="material-symbols-outlined text-[14px]">shopping_cart</span>
+                                                        class="material-symbols-outlined text-[18px]">shopping_cart</span>
                                                 </div>
-                                                <span
-                                                    class="text-[11px] font-bold text-gray-800 dark:text-gray-200">Groceries</span>
+                                                <div>
+                                                    <div class="flex items-center gap-1.5">
+                                                        <h4
+                                                            class="text-[12px] font-bold text-[#0F172A] dark:text-white">
+                                                            Groceries</h4>
+                                                        <span
+                                                            class="bg-gray-100 text-gray-500 text-[7px] font-bold px-1.5 py-0.5 rounded-full uppercase">Limit</span>
+                                                    </div>
+                                                    <p class="text-[9px] text-gray-400 mt-0.5">Weekly Allowance</p>
+                                                </div>
                                             </div>
-                                            <span
-                                                class="text-[10px] font-bold text-gray-800 dark:text-gray-200">₦350</span>
+                                            <div class="text-right">
+                                                <h4 class="text-[12px] font-black text-[#0F172A] dark:text-white">₦350
+                                                </h4>
+                                                <p class="text-[8px] text-gray-400 mt-0.5">Limit: ₦1,000</p>
+                                            </div>
                                         </div>
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
-                                            <div class="bg-orange-500 h-1 rounded-full" style="width: 45%"></div>
+                                        <div class="flex items-center justify-between gap-3">
+                                            <span class="text-[9px] font-medium text-gray-400">Used</span>
+                                            <span class="text-[9px] font-bold text-[#F59E0B]">35%</span>
+                                        </div>
+                                        <div
+                                            class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1.5 mt-1.5 overflow-hidden">
+                                            <div class="bg-[#F59E0B] h-full rounded-full w-[35%]"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -199,22 +296,52 @@
 
                         <!-- Bottom Nav -->
                         <div
-                            class="h-14 border-t border-gray-100 dark:border-gray-800 flex justify-around items-center bg-white dark:bg-[#101622] px-2">
-                            <div class="flex flex-col items-center gap-0.5 text-primary">
+                            class="h-[72px] border-t border-gray-100 dark:border-gray-800 flex justify-between items-center bg-white dark:bg-[#101622] px-6 pb-2 rounded-b-[24px]">
+                            <div class="flex flex-col items-center gap-1.5 text-[#3B82F6]">
                                 <span
-                                    class="material-symbols-outlined text-[20px] fill-current">account_balance_wallet</span>
-                                <span class="text-[8px] font-bold">Budget</span>
+                                    class="material-symbols-outlined text-[24px] fill-current">account_balance_wallet</span>
+                                <span class="text-[10px] font-bold">Budget</span>
                             </div>
-                            <div class="flex flex-col items-center gap-0.5 text-gray-400">
-                                <span class="material-symbols-outlined text-[20px]">pie_chart</span>
-                                <span class="text-[8px] font-medium">Reports</span>
+                            <div class="flex flex-col items-center gap-1.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[24px]">bar_chart</span>
+                                <span class="text-[10px] font-medium">Reports</span>
                             </div>
-                            <div class="flex flex-col items-center gap-0.5 text-gray-400">
-                                <span class="material-symbols-outlined text-[20px]">person</span>
-                                <span class="text-[8px] font-medium">Profile</span>
+                            <!-- FAB -->
+                            <div class="-mt-12 relative z-20">
+                                <div
+                                    class="w-14 h-14 bg-[#3B82F6] rounded-full shadow-[0_8px_20px_-6px_rgba(59,130,246,0.6)] flex items-center justify-center border-[6px] border-white dark:border-[#101622] text-white">
+                                    <span class="material-symbols-outlined text-[30px] font-bold">add</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center gap-1.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[24px]">credit_card</span>
+                                <span class="text-[10px] font-medium">Cards</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[24px]">person</span>
+                                <span class="text-[10px] font-medium">Profile</span>
                             </div>
                         </div>
 
+                    </div>
+                    <!-- Notification Card -->
+                    <!-- Notification Card -->
+                    <div
+                        class="absolute top-[28%] -right-[15%] w-[270px] bg-white dark:bg-gray-800 shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-3 rounded-xl border border-gray-100 dark:border-gray-700 z-30 animate-[float_4s_ease-in-out_infinite_1s] flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#D1FAE5] flex items-center justify-center shrink-0">
+                            <span class="font-bold text-[#10B981] text-lg">$</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-center mb-0.5">
+                                <h4 class="font-bold text-[12px] text-gray-900 dark:text-white">Credit Alert</h4>
+                                <span
+                                    class="text-[9px] bg-gray-100 dark:bg-gray-700 text-gray-500 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wide">NOW</span>
+                            </div>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-300 truncate">
+                                Received <span class="font-bold text-gray-900 dark:text-white">₦2,500</span> from Lunch
+                                Budget
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <!-- Hero Content -->
@@ -249,9 +376,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Problem Section -->
-    <div class="w-full bg-white dark:bg-[#151c2b] py-16">
+    <section class="w-full bg-white dark:bg-[#151c2b] py-16">
         <div class="max-w-5xl mx-auto flex flex-col gap-10 px-4 @container">
             <div class="flex flex-col gap-4 text-center items-center">
                 <div
@@ -309,9 +436,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Solution Section -->
-    <div class="w-full bg-background-light dark:bg-background-dark py-16">
+    <section class="w-full bg-background-light dark:bg-background-dark py-16">
         <div class="max-w-5xl mx-auto flex flex-col @[864px]:flex-row gap-12 px-4 items-center">
             <div class="flex flex-col gap-6 flex-1">
                 <div
@@ -405,9 +532,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Key Features (Grid) -->
-    <div id="features" class="w-full bg-white dark:bg-[#151c2b] py-16">
+    <section id="features" class="w-full bg-white dark:bg-[#151c2b] py-16">
         <div class="max-w-5xl mx-auto flex flex-col gap-10 px-4">
             <div class="text-center max-w-2xl mx-auto">
                 <h2 class="text-[#111318] dark:text-white tracking-tight text-3xl font-bold leading-tight mb-4">
@@ -465,11 +592,20 @@
                     <p class="text-xs text-[#616f89] dark:text-gray-400">See exactly where money went, no cryptic codes.
                     </p>
                 </div>
+                <!-- Feature 7 -->
+                <div
+                    class="p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbdfe6] dark:border-gray-800 flex flex-col items-center text-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg reveal delay-200">
+                    <span class="material-symbols-outlined text-3xl text-primary">notifications_active</span>
+                    <h3 class="font-bold text-[#111318] dark:text-white">Instant Alerts</h3>
+                    <p class="text-xs text-[#616f89] dark:text-gray-400">
+                        Get that "Credit Alert 🚀" feeling instantly. Know exactly when money lands.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- How It Works Section -->
-    <div id="how-it-works" class="w-full bg-background-light dark:bg-background-dark py-16">
+    <section id="how-it-works" class="w-full bg-background-light dark:bg-background-dark py-16">
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-[#111318] dark:text-white tracking-tight text-3xl font-bold leading-tight">
@@ -514,9 +650,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Why Wisemonie & CTA -->
-    <div class="w-full bg-white dark:bg-[#151c2b] py-20 border-t border-[#dbdfe6] dark:border-gray-800">
+    <section class="w-full bg-white dark:bg-[#151c2b] py-20 border-t border-[#dbdfe6] dark:border-gray-800">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-[#111318] dark:text-white text-3xl font-black mb-6">Why trust Wisemonie?</h2>
             <div class="flex flex-col md:flex-row gap-8 justify-center mb-12">
@@ -702,7 +838,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
     <!-- Footer -->
     <footer class="bg-background-light dark:bg-background-dark border-t border-[#dbdfe6] dark:border-gray-800 py-12">
         <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-8">
@@ -712,28 +848,33 @@
                 <p class="text-[#616f89] dark:text-gray-400 text-sm max-w-xs">
                     Empowering you to spend with purpose and budget with clarity.
                 </p>
-                <div class="flex gap-4 mt-2">
-                    <a class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
-                        href="https://x.com/wisemonie_app">
-                        <span class="sr-only">Twitter</span>
-                        <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
-                            <path
-                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
-                            </path>
-                        </svg>
-                    </a>
-                    <a class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
-                        href="https://www.instagram.com/wisemonie_app/">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
-                            <path clip-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 2.53c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                fill-rule="evenodd"></path>
-                        </svg>
-                    </a>
+                <div class="flex flex-col gap-3 mt-1">
+                    <span class="text-xs font-semibold text-[#111318] dark:text-gray-300">Follow us</span>
+                    <div class="flex gap-4">
+                        <a aria-label="Follow us on Twitter" title="Follow Wisemonie on Twitter"
+                            class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                            href="https://x.com/wisemonie_app">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                                </path>
+                            </svg>
+                        </a>
+                        <a aria-label="Follow us on Instagram" title="Follow Wisemonie on Instagram"
+                            class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                            href="https://www.instagram.com/wisemonie_app/">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 2.53c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-8 text-sm">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
                 <div class="flex flex-col gap-2">
                     <h3 class="font-bold text-[#111318] dark:text-white">Product</h3>
                     <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
@@ -742,22 +883,37 @@
                     <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
                         href="#">Pricing</a>
                     <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                        href="#">Security</a>
+                        href="security.html">Security</a>
                 </div>
                 <div class="flex flex-col gap-2">
                     <h3 class="font-bold text-[#111318] dark:text-white">Company</h3>
                     <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                        href="#">About</a>
+                        href="about.html">About</a>
                     <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
                         href="#">Blog</a>
                     <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                        href="#">Contact</a>
+                        href="contact.html">Contact</a>
+                </div>
+                <!-- Legal -->
+                <div class="flex flex-col gap-2">
+                    <h3 class="font-bold text-[#111318] dark:text-white">Legal</h3>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="privacy-policy.html">Privacy Policy</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="terms-of-service.html">Terms
+                        of Service</a>
+                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                        href="cookie-policy.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
         <div class="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-[#dbdfe6] dark:border-gray-800">
-            <p class="text-xs text-[#616f89] dark:text-gray-500 text-center">© 2025 Moniewise Inc. All rights reserved.
-            </p>
+            <div class="flex flex-col items-center gap-1 text-center">
+                <p class="text-xs text-[#616f89] dark:text-gray-500">© 2025 OLX Digital Services. All rights reserved.
+                </p>
+                <p class="text-[10px] text-gray-400 dark:text-gray-600">WiseMonie is a product of OLX Digital Services.
+                </p>
+            </div>
         </div>
     </footer>
 </body>
