@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Cookie Policy - WiseMonie</title>
-    <meta name="description" content="WiseMonie Cookie Policy." />
+    <title>Cookie Policy - Wisemonie</title>
+    <meta name="description" content="Wisemonie Cookie Policy." />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -20,12 +20,20 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#f97316",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
+                        "primary": "#7ED957",
+                        "primary-hover": "#2ECC71",
+                        "background-light": "#0F4C4C",
+                        "background-dark": "#0A3A3A",
+                        "secondary-text": "#D9E1E1",
+                        "deep-teal": "#0F4C4C",
+                        "forest-teal": "#0A3A3A",
+                    },
+                    backgroundImage: {
+                        'primary-gradient': 'linear-gradient(to right, #C7F36B, #7ED957, #2ECC71, #1F9E89)',
+                        'bg-gradient': 'linear-gradient(135deg, #0A3A3A 0%, #0F4C4C 100%)',
                     },
                     fontFamily: {
-                        "display": ["Inter", "sans-serif"]
+                        "display": ["DM Sans", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -55,25 +63,26 @@
         }
     </style>
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="images/logoicon.png">
+    <link rel="shortcut icon" href="images/logoicon.png">
+    <link rel="apple-touch-icon" href="images/logoicon.png">
     <link rel="manifest" href="images/site.webmanifest">
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden antialiased">
+    class="bg-bg-gradient text-white min-h-screen dark:text-white font-display overflow-x-hidden antialiased">
     <!-- Top App Bar -->
     <header
-        class="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#dbdfe6] dark:border-gray-800">
+        class="sticky top-0 z-50 bg-background-dark/90 backdrop-blur-md text-white backdrop-blur-md border-b border-white/10 border-white/10">
         <div class="flex items-center p-4 justify-between max-w-5xl mx-auto">
             <a href="index.html">
-                <img src="images/wisemonie_logo_optimized.png" alt="Wisemonie Logo"
-                    class="h-10 w-auto transition-transform hover:scale-110">
+                <img src="images/main_logo.png" alt="Wisemonie Logo"
+                    class="h-10 w-auto">
             </a>
             <div class="flex items-center justify-end">
                 <a href="index.html#download"
-                    class="bg-primary hover:bg-orange-700 text-white text-sm font-bold py-2 px-4 rounded-full transition-all hover:scale-105 active:scale-95">
-                    Join Waitlist
+                    class="bg-primary-gradient hover:opacity-90 border-0 text-white text-sm font-bold py-2.5 px-5 rounded-full shadow-[0_16px_40px_rgba(31,158,137,0.22)] transition-all hover:scale-[1.02] active:scale-95">
+                    Get Early Access
                 </a>
             </div>
         </div>
@@ -82,22 +91,26 @@
     <main class="w-full max-w-3xl mx-auto px-4 py-16">
         <div class="flex flex-col gap-8">
             <div class="text-center mb-4">
-                <h1 class="text-3xl md:text-4xl font-black tracking-tight text-[#111318] dark:text-white mb-2">
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-[#C7F36B] mb-4">
+                    <span class="material-symbols-outlined text-sm">gavel</span>
+                    Legal information
+                </div>
+                <h1 class="text-3xl md:text-4xl font-black tracking-tight text-white dark:text-white mb-2">
                     Cookie Policy
                 </h1>
             </div>
 
             <div
-                class="bg-white dark:bg-[#151c2b] p-8 rounded-2xl shadow-sm border border-[#dbdfe6] dark:border-gray-800 space-y-8 text-[#616f89] dark:text-gray-300">
+                class="bg-background-light/50 backdrop-blur-md p-8 rounded-2xl shadow-sm border border-white/10 border-white/10 space-y-8 text-secondary-text dark:text-gray-300">
                 <section>
                     <p class="mb-4">
                         This Cookie Policy explains how OLX Digital Services uses cookies and similar technologies on
-                        the WiseMonie website.
+                    the Wisemonie website.
                     </p>
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-3">What Are Cookies?</h2>
+                    <h2 class="text-xl font-bold text-white dark:text-white mb-3">What Are Cookies?</h2>
                     <p>
                         Cookies are small text files stored on your device when you visit a website. They help improve
                         website functionality and user experience.
@@ -105,8 +118,8 @@
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-3">How We Use Cookies</h2>
-                    <p class="mb-2">The WiseMonie website may use cookies to:</p>
+                    <h2 class="text-xl font-bold text-white dark:text-white mb-3">How We Use Cookies</h2>
+                    <p class="mb-2">The Wisemonie website may use cookies to:</p>
                     <ul class="list-disc pl-5 mt-2 space-y-1">
                         <li>Understand how visitors interact with the website</li>
                         <li>Improve website performance and content</li>
@@ -118,7 +131,7 @@
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Third-Party Cookies</h2>
+                    <h2 class="text-xl font-bold text-white dark:text-white mb-3">Third-Party Cookies</h2>
                     <p>
                         We may use trusted third-party analytics services to better understand website usage. These
                         services may place cookies on your device in accordance with their own privacy policies.
@@ -126,7 +139,7 @@
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Managing Cookies</h2>
+                    <h2 class="text-xl font-bold text-white dark:text-white mb-3">Managing Cookies</h2>
                     <p>
                         You can control or disable cookies through your browser settings. Please note that disabling
                         cookies may affect certain website features.
@@ -134,7 +147,7 @@
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Updates to This Policy</h2>
+                    <h2 class="text-xl font-bold text-white dark:text-white mb-3">Updates to This Policy</h2>
                     <p>
                         We may update this Cookie Policy from time to time to reflect changes in technology or legal
                         requirements. Any updates will be posted on this page.
@@ -142,11 +155,11 @@
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Contact</h2>
+                    <h2 class="text-xl font-bold text-white dark:text-white mb-3">Contact</h2>
                     <p>
                         If you have questions about this Cookie Policy, you may contact us at:<br>
                         Email: <a href="mailto:wisemoniehelpdesk@gmail.com"
-                            class="text-primary font-medium hover:underline">wisemoniehelpdesk@gmail.com</a>
+                            class="text-[#7ED957] font-medium hover:underline">wisemoniehelpdesk@gmail.com</a>
                     </p>
                 </section>
             </div>
@@ -154,19 +167,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-background-light dark:bg-background-dark border-t border-[#dbdfe6] dark:border-gray-800 py-12">
+    <footer class="bg-[#0f4c4c]/50 backdrop-blur-md border-t border-white/10 border-white/10 py-12">
         <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-8">
             <div class="flex flex-col gap-4">
-                <img src="images/wisemonie_logo_optimized.png" alt="Wisemonie Logo"
+                <img src="images/main_logo.png" alt="Wisemonie Logo"
                     class="h-8 w-auto object-contain object-left">
-                <p class="text-[#616f89] dark:text-gray-400 text-sm max-w-xs">
+                <p class="text-secondary-text dark:text-secondary-text text-sm max-w-xs">
                     Empowering you to spend with purpose and budget with clarity.
                 </p>
                 <div class="flex flex-col gap-3 mt-1">
-                    <span class="text-xs font-semibold text-[#111318] dark:text-gray-300">Follow us</span>
+                    <span class="text-xs font-semibold text-white dark:text-gray-300">Follow us</span>
                     <div class="flex gap-4">
                         <a aria-label="Follow us on Twitter"
-                            class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                            class="text-secondary-text hover:text-[#7ED957] dark:text-secondary-text dark:hover:text-white transition-colors"
                             href="https://x.com/wisemonie_app">
                             <span class="sr-only">Twitter</span>
                             <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
@@ -176,7 +189,7 @@
                             </svg>
                         </a>
                         <a aria-label="Follow us on Instagram"
-                            class="text-[#616f89] hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                            class="text-secondary-text hover:text-[#7ED957] dark:text-secondary-text dark:hover:text-white transition-colors"
                             href="https://www.instagram.com/wisemonie_app/">
                             <span class="sr-only">Instagram</span>
                             <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
@@ -185,44 +198,54 @@
                                     fill-rule="evenodd"></path>
                             </svg>
                         </a>
+                        <a aria-label="Follow us on Whatsapp"
+                            class="text-secondary-text hover:text-[#7ED957] dark:text-secondary-text dark:hover:text-white transition-colors"
+                            href="https://whatsapp.com/channel/0029Vb6kU683bbUy3azQF047">
+                            <span class="sr-only">Whatsapp</span>
+                            <svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 2.982 1.286 2.982.859 3.527.802.545-.055 1.759-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
                 <div class="flex flex-col gap-2">
-                    <h3 class="font-bold text-[#111318] dark:text-white">Product</h3>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <h3 class="font-bold text-white dark:text-white">Product</h3>
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="index.html#features">Features</a>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                        href="#">Pricing</a>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="security.html">Security</a>
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
+                        href="index.html#download">Join Waitlist</a>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h3 class="font-bold text-[#111318] dark:text-white">Company</h3>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <h3 class="font-bold text-white dark:text-white">Company</h3>
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="about.html">About</a>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
-                        href="#">Blog</a>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="contact.html">Contact</a>
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
+                        href="about.html">About</a>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h3 class="font-bold text-[#111318] dark:text-white">Legal</h3>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <h3 class="font-bold text-white dark:text-white">Legal</h3>
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="privacy-policy.html">Privacy Policy</a>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="terms-of-service.html">Terms of Service</a>
-                    <a class="text-[#616f89] dark:text-gray-400 hover:text-primary dark:hover:text-white"
+                    <a class="text-secondary-text dark:text-secondary-text hover:text-[#7ED957] dark:hover:text-white"
                         href="cookie-policy.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
-        <div class="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-[#dbdfe6] dark:border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 border-white/10">
             <div class="flex flex-col items-center gap-1 text-center">
-                <p class="text-xs text-[#616f89] dark:text-gray-500">© 2026 OLX Digital Services. All rights reserved.
+                <p class="text-xs text-secondary-text dark:text-gray-500">&copy; 2026 OLX Digital Services. All rights reserved.
                 </p>
-                <p class="text-[10px] text-gray-400 dark:text-gray-600">WiseMonie is a product of OLX Digital Services.
+                <p class="text-[10px] text-secondary-text dark:text-gray-600">Wisemonie is a product of OLX Digital Services.
                 </p>
             </div>
         </div>
@@ -230,3 +253,4 @@
 </body>
 
 </html>
+
