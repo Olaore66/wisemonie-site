@@ -1,0 +1,14 @@
+{
+    "name": "Wisemonie",
+    "short_name": "Wisemonie",
+    "icons": [
+        {
+            "src": "iconwithoutbackground.png",
+            "sizes": "631x549",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#005f5a",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

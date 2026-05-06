@@ -1,0 +1,339 @@
+:root {
+    --wm-ink: #104040;
+    --wm-ink-strong: #0a3233;
+    --wm-teal: #006080;
+    --wm-aqua: #00a0a0;
+    --wm-mint: #60e070;
+    --wm-lime: #e0ff60;
+    --wm-bg: #fbfff6;
+    --wm-bg-soft: #f1faea;
+    --wm-surface: #ffffff;
+    --wm-border: #d8e9df;
+    --wm-muted: #5f7773;
+    --wm-shadow: rgba(16, 64, 64, 0.13);
+    --wm-shadow-strong: rgba(16, 64, 64, 0.2);
+}
+
+* {
+    letter-spacing: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(241, 250, 234, 0.72) 48%, rgba(235, 248, 244, 0.92)),
+        var(--wm-bg) !important;
+    color: var(--wm-ink) !important;
+}
+
+::selection {
+    background: rgba(224, 255, 96, 0.7);
+    color: var(--wm-ink-strong);
+}
+
+.site-orb,
+.hero-shell::before,
+.phone-stage::before {
+    display: none !important;
+}
+
+.bg-bg-gradient {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(241, 250, 234, 0.72) 48%, rgba(235, 248, 244, 0.92)),
+        var(--wm-bg) !important;
+}
+
+.bg-primary-gradient {
+    background-image: linear-gradient(135deg, var(--wm-lime) 0%, var(--wm-mint) 52%, var(--wm-aqua) 100%) !important;
+    color: var(--wm-ink-strong) !important;
+}
+
+[class*="bg-background-dark/90"] {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+header {
+    color: var(--wm-ink) !important;
+    border-color: var(--wm-border) !important;
+    box-shadow: 0 14px 42px rgba(16, 64, 64, 0.08);
+}
+
+header img,
+footer img {
+    filter: drop-shadow(0 10px 18px rgba(16, 64, 64, 0.1));
+}
+
+.text-white,
+.dark\:text-white,
+.dark .dark\:text-white {
+    color: var(--wm-ink) !important;
+}
+
+.text-secondary-text,
+.dark\:text-secondary-text,
+.dark .dark\:text-secondary-text,
+.dark\:text-gray-300,
+.dark .dark\:text-gray-300,
+.dark\:text-gray-500,
+.dark .dark\:text-gray-500,
+.text-gray-500,
+.text-gray-700 {
+    color: var(--wm-muted) !important;
+}
+
+[class*="text-[#C7F36B]"],
+[class*="text-[#7ED957]"],
+[class*="text-[#1F9E89]"] {
+    color: var(--wm-teal) !important;
+}
+
+[class*="border-white/"],
+[class*="border-primary/20"],
+[class*="border-[#1F9E89]/20"],
+[class*="border-[#C7F36B]/20"] {
+    border-color: var(--wm-border) !important;
+}
+
+section[class*="bg-background-light/50"],
+section[class*="bg-[#0f4c4c]/50"] {
+    background: rgba(255, 255, 255, 0.52) !important;
+    border-top: 1px solid rgba(216, 233, 223, 0.72);
+    border-bottom: 1px solid rgba(216, 233, 223, 0.72);
+    box-shadow: none !important;
+}
+
+footer[class*="bg-[#0f4c4c]/50"] {
+    background: rgba(255, 255, 255, 0.78) !important;
+    border-color: var(--wm-border) !important;
+}
+
+:where(div, article, form)[class*="bg-background-light/50"],
+:where(div, article)[class*="bg-[#0f4c4c]/50"],
+:where(div, article)[class*="bg-white/5"],
+.proof-card,
+.hero-glass-card {
+    background: rgba(255, 255, 255, 0.86) !important;
+    border: 1px solid var(--wm-border) !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 22px 60px var(--wm-shadow) !important;
+}
+
+:where(div, article)[class*="bg-[#1F9E89]/12"],
+:where(div, article)[class*="bg-[#C7F36B]/10"],
+:where(div, article)[class*="bg-[#7ED957]/15"],
+:where(div, article)[class*="bg-white/6"],
+:where(div, article)[class*="bg-white/10"] {
+    background: rgba(241, 250, 234, 0.82) !important;
+}
+
+.hero-shell {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 250, 234, 0.9)) !important;
+    border: 1px solid var(--wm-border) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 30px 80px rgba(16, 64, 64, 0.16) !important;
+}
+
+.phone-stage {
+    background: linear-gradient(180deg, #0f4040, #092f31) !important;
+    border-color: rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 28px 72px rgba(16, 64, 64, 0.28) !important;
+}
+
+.phone-stage.phone-stage--image {
+    width: min(100%, 320px) !important;
+    aspect-ratio: 720 / 1600;
+    padding: 4px !important;
+    border: 4px solid #082f30 !important;
+    border-radius: 32px !important;
+    background: #082f30 !important;
+    box-shadow: 0 28px 72px rgba(16, 64, 64, 0.3) !important;
+}
+
+.phone-hero-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.phone-stage .text-white,
+.phone-stage .dark\:text-white,
+.phone-stage .text-secondary-text,
+.phone-stage [class*="text-[#C7F36B]"],
+.phone-stage [class*="text-[#7ED957]"],
+.phone-stage [class*="text-[#1F9E89]"] {
+    color: #ffffff !important;
+}
+
+.phone-stage .text-secondary-text {
+    color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.phone-stage [class*="text-[#C7F36B]"],
+.phone-stage [class*="text-[#7ED957]"] {
+    color: var(--wm-lime) !important;
+}
+
+.phone-stage [class*="text-[#1F9E89]"] {
+    color: var(--wm-mint) !important;
+}
+
+.phone-stage [class*="bg-white/8"],
+.phone-stage [class*="bg-white/10"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.phone-stage [class*="border-white/"] {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.phone-card {
+    background: linear-gradient(180deg, rgba(12, 82, 80, 0.98), rgba(7, 55, 56, 0.98)) !important;
+}
+
+.mock-envelope {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.metric-chip {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.inline-flex[class*="rounded-full"][class*="uppercase"],
+div[class*="rounded-full"][class*="uppercase"] {
+    background: rgba(224, 255, 96, 0.24) !important;
+    border: 1px solid rgba(0, 96, 128, 0.12) !important;
+    color: var(--wm-teal) !important;
+}
+
+a,
+button {
+    transition-property: color, background-color, border-color, box-shadow, transform, opacity !important;
+}
+
+a:hover {
+    color: var(--wm-teal) !important;
+}
+
+button.bg-primary-gradient:hover,
+a.bg-primary-gradient:hover {
+    box-shadow: 0 18px 42px rgba(0, 160, 160, 0.22) !important;
+}
+
+button[class*="bg-white/6"],
+button[class*="border-white/15"] {
+    background: var(--wm-surface) !important;
+    border-color: var(--wm-border) !important;
+    color: var(--wm-ink) !important;
+    box-shadow: 0 14px 34px rgba(16, 64, 64, 0.08);
+}
+
+input,
+textarea {
+    background: var(--wm-surface) !important;
+    border: 1px solid var(--wm-border) !important;
+    color: var(--wm-ink) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 12px 28px rgba(16, 64, 64, 0.08);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #809590 !important;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--wm-aqua) !important;
+    box-shadow: 0 0 0 4px rgba(0, 160, 160, 0.14) !important;
+}
+
+.material-symbols-outlined {
+    color: currentColor;
+    font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.proof-card h3,
+.hero-glass-card p,
+h1,
+h2,
+h3,
+h4 {
+    color: var(--wm-ink-strong) !important;
+}
+
+.proof-card p,
+.hero-glass-card [class*="text-secondary-text"] {
+    color: var(--wm-muted) !important;
+}
+
+.shadow-sm,
+.shadow-lg,
+.shadow-xl,
+[class*="shadow-["] {
+    box-shadow: 0 20px 52px var(--wm-shadow) !important;
+}
+
+[class*="rounded-2xl"],
+[class*="rounded-[2rem]"],
+[class*="rounded-[1.5rem]"],
+[class*="rounded-[1.4rem]"],
+[class*="rounded-[1.35rem]"] {
+    border-radius: 0.5rem !important;
+}
+
+.phone-card,
+.mock-envelope,
+.mock-envelope-icon,
+.phone-notch,
+.rounded-full,
+button,
+a[class*="rounded-full"],
+input[class*="rounded-full"] {
+    border-radius: 9999px;
+}
+
+.phone-card,
+.mock-envelope {
+    border-radius: 1rem !important;
+}
+
+.phone-stage {
+    border-radius: 2rem !important;
+}
+
+.mock-envelope-icon {
+    color: var(--wm-ink-strong) !important;
+}
+
+ul li::marker {
+    color: var(--wm-aqua);
+}
+
+#download {
+    background:
+        linear-gradient(135deg, rgba(224, 255, 96, 0.22), rgba(255, 255, 255, 0.88) 38%, rgba(0, 160, 160, 0.12)) !important;
+}
+
+#email-feedback.text-\[\#C7F36B\] {
+    color: var(--wm-teal) !important;
+}
+
+@media (max-width: 640px) {
+    header .max-w-5xl {
+        gap: 1rem;
+    }
+
+    header img {
+        max-width: 10.5rem;
+    }
+
+    h1 {
+        font-size: clamp(2.25rem, 12vw, 3rem) !important;
+    }
+}
