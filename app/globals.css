@@ -1743,6 +1743,49 @@ textarea::placeholder {
   .app-screen-card {
     flex: 0 0 min(76vw, 280px);
     scroll-snap-align: center;
+    width: min(76vw, 320px);
+  }
+
+  .app-screen-card__media,
+  .phone-stage--hero,
+  .phone-stage--secondary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .app-screen-card__media {
+    aspect-ratio: 9 / 14;
+  }
+
+  .feature-card,
+  .money-feature-card,
+  .flow-card,
+  .solution-card,
+  .app-screen-card,
+  .emotional-card,
+  .trust-card,
+  .faq-item,
+  .download-card,
+  .final-cta-card {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .solution-card {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .flow-card {
+    padding: 18px;
+  }
+
+  .feature-card h3,
+  .money-feature-card h3,
+  .solution-card h3,
+  .emotional-card h3,
+  .trust-card h3,
+  .faq-item h3 {
+    font-size: 1rem;
   }
 
   .flow-section > * {
@@ -1894,6 +1937,32 @@ textarea::placeholder {
   .app-screen-card__media {
     width: 100%;
     max-width: 100%;
+    aspect-ratio: 9 / 16;
+  }
+
+  .app-screen-card {
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .feature-card,
+  .money-feature-card,
+  .flow-card,
+  .solution-card,
+  .app-screen-card,
+  .emotional-card,
+  .trust-card,
+  .faq-item,
+  .download-card,
+  .final-cta-card {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .solution-card {
+    grid-template-columns: 40px 1fr;
   }
 
   .phone-hero-image {
