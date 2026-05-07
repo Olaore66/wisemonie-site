@@ -295,8 +295,8 @@ h4 {
 }
 
 h1 {
-    font-size: clamp(2.5rem, 7vw, 4.75rem) !important;
-    line-height: 1 !important;
+    font-size: clamp(2.35rem, 6.4vw, 4.35rem) !important;
+    line-height: 1.03 !important;
     text-wrap: balance;
 }
 
@@ -386,8 +386,8 @@ ul li::marker {
     }
 
     h1 {
-        font-size: clamp(2.25rem, 11vw, 3rem) !important;
-        line-height: 1.02 !important;
+        font-size: clamp(2.05rem, 9.6vw, 2.65rem) !important;
+        line-height: 1.05 !important;
     }
 
     [class*="text-3xl"],
@@ -404,14 +404,17 @@ ul li::marker {
     }
 
     .hero-shell {
-        max-width: 21rem !important;
-        padding: 1rem !important;
+        max-width: 17rem !important;
+        padding: 0.85rem !important;
         border-radius: 0.75rem !important;
+        box-shadow: 0 20px 52px rgba(16, 64, 64, 0.14) !important;
     }
 
     .phone-stage.phone-stage--image {
-        width: min(78vw, 270px) !important;
-        border-radius: 28px !important;
+        width: min(62vw, 218px) !important;
+        border-width: 3px !important;
+        border-radius: 26px !important;
+        box-shadow: 0 20px 48px rgba(16, 64, 64, 0.22) !important;
     }
 
     .phone-hero-image {
@@ -447,10 +450,25 @@ ul li::marker {
     }
 
     .hero-shell {
-        max-width: 100% !important;
+        max-width: 15.75rem !important;
     }
 
     .phone-stage.phone-stage--image {
-        width: min(82vw, 250px) !important;
+        width: min(58vw, 196px) !important;
+        border-radius: 24px !important;
+    }
+
+    h1 {
+        font-size: clamp(1.9rem, 10vw, 2.35rem) !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-shell {
+        max-width: 14.25rem !important;
+    }
+
+    .phone-stage.phone-stage--image {
+        width: min(56vw, 176px) !important;
     }
 }
