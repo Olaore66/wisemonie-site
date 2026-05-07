@@ -131,22 +131,18 @@ const flowSteps = [
 
 const appScreens = [
   {
-    image: "/images/wisemonie1.jpeg",
     title: "Create your money plan",
     text: "Set the amount, duration, and purpose for your money cycle."
   },
   {
-    image: "/images/wisemonie2.jpeg",
     title: "Split into pockets",
     text: "Divide money into essentials, savings, bills, transport, and flexible spending."
   },
   {
-    image: "/images/wisemonie1.jpeg",
     title: "Track your position",
     text: "See what is available and what should stay protected."
   },
   {
-    image: "/images/wisemonie2.jpeg",
     title: "Spend through rules",
     text: "Use money within the limits and conditions you created."
   }
@@ -331,12 +327,9 @@ function MoneyFeatureCard({ icon, title, text }) {
   );
 }
 
-function AppScreenCard({ image, title, text }) {
+function AppScreenCard({ title, text }) {
   return (
     <article className="app-screen-card reveal-card">
-      <div className="app-screen-card__media">
-        <img src={image} alt={`${title} screen`} />
-      </div>
       <div className="app-screen-card__caption">
         <h3>{title}</h3>
         <p>{text}</p>
