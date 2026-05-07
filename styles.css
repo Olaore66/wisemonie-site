@@ -15,18 +15,41 @@
 }
 
 * {
+    box-sizing: border-box;
     letter-spacing: 0 !important;
 }
 
 html {
     scroll-behavior: smooth;
+    font-size: clamp(15px, 0.35vw + 14px, 16px);
 }
 
 body {
+    min-width: 0;
+    overflow-x: hidden;
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(241, 250, 234, 0.72) 48%, rgba(235, 248, 244, 0.92)),
         var(--wm-bg) !important;
     color: var(--wm-ink) !important;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+a,
+button,
+input,
+textarea {
+    overflow-wrap: break-word;
 }
 
 ::selection {
@@ -59,6 +82,10 @@ header {
     color: var(--wm-ink) !important;
     border-color: var(--wm-border) !important;
     box-shadow: 0 14px 42px rgba(16, 64, 64, 0.08);
+}
+
+.max-w-5xl {
+    width: min(calc(100% - clamp(1.25rem, 5vw, 2rem)), 64rem) !important;
 }
 
 header img,
@@ -143,7 +170,7 @@ footer[class*="bg-[#0f4c4c]/50"] {
 }
 
 .phone-stage.phone-stage--image {
-    width: min(100%, 320px) !important;
+    width: min(100%, clamp(260px, 32vw, 320px)) !important;
     aspect-ratio: 720 / 1600;
     padding: 4px !important;
     border: 4px solid #082f30 !important;
@@ -267,6 +294,22 @@ h4 {
     color: var(--wm-ink-strong) !important;
 }
 
+h1 {
+    font-size: clamp(2.5rem, 7vw, 4.75rem) !important;
+    line-height: 1 !important;
+    text-wrap: balance;
+}
+
+[class*="text-3xl"],
+[class*="text-4xl"],
+[class*="text-5xl"],
+[class*="text-6xl"],
+[class*="text-7xl"] {
+    font-size: clamp(1.85rem, 4.8vw, 3rem) !important;
+    line-height: 1.08 !important;
+    text-wrap: balance;
+}
+
 .proof-card p,
 .hero-glass-card [class*="text-secondary-text"] {
     color: var(--wm-muted) !important;
@@ -327,13 +370,87 @@ ul li::marker {
 @media (max-width: 640px) {
     header .max-w-5xl {
         gap: 1rem;
+        width: min(calc(100% - 1.25rem), 64rem) !important;
+        padding-inline: 0 !important;
+        flex-wrap: wrap;
     }
 
     header img {
-        max-width: 10.5rem;
+        max-width: min(9.5rem, 48vw);
+    }
+
+    header a[class*="bg-primary-gradient"] {
+        padding: 0.65rem 0.9rem !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap;
     }
 
     h1 {
-        font-size: clamp(2.25rem, 12vw, 3rem) !important;
+        font-size: clamp(2.25rem, 11vw, 3rem) !important;
+        line-height: 1.02 !important;
+    }
+
+    [class*="text-3xl"],
+    [class*="text-4xl"],
+    [class*="text-5xl"],
+    [class*="text-6xl"],
+    [class*="text-7xl"] {
+        font-size: clamp(1.75rem, 8vw, 2.35rem) !important;
+    }
+
+    body > section,
+    main > section {
+        padding-block: clamp(3rem, 12vw, 4.5rem) !important;
+    }
+
+    .hero-shell {
+        max-width: 21rem !important;
+        padding: 1rem !important;
+        border-radius: 0.75rem !important;
+    }
+
+    .phone-stage.phone-stage--image {
+        width: min(78vw, 270px) !important;
+        border-radius: 28px !important;
+    }
+
+    .phone-hero-image {
+        border-radius: 20px;
+    }
+
+    .proof-card,
+    .hero-glass-card,
+    :where(div, article, form)[class*="bg-background-light/50"],
+    :where(div, article)[class*="bg-white/5"] {
+        padding: 1.25rem !important;
+    }
+
+    [class*="grid-cols-2"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    input,
+    textarea,
+    button,
+    a[class*="rounded-full"] {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    header a[class*="bg-primary-gradient"] {
+        display: none;
+    }
+
+    .max-w-5xl {
+        width: min(calc(100% - 1rem), 64rem) !important;
+    }
+
+    .hero-shell {
+        max-width: 100% !important;
+    }
+
+    .phone-stage.phone-stage--image {
+        width: min(82vw, 250px) !important;
     }
 }
