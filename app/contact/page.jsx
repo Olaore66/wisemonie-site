@@ -3,12 +3,12 @@ import Icon from "@/components/Icon";
 
 export const metadata = {
   title: "Contact",
-  description: "Get in touch with the Wisemonie team for questions, feedback, or support."
+  description: "Get in touch with the wisemonie team for questions, feedback, or support."
 };
 
 const contactItems = [
   { icon: "business", label: "Business Name", value: "OLX Digital Services" },
-  { icon: "smartphone", label: "Product", value: "Wisemonie" },
+  { icon: "smartphone", label: "Product", value: "wisemonie" },
   {
     icon: "mail",
     label: "Email",
@@ -26,7 +26,7 @@ export default function ContactPage() {
           Contact <span>Us</span>
         </h1>
         <p>
-          If you have questions, feedback, or need support related to Wisemonie, you can reach us
+          If you have questions, feedback, or need support related to wisemonie, you can reach us
           using the contact details below.
         </p>
       </section>

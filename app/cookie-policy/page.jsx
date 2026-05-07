@@ -3,7 +3,7 @@ import { cookiePage } from "@/data/legalPages";
 
 export const metadata = {
   title: "Cookie Policy",
-  description: "How Wisemonie uses cookies and similar technologies."
+  description: "How wisemonie uses cookies and similar technologies."
 };
 
 export default function CookiePolicyPage() {

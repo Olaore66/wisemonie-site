@@ -1,6 +1,6 @@
-# Wisemonie Website
+# wisemonie Website
 
-A Next.js frontend for the Wisemonie finance app website.
+A Next.js frontend for the wisemonie finance app website.
 
 ## Tech Stack
 

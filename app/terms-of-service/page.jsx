@@ -3,7 +3,7 @@ import { termsPage } from "@/data/legalPages";
 
 export const metadata = {
   title: "Terms of Service",
-  description: "Terms governing the Wisemonie website and mobile application."
+  description: "Terms governing the wisemonie website and mobile application."
 };
 
 export default function TermsOfServicePage() {

@@ -3,7 +3,7 @@ import { privacyPage } from "@/data/legalPages";
 
 export const metadata = {
   title: "Privacy Policy",
-  description: "Wisemonie's privacy policy for website and mobile app information."
+  description: "wisemonie's privacy policy for website and mobile app information."
 };
 
 export default function PrivacyPolicyPage() {

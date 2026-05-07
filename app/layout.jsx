@@ -5,13 +5,13 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://wisemonie.com"),
   title: {
-    default: "Wisemonie - Money Planning That Eases Financial Stress",
-    template: "%s | Wisemonie"
+    default: "wisemonie - Money Planning That Eases Financial Stress",
+    template: "%s | wisemonie"
   },
   description:
-    "Wisemonie helps you protect transport, food, bills, savings, and essential money before the month ends.",
+    "wisemonie helps you protect transport, food, bills, savings, and essential money before the month ends.",
   keywords: [
-    "Wisemonie",
+    "wisemonie",
     "budgeting app",
     "digital envelope system",
     "personal finance",
@@ -20,19 +20,19 @@ export const metadata = {
   ],
   authors: [{ name: "OLX Digital Services" }],
   openGraph: {
-    title: "Wisemonie - Make Your Money Last Till Month-End",
+    title: "wisemonie - Make Your Money Last Till Month-End",
     description:
-      "Protect transport, food, bills, and savings with Wisemonie's digital envelope budgeting system.",
+      "Protect transport, food, bills, and savings with wisemonie's digital envelope budgeting system.",
     url: "https://wisemonie.com",
-    siteName: "Wisemonie",
+    siteName: "wisemonie",
     type: "website",
     images: ["/images/logo2.svg"]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wisemonie - Make Your Money Last Till Month-End",
+    title: "wisemonie - Make Your Money Last Till Month-End",
     description:
-      "Protect transport, food, bills, and savings with Wisemonie's digital envelope budgeting system.",
+      "Protect transport, food, bills, and savings with wisemonie's digital envelope budgeting system.",
     images: ["/images/logo2.svg"]
   },
   icons: {
