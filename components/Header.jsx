@@ -4,11 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 
 const navItems = [
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/#features", label: "Features" },
-  { href: "/#who-its-for", label: "Who its for" },
-  { href: "/#trust", label: "Trust" },
-  { href: "/#faq", label: "FAQ" }
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/features", label: "Features" },
+  { href: "/who-its-for", label: "Who it's for" },
+  { href: "/trust", label: "Trust" },
+  { href: "/faq", label: "FAQ" }
 ];
 
 export default function Header() {
@@ -28,9 +28,9 @@ export default function Header() {
           aria-controls="primary-navigation"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span />
-          <span />
-          <span />
+          <span className="mobile-nav-toggle__bar" />
+          <span className="mobile-nav-toggle__bar" />
+          <span className="mobile-nav-toggle__bar" />
           <span className="sr-only">
             {menuOpen ? "Close navigation" : "Open navigation"}
           </span>
@@ -42,15 +42,15 @@ export default function Header() {
           aria-label="Primary navigation"
         >
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+            <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a href="/#download" className="button button--primary header-cta">
+        <Link href="/#download" className="button button--primary header-cta">
           Join Waitlist
-        </a>
+        </Link>
       </div>
     </header>
   );

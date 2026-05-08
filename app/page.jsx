@@ -1,19 +1,26 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
+import {
+  audienceCards,
+  faqItems,
+  flowSteps,
+  moneyFeatures,
+  trustCards
+} from "@/data/productContent";
 
 const heroStats = [
   {
-    title: "Protect essentials first",
-    text: "Separate money for food, transport, bills, savings, and emergencies before daily spending begins."
+    title: "Essentials first",
+    text: "Keep food, bills, transport, and savings protected."
   },
   {
-    title: "Spend with structure",
-    text: "Set simple rules that guide how money can be used across each income cycle."
+    title: "Clear envelopes",
+    text: "See what each part of your money is for."
   },
   {
-    title: "Build better habits",
-    text: "Reduce impulse spending and create more clarity around where your money goes."
+    title: "Better habits",
+    text: "Spend from a plan, not pressure."
   }
 ];
 
@@ -49,7 +56,7 @@ const solutionCards = [
   {
     icon: "rule",
     title: "Create spending boundaries",
-    text: "Use limits, timing rules, and smart pockets to reduce impulse spending."
+    text: "Use limits, timing rules, and smart envelopes to reduce impulse spending."
   },
   {
     icon: "visibility",
@@ -63,79 +70,13 @@ const solutionCards = [
   }
 ];
 
-const moneyFeatures = [
-  {
-    icon: "account_balance_wallet",
-    title: "Smart Money Pockets",
-    text: "Create separate pockets for food, transport, bills, savings, rent, emergencies, and flexible spending."
-  },
-  {
-    icon: "verified",
-    title: "Essential-First Allocation",
-    text: "When money comes in, wisemonie helps you protect the important categories first."
-  },
-  {
-    icon: "rule",
-    title: "Spending Rules",
-    text: "Set limits, release times, lock periods, or category-based controls."
-  },
-  {
-    icon: "lock",
-    title: "SafeLock",
-    text: "Lock money for a goal or period, with clear rules before activation."
-  },
-  {
-    icon: "swap_horiz",
-    title: "Envelope Transfers",
-    text: "Move money between pockets when your situation changes."
-  },
-  {
-    icon: "receipt_long",
-    title: "Bill and Airtime Flows",
-    text: "Plan recurring expenses like bills, airtime, and data from the right money pocket."
-  },
-  {
-    icon: "query_stats",
-    title: "Real-Time Position",
-    text: "See how much is left in each pocket before you spend."
-  },
-  {
-    icon: "history",
-    title: "Spending History",
-    text: "View money movement by purpose, not just transaction lists."
-  }
-];
-
-const flowSteps = [
-  {
-    icon: "payments",
-    title: "Money comes in",
-    text: "Add your salary, allowance, freelance income, or monthly inflow."
-  },
-  {
-    icon: "shield",
-    title: "Protect essentials",
-    text: "Set aside money for food, transport, bills, savings, rent, and emergencies."
-  },
-  {
-    icon: "rule",
-    title: "Set your rules",
-    text: "Choose how much can be spent, when money can be used, and what should stay protected."
-  },
-  {
-    icon: "shopping_cart_checkout",
-    title: "Spend with confidence.",
-    text: "Spend money directly from the right pocket based on what works for you and stay aware of what remains."
-  }
-];
-
 const appScreens = [
   {
     title: "Create your money plan",
     text: "Set the amount, duration, and purpose for your money cycle."
   },
   {
-    title: "Split into pockets",
+    title: "Split into envelopes",
     text: "Divide money into essentials, savings, bills, transport, and flexible spending."
   },
   {
@@ -154,39 +95,6 @@ const allocations = [
   ["Bills", "NGN 120,000", "92%"]
 ];
 
-const audienceCards = [
-  {
-    icon: "badge",
-    title: "Salary Earners",
-    text: "Protect transport, food, bills, and savings immediately after payday."
-  },
-  {
-    icon: "work",
-    title: "Freelancers",
-    text: "Turn irregular income into structured pockets for survival, savings, work, and personal spending."
-  },
-  {
-    icon: "school",
-    title: "Students",
-    text: "Stretch allowance across food, transport, data, school needs, and emergencies."
-  },
-  {
-    icon: "rocket_launch",
-    title: "Early-Career Professionals",
-    text: "Build better money habits without complicated spreadsheets or financial jargon."
-  },
-  {
-    icon: "storefront",
-    title: "Side Hustlers",
-    text: "Separate business money, personal spending, and recurring expenses more clearly."
-  },
-  {
-    icon: "family_restroom",
-    title: "Families and Shared Responsibilities",
-    text: "Plan around essentials, obligations, and support needs without losing track."
-  }
-];
-
 const emotionalValues = [
   {
     icon: "lightbulb",
@@ -202,66 +110,6 @@ const emotionalValues = [
     icon: "self_improvement",
     title: "Peace of mind",
     text: "Protect essentials before pressure builds."
-  }
-];
-
-const trustCards = [
-  {
-    icon: "account_balance",
-    title: "Regulated Infrastructure",
-    text: "User funds are intended to sit with licensed banking and payment partners."
-  },
-  {
-    icon: "toggle_on",
-    title: "User-Controlled Rules",
-    text: "Locks, limits, and spending rules are optional and activated by the user."
-  },
-  {
-    icon: "sync_alt",
-    title: "Clear Money Movement",
-    text: "Every money pocket shows what it is for, what has been used, and what remains."
-  },
-  {
-    icon: "receipt",
-    title: "Transparent Fees",
-    text: "Any fees or penalties are shown before activation or transaction."
-  }
-];
-
-const faqItems = [
-  {
-    question: "Is wisemonie a bank?",
-    answer:
-      "No. wisemonie is not a bank. wisemonie is designed to work with regulated wallet and payment partners while providing the money-structure, envelope, and spending-control layer."
-  },
-  {
-    question: "Will wisemonie lock my money?",
-    answer:
-      "Only if you choose to activate a lock or spending rule. Discipline features are user-controlled and optional."
-  },
-  {
-    question: "Can I change my money plan?",
-    answer:
-      "Yes. Some pockets can be adjusted when your needs change. Strict locks or SafeLock features may have separate rules that are shown before activation."
-  },
-  {
-    question: "What happens if I try to spend beyond my limit?",
-    answer:
-      "If you activate spending rules, wisemonie may block, delay, or restrict actions that go against the rules you set."
-  },
-  {
-    question: "Who is wisemonie for?",
-    answer:
-      "wisemonie is for salary earners, freelancers, students, side hustlers, and anyone who wants to reduce money pressure and stay in control of daily spending."
-  },
-  {
-    question: "When will the app launch?",
-    answer: "wisemonie is preparing for private beta and will onboard users in phases."
-  },
-  {
-    question: "Will there be fees?",
-    answer:
-      "Some features may include fees, such as budget activation, premium controls, or transaction-related charges. Any applicable fee will be shown clearly before you use that feature."
   }
 ];
 
@@ -369,21 +217,24 @@ export default function HomePage() {
         <div className="hero-grid">
           <div className="hero-copy">
             <Badge icon="volunteer_activism">Private beta opening soon</Badge>
-            <h1>The one app to manage your money.</h1>
+            <h1>Your money, sorted.</h1>
             <p className="hero-lede">
-              Everyday life already comes with enough pressure. Wisemonie helps you give your income structure, protect essential money, and stay disciplined with simple spending rules, so money decisions feel clearer, calmer, and more intentional.
+              Wisemonie is a personal finance app that{" "}
+              <span className="hero-highlight">helps you plan and setup budget for your money</span>{" "}
+              into smart envelopes, protect essentials, and you can{" "}
+              <span className="hero-highlight">spend directly from the envelopes on the app</span>,
+              based on the conditions you defined.
             </p>
             <div className="hero-actions">
               <a href="#download" className="button button--primary">
                 Join Waitlist
               </a>
-              <a href="#how-it-works" className="button button--secondary">
+              <a href="/how-it-works" className="button button--secondary">
                 See How It Works
               </a>
             </div>
             <p className="hero-supporting-line">
-              Built for salary earners, freelancers, students, and anyone trying to stay in control
-              of their money.
+              Built for salary earners, freelancers, students, and anyone trying to stay in control.
             </p>
             <div className="hero-stats">
               {heroStats.map((stat) => (
@@ -452,8 +303,8 @@ export default function HomePage() {
           <Badge icon="tune">THE SOLUTION</Badge>
           <h2>Give every part of your money a purpose.</h2>
           <p>
-            wisemonie helps you divide your income into smart money pockets, set rules for each
-            pocket, and spend with more intention without accidentally using money meant for
+            wisemonie helps you divide your income into smart money envelopes, set rules for each
+            envelope, and spend with more intention without accidentally using money meant for
             something important.
           </p>
           <div className="solution-list">
