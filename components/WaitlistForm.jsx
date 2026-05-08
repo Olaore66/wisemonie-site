@@ -4,7 +4,6 @@ import { useState } from "react";
 import Icon from "@/components/Icon";
 
 const FORM_ENDPOINT = "https://formspree.io/f/mdkqqyjq";
-const WHATSAPP_NUMBER = "2348060214037";
 
 const audienceOptions = [
   "Salary earner",
@@ -24,7 +23,6 @@ export default function WaitlistForm() {
   });
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
-  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   function updateField(field, value) {
     setFormData((current) => ({
@@ -57,7 +55,6 @@ export default function WaitlistForm() {
 
     setStatus("loading");
     setMessage("Joining the waitlist...");
-    setWhatsappUrl("");
 
     try {
       const response = await fetch(FORM_ENDPOINT, {
@@ -72,17 +69,6 @@ export default function WaitlistForm() {
         throw new Error("Waitlist request failed");
       }
 
-      const whatsappMessage = [
-        "New wisemonie waitlist submission",
-        `Full name: ${payload.fullName}`,
-        `Email: ${payload.email}`,
-        `Phone: ${payload.phone}`,
-        `Audience: ${payload.audience}`
-      ].join("\n");
-
-      setWhatsappUrl(
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`
-      );
       setFormData({
         fullName: "",
         email: "",
@@ -172,11 +158,6 @@ export default function WaitlistForm() {
         {status === "success" ? <strong>You're on the list.</strong> : null}
         {message}
       </p>
-      {status === "success" && whatsappUrl ? (
-        <a className="whatsapp-copy-link" href={whatsappUrl} target="_blank" rel="noreferrer">
-          Send a copy on WhatsApp
-        </a>
-      ) : null}
     </form>
   );
 }

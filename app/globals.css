@@ -1265,24 +1265,6 @@ textarea::placeholder {
   color: #b42318;
 }
 
-.whatsapp-copy-link {
-  justify-self: center;
-  color: var(--teal);
-  font-size: 0.92rem;
-  font-weight: 900;
-  text-decoration: underline;
-  text-decoration-color: rgba(35, 201, 125, 0.4);
-  text-underline-offset: 4px;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.whatsapp-copy-link:hover {
-  color: var(--ink-strong);
-  transform: translateY(-1px);
-}
-
 .private-beta-note {
   margin: 4px 0 0 !important;
   color: var(--teal) !important;
