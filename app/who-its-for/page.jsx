@@ -1,11 +1,11 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
-import { audienceCards } from "@/data/productContent";
+import { targetPersona } from "@/data/productContent";
 
 export const metadata = {
   title: "Who It's For",
   description:
-    "wisemonie is designed for salary earners, freelancers, students, side hustlers, families, and anyone managing everyday financial pressure."
+    "Wisemonie is built first for Nigerian salaried professionals earning ₦200K-₦700K a month who watch their budget fall apart by week 3."
 };
 
 export default function WhoItsForPage() {
@@ -14,24 +14,22 @@ export default function WhoItsForPage() {
       <section className="page-hero">
         <Badge icon="groups">WHO IT&apos;S FOR</Badge>
         <h1>
-          Built for people managing <span>real-life money.</span>
+          Built for one person <span>first.</span>
         </h1>
-        <p>
-          Whether your income is fixed, irregular, shared, or stretched across many needs,
-          wisemonie helps make each naira easier to plan.
-        </p>
+        <p>{targetPersona.intro}</p>
       </section>
 
-      <section className="assurance-list">
-        {audienceCards.map((item) => (
-          <article className="reveal-card" key={item.title}>
-            <Icon name={item.icon} />
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+      <section className="persona-card reveal-up">
+        <div className="check-list">
+          {targetPersona.points.map((point) => (
+            <div key={point}>
+              <Icon name="check_circle" />
+              <span>{point}</span>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
+        <p className="persona-card__closing">{targetPersona.closing}</p>
+        <p className="persona-card__note">{targetPersona.note}</p>
       </section>
     </main>
   );

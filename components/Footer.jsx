@@ -78,6 +78,11 @@ export default function Footer() {
         <div className="footer-brand">
           <img src="/images/logo2.svg" alt="wisemonie" />
           <p>Plan your money. Protect essentials. Spend with control.</p>
+          <p className="footer-founder">
+            Built by <strong>Abraham Iborida</strong>, fintech engineer in Ibadan.
+            <br />
+            Wisemonie is a product of OLX Digital Services. Founded 2024.
+          </p>
         </div>
         <div className="footer-grid">
           <FooterColumn title="Product" links={productLinks} />

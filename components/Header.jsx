@@ -49,7 +49,7 @@ export default function Header() {
         </nav>
 
         <Link href="/#download" className="button button--primary header-cta">
-          Join Waitlist
+          Get Early Access
         </Link>
       </div>
     </header>

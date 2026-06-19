@@ -5,7 +5,7 @@ import { moneyFeatures } from "@/data/productContent";
 export const metadata = {
   title: "Features",
   description:
-    "Explore wisemonie's smart envelopes, AI personal finance assistant, spending rules, alerts, and money tracking features."
+    "Explore wisemonie's smart envelopes, essential-first allocation, spending rules, alerts, and money tracking features."
 };
 
 export default function FeaturesPage() {

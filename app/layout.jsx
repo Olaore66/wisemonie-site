@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import "./globals.css";
 
 export const metadata = {
@@ -62,8 +63,12 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+        <noscript>
+          <style>{`.reveal-card,.reveal-up,.reveal-left,.reveal-right,.reveal-scale,.section-heading,.page-hero,.transition-statement,.showcase-copy,.download-card,.final-cta-card{opacity:1!important;transform:none!important;}`}</style>
+        </noscript>
       </head>
       <body>
+        <ScrollReveal />
         <Header />
         {children}
         <Footer />

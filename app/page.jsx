@@ -1,28 +1,15 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
+import HeroNotification from "@/components/HeroNotification";
+import TiltCard from "@/components/TiltCard";
 import {
-  audienceCards,
   faqItems,
   flowSteps,
   moneyFeatures,
+  targetPersona,
   trustCards
 } from "@/data/productContent";
-
-const heroStats = [
-  {
-    title: "Essentials first",
-    text: "Keep food, bills, transport, and savings protected."
-  },
-  {
-    title: "Clear envelopes",
-    text: "See what each part of your money is for."
-  },
-  {
-    title: "Better habits",
-    text: "Spend from a plan, not pressure."
-  }
-];
 
 const problemCards = [
   {
@@ -116,29 +103,17 @@ const emotionalValues = [
 function ProductPreview() {
   return (
     <div className="product-preview" aria-label="wisemonie mobile app preview">
-      <div className="floating-ledger floating-ledger--top" aria-hidden="true">
-        <Icon name="south_west" />
-        <div>
-          <span>Transport saved</span>
-          <strong>NGN 45,000</strong>
-        </div>
-      </div>
+      <HeroNotification />
 
-      <div className="phone-stage phone-stage--image phone-stage--hero">
-        <img
-          src="/images/wisemonie1.jpeg"
-          alt="wisemonie app home dashboard"
-          className="phone-hero-image"
-        />
-      </div>
-
-      <div className="floating-ledger floating-ledger--bottom" aria-hidden="true">
-        <Icon name="verified" />
-        <div>
-          <span>Month-end</span>
-          <strong>Essentials covered</strong>
+      <TiltCard className="phone-tilt-wrap">
+        <div className="phone-stage phone-stage--image phone-stage--hero">
+          <img
+            src="/images/wisemonie1.jpeg"
+            alt="wisemonie app home dashboard"
+            className="phone-hero-image"
+          />
         </div>
-      </div>
+      </TiltCard>
     </div>
   );
 }
@@ -188,7 +163,7 @@ function AppScreenCard({ title, text }) {
 
 function BudgetMotion() {
   return (
-    <div className="budget-motion" aria-label="Example budget allocation progress">
+    <div className="budget-motion reveal-scale" aria-label="Example budget allocation progress">
       <div className="panel-heading">
         <strong>Live allocation</strong>
         <Icon name="auto_graph" />
@@ -216,58 +191,54 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="hero-grid">
           <div className="hero-copy">
-            <Badge icon="volunteer_activism">Private beta opening soon</Badge>
-            <h1>Your money, sorted.</h1>
+            <Badge icon="volunteer_activism">Private beta opening soon &middot; Built on regulated Nigerian rails</Badge>
+            <h1>Hi, I&apos;m Abraham. I&apos;m building Wisemonie.</h1>
+            <p className="hero-subhead">
+              Because by week 3 of every month, half of Nigeria&apos;s salary earners are reaching
+              for loan apps. Including me &mdash; that&apos;s why I built this.
+            </p>
             <p className="hero-lede">
-              Wisemonie is a personal finance app that{" "}
-              <span className="hero-highlight">helps you plan and setup budget for your money</span>{" "}
-              into smart envelopes, protect essentials, and you can{" "}
-              <span className="hero-highlight">spend directly from the envelopes on the app</span>,
-              based on the conditions you defined.
+              Wisemonie holds your salary in{" "}
+              <span className="hero-highlight">structured envelopes</span> &mdash; transport, food,
+              bills, savings, emergencies &mdash; and only releases{" "}
+              <span className="hero-highlight">today&apos;s spending limit</span> when you actually
+              need it. So you reach the next payday without breaking your own plan, and stop the
+              loan-app cycle for good.
             </p>
             <div className="hero-actions">
               <a href="#download" className="button button--primary">
-                Join Waitlist
+                Get Early Access
               </a>
               <a href="/how-it-works" className="button button--secondary">
-                See How It Works
+                See how it works &rarr;
               </a>
-            </div>
-            <p className="hero-supporting-line">
-              Built for salary earners, freelancers, students, and anyone trying to stay in control.
-            </p>
-            <div className="hero-stats">
-              {heroStats.map((stat) => (
-                <article key={stat.title}>
-                  <h3>{stat.title}</h3>
-                  <p>{stat.text}</p>
-                </article>
-              ))}
             </div>
           </div>
 
           <ProductPreview />
         </div>
+      </section>
 
-        <div className="motion-strip" aria-hidden="true">
-          <div className="motion-strip__track">
-            <span>Money feels lighter when it has structure.</span>
-            <span>Protect essentials before impulse spending gets there.</span>
-            <span>Know what is safe to spend before you spend it.</span>
-            <span>Discipline is easier when your money has rules.</span>
-            <span>Financial peace starts with structure.</span>
-            <span>Spend with clarity, not anxiety.</span>
-            <span>Build better money habits one income cycle at a time.</span>
-            <span>Your money should not create more pressure.</span>
-            <span>Money feels lighter when it has structure.</span>
-            <span>Protect essentials before impulse spending gets there.</span>
-            <span>Know what is safe to spend before you spend it.</span>
-            <span>Discipline is easier when your money has rules.</span>
-            <span>Financial peace starts with structure.</span>
-            <span>Spend with clarity, not anxiety.</span>
-            <span>Build better money habits one income cycle at a time.</span>
-            <span>Your money should not create more pressure.</span>
-          </div>
+      <section className="section why-section">
+        <div className="section-heading">
+          <Badge icon="psychology_alt">WHY WISEMONIE</Badge>
+          <h2>One reality, one solution.</h2>
+        </div>
+        <div className="why-statement">
+          <p className="reveal-up">
+            <strong>Salary lands.</strong> You write the plan in your head &mdash; rent savings,
+            food, transport, internet, tithe, something for your parents.
+          </p>
+          <p className="reveal-up">
+            <strong>By day 6,</strong> you&apos;ve spent transport money on lunch out, twice. By day
+            12, you&apos;re &ldquo;borrowing from next week.&rdquo; By day 20, you&apos;re on the
+            loan apps.
+          </p>
+          <p className="reveal-up">
+            <strong>You don&apos;t have a money problem. You have an allocation problem.</strong>{" "}
+            The money exists. The plan exists. What doesn&apos;t exist is the layer between them.
+          </p>
+          <p className="why-statement__cta reveal-up">Wisemonie is that layer.</p>
         </div>
       </section>
 
@@ -299,7 +270,7 @@ export default function HomePage() {
       </section>
 
       <section id="solution" className="section showcase-section solution-section">
-        <div className="showcase-copy">
+        <div className="showcase-copy reveal-left">
           <Badge icon="tune">THE SOLUTION</Badge>
           <h2>Give every part of your money a purpose.</h2>
           <p>
@@ -314,7 +285,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="showcase-visual">
+        <div className="showcase-visual reveal-right">
           <div className="phone-stage phone-stage--image phone-stage--secondary">
             <img
               src="/images/wisemonie2.jpeg"
@@ -376,25 +347,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="who-its-for" className="section assurance-section">
+      <section id="who-its-for" className="section persona-section">
         <div className="section-heading">
           <Badge icon="groups">WHO IT&apos;S FOR</Badge>
-          <h2>Built for people managing real financial pressure.</h2>
-          <p>
-            wisemonie is for anyone who wants more structure, discipline, and peace of mind around
-            everyday spending.
-          </p>
+          <h2>{targetPersona.heading}</h2>
+          <p>{targetPersona.intro}</p>
         </div>
-        <div className="assurance-list">
-          {audienceCards.map((item) => (
-            <article key={item.title}>
-              <Icon name={item.icon} />
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+
+        <div className="persona-card reveal-up">
+          <div className="check-list">
+            {targetPersona.points.map((point) => (
+              <div key={point}>
+                <Icon name="check_circle" />
+                <span>{point}</span>
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
+          <p className="persona-card__closing">{targetPersona.closing}</p>
+          <p className="persona-card__note">{targetPersona.note}</p>
         </div>
       </section>
 
@@ -441,10 +411,10 @@ export default function HomePage() {
       <section id="download" className="section cta-section">
         <div className="download-card">
           <Badge icon="bolt">PRIVATE BETA</Badge>
-          <h2>Join the wisemonie private beta.</h2>
+          <h2>Join the early-access list.</h2>
           <p>
-            We are opening early access in phases. Join the waitlist to be among the first users to
-            test wisemonie and help shape the future of disciplined spending.
+            We are opening private beta in phases. Drop your email and be among the first to test
+            Wisemonie and stop the loan-app cycle for good.
           </p>
           <WaitlistForm />
           <p className="private-beta-note">Coming to Android and iOS.</p>
@@ -470,11 +440,11 @@ export default function HomePage() {
         <div className="final-cta-card">
           <h2>Give your money structure before the pressure starts.</h2>
           <p>
-            Join the wisemonie waitlist and be among the first to experience a calmer, more
-            disciplined way to manage everyday spending.
+            Join the Wisemonie early-access list and be among the first to stop the loan-app cycle
+            for good.
           </p>
           <a href="#download" className="button button--primary">
-            Join Waitlist
+            Get Early Access
           </a>
         </div>
       </section>

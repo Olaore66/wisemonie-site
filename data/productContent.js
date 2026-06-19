@@ -1,10 +1,5 @@
 export const moneyFeatures = [
   {
-    icon: "smart_toy",
-    title: "AI Personal Finance Assistant",
-    text: "Get embedded guidance that helps you understand spending patterns, plan envelopes, and make clearer money decisions."
-  },
-  {
     icon: "account_balance_wallet",
     title: "Smart Money envelopes",
     text: "Create separate envelopes for food, transport, bills, savings, rent, emergencies, and flexible spending."
@@ -43,80 +38,58 @@ export const moneyFeatures = [
 
 export const flowSteps = [
   {
-    icon: "payments",
-    title: "Money comes in",
-    text: "Add your salary, allowance, freelance income, or monthly inflow."
+    icon: "account_balance_wallet",
+    title: "Fund your wallet.",
+    text: "Move your salary in — Wisemonie sits on regulated Nigerian bank rails, so funds are held with licensed partners, not by us."
   },
   {
     icon: "shield",
-    title: "Protect essentials",
-    text: "Set aside money for food, transport, bills, savings, rent, and emergencies."
+    title: "Build your plan.",
+    text: "Create envelopes for transport, food, bills, savings, emergencies — or whatever categories match your real life. Set the duration, amount, and rules per envelope."
   },
   {
-    icon: "rule",
-    title: "Set your rules",
-    text: "Choose how much can be spent, when money can be used, and what should stay protected."
+    icon: "schedule",
+    title: "Set the release pattern.",
+    text: "Transport money becomes available at 7am because you leave the house at 7:30. Food money releases at 2pm because lunch happens around then. The system delivers money the moment you need it, not before."
   },
   {
     icon: "shopping_cart_checkout",
     title: "Spend with confidence.",
-    text: "Spend money directly from the right envelope based on what works for you and stay aware of what remains."
+    text: "Pay bills, buy airtime, transfer to your bank — all from inside the right envelope. When today's transport money is gone, you don't accidentally dip into next week's food."
   }
 ];
 
-export const audienceCards = [
-  {
-    icon: "badge",
-    title: "Salary Earners",
-    text: "Protect transport, food, bills, and savings immediately after payday."
-  },
-  {
-    icon: "work",
-    title: "Freelancers",
-    text: "Turn irregular income into structured envelopes for survival, savings, work, and personal spending."
-  },
-  {
-    icon: "school",
-    title: "Students",
-    text: "Stretch allowance across food, transport, data, school needs, and emergencies."
-  },
-  {
-    icon: "rocket_launch",
-    title: "Early-Career Professionals",
-    text: "Build better money habits without complicated spreadsheets or financial jargon."
-  },
-  {
-    icon: "storefront",
-    title: "Side Hustlers",
-    text: "Separate business money, personal spending, and recurring expenses more clearly."
-  },
-  {
-    icon: "family_restroom",
-    title: "Families and Shared Responsibilities",
-    text: "Plan around essentials, obligations, and support needs without losing track."
-  }
-];
+export const targetPersona = {
+  heading: "Built for one person first",
+  intro:
+    "Wisemonie is designed for Nigerian salaried professionals earning ₦200K–₦700K per month, paid on a monthly schedule, who:",
+  points: [
+    "Already use 3–4 money apps (bank + OPay/PalmPay + savings app + maybe a loan app)",
+    "Try to budget but watch the plan fall apart by week 3",
+    "Send something home to family every month",
+    "Tithe and give offerings",
+    "Want better discipline but can't fight willpower battles 47 times a week"
+  ],
+  closing: "If that sounds like you — you're who we built this for.",
+  note:
+    "Other groups — students, freelancers, families — are welcome to join the waitlist. We built for this person first because winning one specific user well beats winning everyone weakly."
+};
 
 export const trustCards = [
   {
     icon: "account_balance",
-    title: "Regulated Infrastructure",
-    text: "User funds are intended to sit with licensed banking and payment partners."
+    title: "Regulated infrastructure",
+    text: "Your funds are held with licensed Nigerian banking and payment partners (Providus Bank BaaS). Wisemonie controls the discipline layer — the rules and timing — not the custody of your money."
   },
   {
     icon: "toggle_on",
-    title: "User-Controlled Rules",
-    text: "Locks, limits, and spending rules are optional and activated by the user."
-  },
-  {
-    icon: "sync_alt",
-    title: "Clear Money Movement",
-    text: "Every money envelope shows what it is for, what has been used, and what remains."
+    title: "User-controlled rules",
+    text: "Every lock, limit, and release rule is something you turn on, not something we impose. You can adjust your plan when your life changes."
   },
   {
     icon: "receipt",
-    title: "Transparent Fees",
-    text: "Any fees or penalties are shown before activation or transaction."
+    title: "Transparent fees",
+    text: "Any transaction fees or penalties show clearly before activation. No surprise charges."
   }
 ];
 
@@ -144,7 +117,7 @@ export const faqItems = [
   {
     question: "Who is wisemonie for?",
     answer:
-      "wisemonie is for salary earners, freelancers, students, side hustlers, and anyone who wants to reduce money pressure and stay in control of daily spending."
+      "We're building first for Nigerian salaried professionals earning ₦200K–₦700K a month who watch their budget fall apart by week 3. Students, freelancers, and families are welcome on the waitlist too."
   },
   {
     question: "When will the app launch?",

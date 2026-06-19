@@ -60,7 +60,7 @@ export default function AboutPage() {
       <section className="cta-card">
         <h2>Start Budgeting Smarter</h2>
         <a href="/#download" className="button button--primary">
-          Join the Waitlist
+          Get Early Access
         </a>
       </section>
     </main>
