@@ -1,5 +1,8 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
+import RevealGroup from "@/components/RevealGroup";
+import RevealItem from "@/components/RevealItem";
 import { flowSteps } from "@/data/productContent";
 
 export const metadata = {
@@ -11,7 +14,7 @@ export const metadata = {
 export default function HowItWorksPage() {
   return (
     <main className="page-shell page-shell--wide">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon="route">HOW IT WORKS</Badge>
         <h1>
           A simple flow for <span>controlled spending.</span>
@@ -20,18 +23,18 @@ export default function HowItWorksPage() {
           wisemonie turns your income into a clear plan, then helps you spend with structure
           instead of guessing from one account balance.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="flow-grid">
+      <RevealGroup as="section" className="flow-grid">
         {flowSteps.map((step, index) => (
-          <article className="flow-card reveal-card" key={step.title}>
+          <RevealItem as="article" className="flow-card" key={step.title}>
             <div className="flow-card__number">{index + 1}</div>
             <Icon name={step.icon} />
             <h3>{step.title}</h3>
             <p>{step.text}</p>
-          </article>
+          </RevealItem>
         ))}
-      </section>
+      </RevealGroup>
     </main>
   );
 }

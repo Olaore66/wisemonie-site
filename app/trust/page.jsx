@@ -1,5 +1,8 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
+import RevealGroup from "@/components/RevealGroup";
+import RevealItem from "@/components/RevealItem";
 import { trustCards } from "@/data/productContent";
 
 export const metadata = {
@@ -11,7 +14,7 @@ export const metadata = {
 export default function TrustPage() {
   return (
     <main className="page-shell page-shell--wide">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
         <h1>
           Secure by design. <span>Controlled by you.</span>
@@ -20,17 +23,17 @@ export default function TrustPage() {
           wisemonie is built around clear rules, transparent money movement, and regulated wallet
           and payment infrastructure.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="trust-grid">
+      <RevealGroup as="section" className="trust-grid">
         {trustCards.map((card) => (
-          <article className="trust-card reveal-card" key={card.title}>
+          <RevealItem as="article" className="trust-card" key={card.title}>
             <Icon name={card.icon} />
             <h3>{card.title}</h3>
             <p>{card.text}</p>
-          </article>
+          </RevealItem>
         ))}
-      </section>
+      </RevealGroup>
     </main>
   );
 }

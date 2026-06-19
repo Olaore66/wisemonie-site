@@ -38,6 +38,18 @@ html {
   font-size: clamp(15px, 0.35vw + 14px, 16px);
 }
 
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+html.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
 body,
 main {
   min-width: 0;
@@ -106,11 +118,18 @@ img {
   color: var(--ink-strong);
 }
 
-.material-symbols-outlined {
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: currentColor;
-  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
-  letter-spacing: 0;
   line-height: 1;
+}
+
+.icon svg {
+  width: 1.3em;
+  height: 1.3em;
+  flex: 0 0 auto;
 }
 
 .site-header {
@@ -215,7 +234,7 @@ img {
   border-radius: 999px;
   cursor: pointer;
   font-weight: 900;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   line-height: 1;
   padding: 0 22px;
   transition:
@@ -322,7 +341,7 @@ img {
   color: var(--ink-strong);
   font-size: clamp(3.25rem, 8vw, 5.8rem);
   font-weight: 900;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
   line-height: 0.95;
   text-wrap: balance;
 }
@@ -416,14 +435,7 @@ img {
 
 .tilt-card {
   transform-style: preserve-3d;
-  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
-}
-
-@media (hover: none), (prefers-reduced-motion: reduce) {
-  .tilt-card {
-    transition: none;
-  }
 }
 
 .phone-stage--secondary {
@@ -602,14 +614,19 @@ img {
 .showcase-copy h2,
 .download-card h2,
 .final-cta-card h2,
-.page-hero h1,
 .content-card h2,
 .notice-card h2,
 .cta-card h2 {
   margin: 0;
   color: var(--ink-strong);
   font-weight: 900;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
+}
+
+.page-hero h1 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-weight: 900;
 }
 
 .section-heading h2,
@@ -702,9 +719,9 @@ img {
   transform: translateY(-5px);
 }
 
-.feature-card .material-symbols-outlined,
-.money-feature-card > .material-symbols-outlined,
-.flow-card > .material-symbols-outlined {
+.feature-card .icon,
+.money-feature-card > .icon,
+.flow-card > .icon {
   display: grid;
   width: 46px;
   height: 46px;
@@ -833,8 +850,8 @@ img {
   transform: translateY(-5px);
 }
 
-.emotional-card .material-symbols-outlined,
-.trust-card .material-symbols-outlined {
+.emotional-card .icon,
+.trust-card .icon {
   display: grid;
   width: 46px;
   height: 46px;
@@ -894,90 +911,6 @@ img {
   max-width: 620px;
 }
 
-.reveal-card,
-.reveal-up,
-.reveal-left,
-.reveal-right,
-.reveal-scale,
-.section-heading,
-.page-hero,
-.transition-statement,
-.showcase-copy,
-.download-card,
-.final-cta-card {
-  opacity: 0;
-  transition:
-    opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-card,
-.reveal-up,
-.section-heading,
-.page-hero,
-.transition-statement,
-.showcase-copy,
-.download-card,
-.final-cta-card {
-  transform: translateY(26px);
-}
-
-.reveal-left {
-  transform: translateX(-34px);
-}
-
-.reveal-right {
-  transform: translateX(34px);
-}
-
-.reveal-scale {
-  transform: scale(0.93);
-}
-
-.reveal-card.in-view,
-.reveal-up.in-view,
-.reveal-left.in-view,
-.reveal-right.in-view,
-.reveal-scale.in-view,
-.section-heading.in-view,
-.page-hero.in-view,
-.transition-statement.in-view,
-.showcase-copy.in-view,
-.download-card.in-view,
-.final-cta-card.in-view {
-  opacity: 1;
-  transform: none;
-}
-
-.reveal-card:nth-child(2) {
-  transition-delay: 80ms;
-}
-
-.reveal-card:nth-child(3) {
-  transition-delay: 160ms;
-}
-
-.reveal-card:nth-child(4) {
-  transition-delay: 240ms;
-}
-
-.reveal-card:nth-child(5) {
-  transition-delay: 320ms;
-}
-
-.reveal-card:nth-child(6) {
-  transition-delay: 400ms;
-}
-
-.reveal-card:nth-child(7) {
-  transition-delay: 480ms;
-}
-
-.reveal-card:nth-child(8) {
-  transition-delay: 560ms;
-}
-
 .showcase-section {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1fr);
@@ -1018,7 +951,7 @@ img {
   transform: translateY(-4px);
 }
 
-.solution-card .material-symbols-outlined {
+.solution-card .icon {
   display: grid;
   width: 42px;
   height: 42px;
@@ -1055,7 +988,7 @@ img {
   gap: 12px;
 }
 
-.check-list .material-symbols-outlined {
+.check-list .icon {
   color: var(--teal);
   margin-top: 2px;
 }
@@ -1075,7 +1008,7 @@ img {
   gap: 14px;
 }
 
-.persona-card .check-list .material-symbols-outlined {
+.persona-card .check-list .icon {
   flex: 0 0 auto;
 }
 
@@ -1160,14 +1093,9 @@ img {
 }
 
 .progress-fill {
-  width: 0;
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--lime), var(--mint), var(--teal));
-}
-
-.budget-motion.in-view .progress-fill {
-  animation: progressLoad 1.4s 250ms ease forwards;
 }
 
 .flow-section {
@@ -1537,7 +1465,7 @@ textarea::placeholder {
   padding: 24px;
 }
 
-.notice-card > .material-symbols-outlined {
+.notice-card > .icon {
   color: var(--teal);
   font-size: 1.8rem;
 }
@@ -1683,28 +1611,38 @@ textarea::placeholder {
     linear-gradient(180deg, rgba(203, 232, 76, 0.2), rgba(35, 201, 125, 0.1)),
     var(--surface);
   box-shadow: 0 30px 76px rgba(35, 201, 125, 0.13), 0 20px 54px rgba(16, 33, 31, 0.07);
+}
+
+/* Grid-card lift now driven by Framer Motion's whileHover (RevealItem) instead of CSS transform */
+.persona-card:hover,
+.budget-motion:hover,
+.content-card:hover,
+.notice-card:hover,
+.cta-card:hover,
+.download-card:hover,
+.final-cta-card:hover {
   transform: translateY(-7px) scale(1.01);
 }
 
-.feature-card:hover .material-symbols-outlined,
-.money-feature-card:hover > .material-symbols-outlined,
-.flow-card:hover > .material-symbols-outlined,
-.solution-card:hover .material-symbols-outlined,
-.emotional-card:hover .material-symbols-outlined,
-.trust-card:hover .material-symbols-outlined,
-.notice-card:hover > .material-symbols-outlined {
+.feature-card:hover .icon,
+.money-feature-card:hover > .icon,
+.flow-card:hover > .icon,
+.solution-card:hover .icon,
+.emotional-card:hover .icon,
+.trust-card:hover .icon,
+.notice-card:hover > .icon {
   background: rgba(203, 232, 76, 0.42);
   color: var(--ink-strong);
   transform: scale(1.06) rotate(-2deg);
 }
 
-.feature-card .material-symbols-outlined,
-.money-feature-card > .material-symbols-outlined,
-.flow-card > .material-symbols-outlined,
-.solution-card .material-symbols-outlined,
-.emotional-card .material-symbols-outlined,
-.trust-card .material-symbols-outlined,
-.notice-card > .material-symbols-outlined {
+.feature-card .icon,
+.money-feature-card > .icon,
+.flow-card > .icon,
+.solution-card .icon,
+.emotional-card .icon,
+.trust-card .icon,
+.notice-card > .icon {
   transition:
     background 190ms ease,
     color 190ms ease,
@@ -1828,12 +1766,6 @@ textarea::placeholder {
   to {
     opacity: 1;
     transform: scale(1) rotate(0deg);
-  }
-}
-
-@keyframes progressLoad {
-  to {
-    width: var(--target-width, 74%);
   }
 }
 

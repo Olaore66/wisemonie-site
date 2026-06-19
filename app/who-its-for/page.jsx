@@ -1,5 +1,6 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
 import { targetPersona } from "@/data/productContent";
 
 export const metadata = {
@@ -11,15 +12,15 @@ export const metadata = {
 export default function WhoItsForPage() {
   return (
     <main className="page-shell page-shell--wide">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon="groups">WHO IT&apos;S FOR</Badge>
         <h1>
           Built for one person <span>first.</span>
         </h1>
         <p>{targetPersona.intro}</p>
-      </section>
+      </Reveal>
 
-      <section className="persona-card reveal-up">
+      <Reveal as="section" variant="scale" className="persona-card">
         <div className="check-list">
           {targetPersona.points.map((point) => (
             <div key={point}>
@@ -30,7 +31,7 @@ export default function WhoItsForPage() {
         </div>
         <p className="persona-card__closing">{targetPersona.closing}</p>
         <p className="persona-card__note">{targetPersona.note}</p>
-      </section>
+      </Reveal>
     </main>
   );
 }

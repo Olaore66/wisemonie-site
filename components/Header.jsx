@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+
+const MotionLink = motion(Link);
 
 const navItems = [
   { href: "/how-it-works", label: "How it works" },
@@ -13,6 +16,7 @@ const navItems = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <header className="site-header">
@@ -48,9 +52,19 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link href="/#download" className="button button--primary header-cta">
+        <MotionLink
+          href="/#download"
+          className="button button--primary header-cta"
+          {...(shouldReduceMotion
+            ? {}
+            : {
+                whileHover: { y: -3, scale: 1.02 },
+                whileTap: { scale: 0.96 },
+                transition: { type: "spring", stiffness: 400, damping: 22 }
+              })}
+        >
           Get Early Access
-        </Link>
+        </MotionLink>
       </div>
     </header>
   );

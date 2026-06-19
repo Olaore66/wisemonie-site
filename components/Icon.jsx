@@ -1,7 +1,96 @@
+import {
+  AlertTriangle,
+  AlertCircle,
+  History,
+  Activity,
+  Shield,
+  ListChecks,
+  Eye,
+  SlidersHorizontal,
+  Lightbulb,
+  Sparkles,
+  TrendingUp,
+  CheckCircle2,
+  Building2,
+  Smartphone,
+  Mail,
+  Info,
+  Unlock,
+  Wallet,
+  BadgeCheck,
+  BellRing,
+  Receipt,
+  LineChart,
+  Clock,
+  ShoppingCart,
+  Landmark,
+  ToggleRight,
+  ShieldCheck,
+  ScrollText,
+  ClipboardCheck,
+  Gavel,
+  Loader2,
+  HelpCircle,
+  HeartHandshake,
+  Brain,
+  LayoutGrid,
+  Route,
+  Users,
+  Zap,
+  Headset,
+  Gem,
+  Circle
+} from "lucide-react";
+
+const iconMap = {
+  warning: AlertTriangle,
+  priority_high: AlertCircle,
+  history: History,
+  stress_management: Activity,
+  shield: Shield,
+  rule: ListChecks,
+  visibility: Eye,
+  tune: SlidersHorizontal,
+  lightbulb: Lightbulb,
+  self_improvement: Sparkles,
+  auto_graph: TrendingUp,
+  check_circle: CheckCircle2,
+  business: Building2,
+  smartphone: Smartphone,
+  mail: Mail,
+  info: Info,
+  lock_open: Unlock,
+  account_balance_wallet: Wallet,
+  verified: BadgeCheck,
+  notifications_active: BellRing,
+  receipt_long: Receipt,
+  query_stats: LineChart,
+  schedule: Clock,
+  shopping_cart_checkout: ShoppingCart,
+  account_balance: Landmark,
+  toggle_on: ToggleRight,
+  receipt: Receipt,
+  shield_lock: ShieldCheck,
+  policy: ScrollText,
+  fact_check: ClipboardCheck,
+  gavel: Gavel,
+  progress_activity: Loader2,
+  help: HelpCircle,
+  volunteer_activism: HeartHandshake,
+  psychology_alt: Brain,
+  apps: LayoutGrid,
+  route: Route,
+  groups: Users,
+  bolt: Zap,
+  support_agent: Headset,
+  diamond: Gem
+};
+
 export default function Icon({ name, className = "", ariaHidden = true }) {
+  const LucideIcon = iconMap[name] || Circle;
   return (
-    <span className={`material-symbols-outlined ${className}`} aria-hidden={ariaHidden}>
-      {name}
+    <span className={`icon ${className}`} aria-hidden={ariaHidden}>
+      <LucideIcon strokeWidth={1.75} aria-hidden="true" />
     </span>
   );
 }

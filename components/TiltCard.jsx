@@ -1,41 +1,46 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
+
+const springConfig = { stiffness: 150, damping: 18, mass: 0.4 };
 
 export default function TiltCard({ children, className = "" }) {
   const ref = useRef(null);
+  const enabledRef = useRef(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  function canTilt() {
-    return (
-      window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    );
-  }
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+  const rotateX = useSpring(useTransform(y, [0, 1], [10, -10]), springConfig);
+  const rotateY = useSpring(useTransform(x, [0, 1], [-10, 10]), springConfig);
+
+  useEffect(() => {
+    enabledRef.current =
+      !shouldReduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  }, [shouldReduceMotion]);
 
   function handleMouseMove(event) {
-    if (!canTilt()) return;
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-    el.style.transform = `perspective(900px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
+    if (!enabledRef.current || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    x.set((event.clientX - rect.left) / rect.width);
+    y.set((event.clientY - rect.top) / rect.height);
   }
 
   function handleMouseLeave() {
-    const el = ref.current;
-    if (!el) return;
-    el.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg)";
+    x.set(0.5);
+    y.set(0.5);
   }
 
   return (
-    <div
+    <motion.div
       ref={ref}
       className={`tilt-card ${className}`}
+      style={{ transformPerspective: 900, rotateX, rotateY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

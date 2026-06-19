@@ -1,16 +1,17 @@
 import Badge from "@/components/Badge";
+import Reveal from "@/components/Reveal";
 
 export default function LegalPage({ eyebrow, icon, title, updated, intro, sections }) {
   return (
     <main className="page-shell">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon={icon}>{eyebrow}</Badge>
         <h1>{title}</h1>
         {updated ? <p className="page-hero__meta">Last updated: {updated}</p> : null}
         {intro ? <p>{intro}</p> : null}
-      </section>
+      </Reveal>
 
-      <article className="content-card legal-card">
+      <Reveal as="article" className="content-card legal-card">
         {sections.map((section) => (
           <section key={section.title || section.body?.[0]} className="legal-section">
             {section.title ? <h2>{section.title}</h2> : null}
@@ -31,7 +32,7 @@ export default function LegalPage({ eyebrow, icon, title, updated, intro, sectio
             ) : null}
           </section>
         ))}
-      </article>
+      </Reveal>
     </main>
   );
 }

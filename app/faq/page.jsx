@@ -1,4 +1,7 @@
 import Badge from "@/components/Badge";
+import Reveal from "@/components/Reveal";
+import RevealGroup from "@/components/RevealGroup";
+import RevealItem from "@/components/RevealItem";
 import { faqItems } from "@/data/productContent";
 
 export const metadata = {
@@ -10,7 +13,7 @@ export const metadata = {
 export default function FaqPage() {
   return (
     <main className="page-shell page-shell--wide">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon="help">FAQ</Badge>
         <h1>
           Questions before <span>joining wisemonie.</span>
@@ -19,16 +22,16 @@ export default function FaqPage() {
           Quick answers about how wisemonie works, what it controls, and what to expect before
           joining the private beta.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="faq-grid">
+      <RevealGroup as="section" className="faq-grid">
         {faqItems.map((item) => (
-          <article className="faq-item reveal-card" key={item.question}>
+          <RevealItem as="article" className="faq-item" key={item.question}>
             <h3>{item.question}</h3>
             <p>{item.answer}</p>
-          </article>
+          </RevealItem>
         ))}
-      </section>
+      </RevealGroup>
     </main>
   );
 }

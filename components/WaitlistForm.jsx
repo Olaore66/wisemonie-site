@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import Icon from "@/components/Icon";
 
 const FORM_ENDPOINT = "https://formspree.io/f/mdkqqyjq";
@@ -10,6 +11,7 @@ export default function WaitlistForm() {
   const [pressure, setPressure] = useState("");
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
+  const shouldReduceMotion = useReducedMotion();
 
   function growTextarea(event) {
     const el = event.target;
@@ -86,7 +88,18 @@ export default function WaitlistForm() {
         />
       </label>
       <div className="waitlist-form__submit">
-        <button type="submit" className="button button--primary" disabled={status === "loading"}>
+        <motion.button
+          type="submit"
+          className="button button--primary"
+          disabled={status === "loading"}
+          {...(shouldReduceMotion
+            ? {}
+            : {
+                whileHover: { y: -3, scale: 1.02 },
+                whileTap: { scale: 0.96 },
+                transition: { type: "spring", stiffness: 400, damping: 22 }
+              })}
+        >
           {status === "loading" ? (
             <Icon name="progress_activity" className="spin" />
           ) : status === "success" ? (
@@ -94,7 +107,7 @@ export default function WaitlistForm() {
           ) : (
             "Get Early Access"
           )}
-        </button>
+        </motion.button>
       </div>
       <p className={`form-feedback form-feedback--${status}`} aria-live="polite">
         {status === "success" ? <strong>You&apos;re on the list.</strong> : null}

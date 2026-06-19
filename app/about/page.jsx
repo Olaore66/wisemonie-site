@@ -1,5 +1,7 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
+import MotionButton from "@/components/MotionButton";
 
 export const metadata = {
   title: "About",
@@ -10,7 +12,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="page-shell">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon="diamond">Company and product</Badge>
         <h1>
           About <span>wisemonie</span>
@@ -19,9 +21,9 @@ export default function AboutPage() {
           A personal finance management platform designed to help individuals budget smarter,
           control spending, and manage money intentionally.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="content-card stack">
+      <Reveal as="section" className="content-card stack">
         <div>
           <h2>Our Core Purpose</h2>
           <p>
@@ -42,9 +44,9 @@ export default function AboutPage() {
             solely within the wisemonie mobile application.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="notice-card">
+      <Reveal as="section" className="notice-card">
         <Icon name="info" />
         <div>
           <h2>Important Disclosure</h2>
@@ -55,14 +57,14 @@ export default function AboutPage() {
             hold or store customer funds.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="cta-card">
+      <Reveal as="section" className="cta-card">
         <h2>Start Budgeting Smarter</h2>
-        <a href="/#download" className="button button--primary">
+        <MotionButton as="a" href="/#download" className="button button--primary">
           Get Early Access
-        </a>
-      </section>
+        </MotionButton>
+      </Reveal>
     </main>
   );
 }

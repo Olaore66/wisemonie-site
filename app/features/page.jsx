@@ -1,5 +1,8 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
+import Reveal from "@/components/Reveal";
+import RevealGroup from "@/components/RevealGroup";
+import RevealItem from "@/components/RevealItem";
 import { moneyFeatures } from "@/data/productContent";
 
 export const metadata = {
@@ -11,7 +14,7 @@ export const metadata = {
 export default function FeaturesPage() {
   return (
     <main className="page-shell page-shell--wide">
-      <section className="page-hero">
+      <Reveal as="section" className="page-hero">
         <Badge icon="apps">FEATURES</Badge>
         <h1>
           Features built for <span>real money pressure.</span>
@@ -20,17 +23,17 @@ export default function FeaturesPage() {
           Plan your budget into smart envelopes, protect essentials, get helpful guidance, and
           spend from the app based on the conditions you define.
         </p>
-      </section>
+      </Reveal>
 
-      <section className="money-feature-grid">
+      <RevealGroup as="section" className="money-feature-grid">
         {moneyFeatures.map((feature) => (
-          <article className="money-feature-card reveal-card" key={feature.title}>
+          <RevealItem as="article" className="money-feature-card" key={feature.title}>
             <Icon name={feature.icon} />
             <h3>{feature.title}</h3>
             <p>{feature.text}</p>
-          </article>
+          </RevealItem>
         ))}
-      </section>
+      </RevealGroup>
     </main>
   );
 }

@@ -3,6 +3,11 @@ import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
 import HeroNotification from "@/components/HeroNotification";
 import TiltCard from "@/components/TiltCard";
+import BudgetMotion from "@/components/BudgetMotion";
+import MotionButton from "@/components/MotionButton";
+import Reveal from "@/components/Reveal";
+import RevealGroup from "@/components/RevealGroup";
+import RevealItem from "@/components/RevealItem";
 import {
   faqItems,
   flowSteps,
@@ -76,12 +81,6 @@ const appScreens = [
   }
 ];
 
-const allocations = [
-  ["Transport", "NGN 45,000", "88%"],
-  ["Food", "NGN 60,000", "56%"],
-  ["Bills", "NGN 120,000", "92%"]
-];
-
 const emotionalValues = [
   {
     icon: "lightbulb",
@@ -118,73 +117,6 @@ function ProductPreview() {
   );
 }
 
-function ProblemCard({ icon, title, text }) {
-  return (
-    <article className="feature-card reveal-card">
-      <Icon name={icon} />
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </article>
-  );
-}
-
-function SolutionCard({ icon, title, text }) {
-  return (
-    <article className="solution-card reveal-card">
-      <Icon name={icon} />
-      <div>
-        <h3>{title}</h3>
-        <p>{text}</p>
-      </div>
-    </article>
-  );
-}
-
-function MoneyFeatureCard({ icon, title, text }) {
-  return (
-    <article className="money-feature-card reveal-card">
-      <Icon name={icon} />
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </article>
-  );
-}
-
-function AppScreenCard({ title, text }) {
-  return (
-    <article className="app-screen-card reveal-card">
-      <div className="app-screen-card__caption">
-        <h3>{title}</h3>
-        <p>{text}</p>
-      </div>
-    </article>
-  );
-}
-
-function BudgetMotion() {
-  return (
-    <div className="budget-motion reveal-scale" aria-label="Example budget allocation progress">
-      <div className="panel-heading">
-        <strong>Live allocation</strong>
-        <Icon name="auto_graph" />
-      </div>
-      {allocations.map(([name, amount, width]) => (
-        <div className="budget-row" key={name}>
-          <div>
-            <div className="budget-row__top">
-              <strong>{name}</strong>
-              <span>{amount}</span>
-            </div>
-            <div className="progress-track">
-              <div className="progress-fill" style={{ "--target-width": width }} />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function HomePage() {
   return (
     <main>
@@ -206,12 +138,12 @@ export default function HomePage() {
               loan-app cycle for good.
             </p>
             <div className="hero-actions">
-              <a href="#download" className="button button--primary">
+              <MotionButton as="a" href="#download" className="button button--primary">
                 Get Early Access
-              </a>
-              <a href="/how-it-works" className="button button--secondary">
+              </MotionButton>
+              <MotionButton as="a" href="/how-it-works" className="button button--secondary">
                 See how it works &rarr;
-              </a>
+              </MotionButton>
             </div>
           </div>
 
@@ -220,30 +152,32 @@ export default function HomePage() {
       </section>
 
       <section className="section why-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <Badge icon="psychology_alt">WHY WISEMONIE</Badge>
           <h2>One reality, one solution.</h2>
-        </div>
+        </Reveal>
         <div className="why-statement">
-          <p className="reveal-up">
+          <Reveal as="p" variant="up">
             <strong>Salary lands.</strong> You write the plan in your head &mdash; rent savings,
             food, transport, internet, tithe, something for your parents.
-          </p>
-          <p className="reveal-up">
+          </Reveal>
+          <Reveal as="p" variant="up">
             <strong>By day 6,</strong> you&apos;ve spent transport money on lunch out, twice. By day
             12, you&apos;re &ldquo;borrowing from next week.&rdquo; By day 20, you&apos;re on the
             loan apps.
-          </p>
-          <p className="reveal-up">
+          </Reveal>
+          <Reveal as="p" variant="up">
             <strong>You don&apos;t have a money problem. You have an allocation problem.</strong>{" "}
             The money exists. The plan exists. What doesn&apos;t exist is the layer between them.
-          </p>
-          <p className="why-statement__cta reveal-up">Wisemonie is that layer.</p>
+          </Reveal>
+          <Reveal as="p" variant="up" className="why-statement__cta">
+            Wisemonie is that layer.
+          </Reveal>
         </div>
       </section>
 
       <section id="problem" className="section app-section">
-        <div className="section-heading section-heading--left">
+        <Reveal as="div" className="section-heading section-heading--left">
           <Badge icon="psychology_alt">THE PROBLEM</Badge>
           <h2>Money stress starts when everything sits in one account.</h2>
           <p>
@@ -251,26 +185,30 @@ export default function HomePage() {
             food, savings, emergencies, and impulse spending often sit together in one account
             making it hard to know what is safe to spend.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="feature-grid">
-          {problemCards.map((problem) => (
-            <ProblemCard key={problem.title} {...problem} />
+        <RevealGroup as="div" className="feature-grid">
+          {problemCards.map(({ icon, title, text }) => (
+            <RevealItem as="article" className="feature-card" key={title}>
+              <Icon name={icon} />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section className="section transition-section">
-        <div className="transition-statement">
+        <Reveal as="div" className="transition-statement">
           <h2>Financial peace starts with structure.</h2>
           <p>
             When your money has a clear purpose, you can protect what matters, reduce pressure, and make better decisions with what remains.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section id="solution" className="section showcase-section solution-section">
-        <div className="showcase-copy reveal-left">
+        <Reveal as="div" variant="left" className="showcase-copy">
           <Badge icon="tune">THE SOLUTION</Badge>
           <h2>Give every part of your money a purpose.</h2>
           <p>
@@ -278,14 +216,20 @@ export default function HomePage() {
             envelope, and spend with more intention without accidentally using money meant for
             something important.
           </p>
-          <div className="solution-list">
-            {solutionCards.map((solution) => (
-              <SolutionCard key={solution.title} {...solution} />
+          <RevealGroup as="div" className="solution-list">
+            {solutionCards.map(({ icon, title, text }) => (
+              <RevealItem as="article" className="solution-card" key={title}>
+                <Icon name={icon} />
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </RevealItem>
             ))}
-          </div>
-        </div>
+          </RevealGroup>
+        </Reveal>
 
-        <div className="showcase-visual reveal-right">
+        <Reveal as="div" variant="right" className="showcase-visual">
           <div className="phone-stage phone-stage--image phone-stage--secondary">
             <img
               src="/images/wisemonie2.jpeg"
@@ -294,67 +238,76 @@ export default function HomePage() {
             />
           </div>
           <BudgetMotion />
-        </div>
+        </Reveal>
       </section>
 
       <section id="features" className="section feature-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <Badge icon="apps">FEATURES</Badge>
           <h2>Built for the everyday money pressure.</h2>
           <p>
             wisemonie is designed to help you protect essential money, manage daily spending, and
             stay disciplined across every income cycle.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="money-feature-grid">
-          {moneyFeatures.map((feature) => (
-            <MoneyFeatureCard key={feature.title} {...feature} />
+        <RevealGroup as="div" className="money-feature-grid">
+          {moneyFeatures.map(({ icon, title, text }) => (
+            <RevealItem as="article" className="money-feature-card" key={title}>
+              <Icon name={icon} />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section id="how-it-works" className="section flow-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <Badge icon="route">HOW IT WORKS</Badge>
           <h2>A simple system for spending with more control.</h2>
-        </div>
-        <div className="flow-grid">
+        </Reveal>
+        <RevealGroup as="div" className="flow-grid">
           {flowSteps.map((step, index) => (
-            <article className="flow-card reveal-card" key={step.title}>
+            <RevealItem as="article" className="flow-card" key={step.title}>
               <div className="flow-card__number">{index + 1}</div>
               <Icon name={step.icon} />
               <h3>{step.title}</h3>
               <p>{step.text}</p>
-            </article>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section className="section app-screens-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <h2>See your money by purpose, not just balance.</h2>
           <p>
             wisemonie is designed to show what each part of your money is for, what has been used,
             and what is still available &mdash; so you can make decisions with clarity.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="app-screen-grid">
-          {appScreens.map((screen) => (
-            <AppScreenCard key={screen.title} {...screen} />
+        <RevealGroup as="div" className="app-screen-grid">
+          {appScreens.map(({ title, text }) => (
+            <RevealItem as="article" className="app-screen-card" key={title}>
+              <div className="app-screen-card__caption">
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section id="who-its-for" className="section persona-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <Badge icon="groups">WHO IT&apos;S FOR</Badge>
           <h2>{targetPersona.heading}</h2>
           <p>{targetPersona.intro}</p>
-        </div>
+        </Reveal>
 
-        <div className="persona-card reveal-up">
+        <Reveal as="div" variant="scale" className="persona-card">
           <div className="check-list">
             {targetPersona.points.map((point) => (
               <div key={point}>
@@ -365,51 +318,51 @@ export default function HomePage() {
           </div>
           <p className="persona-card__closing">{targetPersona.closing}</p>
           <p className="persona-card__note">{targetPersona.note}</p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="section emotional-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <h2>Less money pressure. More clarity to grow.</h2>
           <p>
             When money is unstructured, every decision feels heavier. wisemonie helps reduce the
             pressure by giving your income a clear job &mdash; so you can stop reacting, start
             planning, and build toward financial stability.
           </p>
-        </div>
-        <div className="emotional-grid">
-          {emotionalValues.map((value) => (
-            <article className="emotional-card reveal-card" key={value.title}>
-              <Icon name={value.icon} />
-              <h3>{value.title}</h3>
-              <p>{value.text}</p>
-            </article>
+        </Reveal>
+        <RevealGroup as="div" className="emotional-grid">
+          {emotionalValues.map(({ icon, title, text }) => (
+            <RevealItem as="article" className="emotional-card" key={title}>
+              <Icon name={icon} />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section id="trust" className="section trust-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
           <h2>Secure by design. User-controlled by default.</h2>
           <p>
             wisemonie is designed to work with regulated wallet and payment infrastructure while
             wisemonie provides the money-structure and spending-control layer.
           </p>
-        </div>
-        <div className="trust-grid">
-          {trustCards.map((card) => (
-            <article className="trust-card reveal-card" key={card.title}>
-              <Icon name={card.icon} />
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
-            </article>
+        </Reveal>
+        <RevealGroup as="div" className="trust-grid">
+          {trustCards.map(({ icon, title, text }) => (
+            <RevealItem as="article" className="trust-card" key={title}>
+              <Icon name={icon} />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section id="download" className="section cta-section">
-        <div className="download-card">
+        <Reveal as="div" variant="scale" className="download-card">
           <Badge icon="bolt">PRIVATE BETA</Badge>
           <h2>Join the early-access list.</h2>
           <p>
@@ -418,35 +371,35 @@ export default function HomePage() {
           </p>
           <WaitlistForm />
           <p className="private-beta-note">Coming to Android and iOS.</p>
-        </div>
+        </Reveal>
       </section>
 
       <section id="faq" className="section faq-section">
-        <div className="section-heading">
+        <Reveal as="div" className="section-heading">
           <Badge icon="help">FAQ</Badge>
           <h2>Questions people ask before joining.</h2>
-        </div>
-        <div className="faq-grid">
+        </Reveal>
+        <RevealGroup as="div" className="faq-grid">
           {faqItems.map((item) => (
-            <article className="faq-item" key={item.question}>
+            <RevealItem as="article" className="faq-item" key={item.question}>
               <h3>{item.question}</h3>
               <p>{item.answer}</p>
-            </article>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       <section className="section final-cta-section">
-        <div className="final-cta-card">
+        <Reveal as="div" className="final-cta-card">
           <h2>Give your money structure before the pressure starts.</h2>
           <p>
             Join the Wisemonie early-access list and be among the first to stop the loan-app cycle
             for good.
           </p>
-          <a href="#download" className="button button--primary">
+          <MotionButton as="a" href="#download" className="button button--primary">
             Get Early Access
-          </a>
-        </div>
+          </MotionButton>
+        </Reveal>
       </section>
     </main>
   );
