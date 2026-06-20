@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Icon from "@/components/Icon";
 
-const FORM_ENDPOINT = "https://formspree.io/f/mdkqqyjq";
+const FORM_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbyKCsAf_1e8FqEVEjzTvpW4xNzpcLFOiiJbjewJpgkud0RQCVIrlJQf602tMM3T4QmtjA/exec";
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ export default function WaitlistForm() {
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "text/plain;charset=utf-8"
         },
         body: JSON.stringify({
           email: trimmedEmail,
@@ -45,8 +46,10 @@ export default function WaitlistForm() {
         })
       });
 
-      if (!response.ok) {
-        throw new Error("Waitlist request failed");
+      const result = await response.json();
+
+      if (!response.ok || result.result !== "success") {
+        throw new Error(result.message || "Waitlist request failed");
       }
 
       setEmail("");
