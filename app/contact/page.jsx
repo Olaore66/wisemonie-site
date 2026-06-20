@@ -5,11 +5,11 @@ import SectionIllustration from "@/components/SectionIllustration";
 
 export const metadata = {
   title: "Contact",
-  description: "Get in touch with the wisemonie team for questions, feedback, or support."
+  description: "Get in touch with the wisemonie team for questions, feedback, or support.",
+  alternates: { canonical: "/contact" }
 };
 
 const contactItems = [
-  { icon: "business", label: "Business Name", value: "OLX Digital Services" },
   { icon: "smartphone", label: "Product", value: "wisemonie" },
   {
     icon: "mail",

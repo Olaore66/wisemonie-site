@@ -9,7 +9,8 @@ import { trustCards } from "@/data/productContent";
 export const metadata = {
   title: "Trust",
   description:
-    "Learn how wisemonie approaches regulated infrastructure, user-controlled rules, clear money movement, and transparent fees."
+    "Learn how wisemonie approaches regulated infrastructure, user-controlled rules, clear money movement, and transparent fees.",
+  alternates: { canonical: "/trust" }
 };
 
 export default function TrustPage() {

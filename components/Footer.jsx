@@ -11,8 +11,7 @@ const productLinks = [
 
 const companyLinks = [
   { href: "/about", label: "About wisemonie" },
-  { href: "/contact", label: "Contact" },
-  { href: "mailto:wisemoniehelpdesk@gmail.com?subject=wisemonie%20pitch%20deck", label: "Pitch deck" }
+  { href: "/contact", label: "Contact" }
 ];
 
 const legalLinks = [
@@ -87,8 +86,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>wisemonie is a product of OLX Digital Services.</p>
-        <p>&copy; 2026 OLX Digital Services. All rights reserved.</p>
+        <p>Wisemonie. Built on regulated Nigerian rails.</p>
+        <p>&copy; 2026 Wisemonie. All rights reserved.</p>
       </div>
     </footer>
   );

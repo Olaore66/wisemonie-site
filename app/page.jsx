@@ -385,6 +385,20 @@ export default function HomePage() {
       </section>
 
       <section id="faq" className="section faq-section">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqItems.map((item) => ({
+                "@type": "Question",
+                name: item.question,
+                acceptedAnswer: { "@type": "Answer", text: item.answer }
+              }))
+            })
+          }}
+        />
         <Reveal as="div" className="section-heading">
           <Badge icon="help">FAQ</Badge>
           <h2>Questions people ask before joining.</h2>

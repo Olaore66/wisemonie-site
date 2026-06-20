@@ -7,7 +7,8 @@ import SectionIllustration from "@/components/SectionIllustration";
 export const metadata = {
   title: "About",
   description:
-    "Learn about wisemonie's mission to bring clarity to personal finance through envelope-based budgeting."
+    "Learn about wisemonie's mission to bring clarity to personal finance through envelope-based budgeting.",
+  alternates: { canonical: "/about" }
 };
 
 export default function AboutPage() {
@@ -35,11 +36,11 @@ export default function AboutPage() {
           </p>
         </div>
         <div>
-          <h2>About OLX Digital Services</h2>
+          <h2>Why we built it</h2>
           <p>
-            wisemonie is a product of OLX Digital Services, a technology company focused on
-            building digital financial tools. The wisemonie website is an informational platform
-            created to provide details about the product and its features.
+            Wisemonie is a technology-driven personal finance platform built for everyday income
+            earners. This website is an informational platform created to share details about the
+            product and its features.
           </p>
           <p>
             User registration, budgeting activities, and financial transactions are carried out
@@ -55,8 +56,8 @@ export default function AboutPage() {
           <p>
             wisemonie does not operate as a bank or financial institution. All payments and
             transfers initiated within the app are processed through licensed third-party payment
-            service providers and partner financial institutions. OLX Digital Services does not
-            hold or store customer funds.
+            service providers and partner financial institutions. Wisemonie does not hold or
+            store customer funds.
           </p>
         </div>
       </Reveal>

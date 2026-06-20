@@ -7,12 +7,27 @@ import { faqItems } from "@/data/productContent";
 export const metadata = {
   title: "FAQ",
   description:
-    "Answers to common questions about wisemonie, private beta access, spending rules, locks, fees, and who the app is for."
+    "Answers to common questions about wisemonie, private beta access, spending rules, locks, fees, and who the app is for.",
+  alternates: { canonical: "/faq" }
 };
 
 export default function FaqPage() {
   return (
     <main className="page-shell page-shell--wide">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqItems.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer }
+            }))
+          })
+        }}
+      />
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="left" />
         <Badge icon="help">FAQ</Badge>

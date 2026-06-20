@@ -9,7 +9,8 @@ import { flowSteps } from "@/data/productContent";
 export const metadata = {
   title: "How It Works",
   description:
-    "See how wisemonie helps you add income, protect essentials, set spending rules, and spend directly from smart envelopes."
+    "See how wisemonie helps you add income, protect essentials, set spending rules, and spend directly from smart envelopes.",
+  alternates: { canonical: "/how-it-works" }
 };
 
 export default function HowItWorksPage() {
