@@ -40,6 +40,7 @@ import {
   Headset,
   Gem,
   ChevronDown,
+  Bot,
   Circle
 } from "lucide-react";
 
@@ -85,7 +86,8 @@ const iconMap = {
   bolt: Zap,
   support_agent: Headset,
   diamond: Gem,
-  chevron_down: ChevronDown
+  chevron_down: ChevronDown,
+  smart_toy: Bot
 };
 
 export default function Icon({ name, className = "", ariaHidden = true }) {

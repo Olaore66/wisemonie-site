@@ -6,7 +6,7 @@ import { targetPersona } from "@/data/productContent";
 export const metadata = {
   title: "Who It's For",
   description:
-    "Wisemonie is built first for Nigerian salaried professionals earning ₦200K-₦700K a month who watch their budget fall apart by week 3."
+    "Wisemonie is built first for Nigerian income earners making ₦200K-₦700K a month who watch their budget fall apart by week 3."
 };
 
 export default function WhoItsForPage() {

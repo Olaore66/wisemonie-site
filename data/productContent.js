@@ -1,5 +1,10 @@
 export const moneyFeatures = [
   {
+    icon: "smart_toy",
+    title: "AI Personal Finance Assistant",
+    text: "Get embedded guidance that helps you understand spending patterns, plan envelopes, and make clearer money decisions."
+  },
+  {
     icon: "account_balance_wallet",
     title: "Smart Money envelopes",
     text: "Create separate envelopes for food, transport, bills, savings, rent, emergencies, and flexible spending."
@@ -40,7 +45,7 @@ export const flowSteps = [
   {
     icon: "account_balance_wallet",
     title: "Fund your wallet.",
-    text: "Move your salary in. Wisemonie sits on regulated Nigerian bank rails, so funds are held with licensed partners, not by us."
+    text: "Move your income in. Wisemonie sits on regulated Nigerian bank rails, so funds are held with licensed partners, not by us."
   },
   {
     icon: "shield",
@@ -62,7 +67,7 @@ export const flowSteps = [
 export const targetPersona = {
   heading: "Built for one person first",
   intro:
-    "Wisemonie is designed for Nigerian salaried professionals earning ₦200K–₦700K per month, paid on a monthly schedule, who:",
+    "Wisemonie is designed for Nigerian income earners making ₦200K–₦700K per month, who:",
   points: [
     "Already use 3–4 money apps (bank + OPay/PalmPay + savings app + maybe a loan app)",
     "Try to budget but watch the plan fall apart by week 3",
@@ -79,7 +84,7 @@ export const trustCards = [
   {
     icon: "account_balance",
     title: "Regulated infrastructure",
-    text: "Your funds are held with licensed Nigerian banking and payment partners (Providus Bank BaaS). Wisemonie controls the discipline layer: the rules and timing, not the custody of your money."
+    text: "Your funds are held with licensed Nigerian banking and payment partners (Rubies MFB). Wisemonie controls the discipline layer: the rules and timing, not the custody of your money."
   },
   {
     icon: "toggle_on",
@@ -117,7 +122,7 @@ export const faqItems = [
   {
     question: "Who is wisemonie for?",
     answer:
-      "We're building first for Nigerian salaried professionals earning ₦200K–₦700K a month who watch their budget fall apart by week 3. Students, freelancers, and families are welcome on the waitlist too."
+      "We're building first for Nigerian income earners making ₦200K–₦700K a month who watch their budget fall apart by week 3. Students, freelancers, and families are welcome on the waitlist too."
   },
   {
     question: "When will the app launch?",

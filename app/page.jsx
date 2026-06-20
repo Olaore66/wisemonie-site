@@ -2,6 +2,7 @@ import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
 import HeroNotification from "@/components/HeroNotification";
+import MoneyPeopleIllustration from "@/components/MoneyPeopleIllustration";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -122,16 +123,19 @@ export default function HomePage() {
   return (
     <main>
       <section className="hero-section">
+        <div className="hero-illustration-wrap" aria-hidden="true">
+          <MoneyPeopleIllustration />
+        </div>
         <div className="hero-grid">
           <div className="hero-copy">
             <Badge icon="volunteer_activism">Private beta opening soon &middot; Built on regulated Nigerian rails</Badge>
             <h1>Everyone&apos;s fine on payday. Almost nobody is by week 3.</h1>
             <p className="hero-subhead">
-              Half of Nigeria&apos;s salary earners quietly reach for a loan app before the next one
+              Half of Nigeria&apos;s income earners quietly reach for a loan app before the next one
               lands. Nobody talks about it. Wisemonie is built so you never have to.
             </p>
             <p className="hero-lede">
-              Wisemonie holds your salary in{" "}
+              Wisemonie holds your income in{" "}
               <span className="hero-highlight">structured envelopes</span> for transport, food,
               bills, savings, and emergencies. It only releases{" "}
               <span className="hero-highlight">today&apos;s spending limit</span> when you actually
@@ -159,7 +163,7 @@ export default function HomePage() {
         </Reveal>
         <div className="why-statement">
           <Reveal as="p" variant="up">
-            <strong>Salary lands.</strong> You write the plan in your head: rent savings,
+            <strong>Income lands.</strong> You write the plan in your head: rent savings,
             food, transport, internet, tithe, something for your parents.
           </Reveal>
           <Reveal as="p" variant="up">
@@ -182,7 +186,7 @@ export default function HomePage() {
           <Badge icon="psychology_alt">THE PROBLEM</Badge>
           <h2>Money stress starts when everything sits in one account.</h2>
           <p>
-            Most people are not bad with money. The problem is that salary, bills, transport,
+            Most people are not bad with money. The problem is that income, bills, transport,
             food, savings, emergencies, and impulse spending often sit together in one account
             making it hard to know what is safe to spend.
           </p>
