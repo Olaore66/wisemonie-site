@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import confetti from "canvas-confetti";
 import Icon from "@/components/Icon";
+
+const BRAND_COLORS = ["#23c97d", "#cbe84c", "#005f5a", "#c9982a"];
 
 const FORM_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbyKCsAf_1e8FqEVEjzTvpW4xNzpcLFOiiJbjewJpgkud0RQCVIrlJQf602tMM3T4QmtjA/exec";
@@ -56,6 +59,16 @@ export default function WaitlistForm() {
       setPressure("");
       setStatus("success");
       setMessage("Thanks for joining early. We'll email you when private beta opens.");
+
+      if (!shouldReduceMotion) {
+        confetti({
+          particleCount: 120,
+          spread: 70,
+          startVelocity: 38,
+          origin: { y: 0.7 },
+          colors: BRAND_COLORS
+        });
+      }
     } catch {
       setStatus("error");
       setMessage("Something went wrong. Please try again.");
