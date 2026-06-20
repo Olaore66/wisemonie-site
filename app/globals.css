@@ -132,6 +132,17 @@ img {
   flex: 0 0 auto;
 }
 
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 3px;
+  transform-origin: 0%;
+  background: linear-gradient(90deg, var(--lime), var(--mint), var(--teal));
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -886,15 +897,43 @@ img {
 }
 
 .faq-item {
-  padding: 22px;
+  overflow: hidden;
   transition:
-    transform 190ms ease,
     box-shadow 190ms ease,
     background 190ms ease;
 }
 
-.faq-item p {
-  margin-top: 8px;
+.faq-item__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 22px;
+  text-align: left;
+}
+
+.faq-item__chevron {
+  display: grid;
+  flex: 0 0 auto;
+  color: var(--teal);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item--open .faq-item__chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item__panel {
+  overflow: hidden;
+}
+
+.faq-item__panel p {
+  margin-top: 0;
+  padding: 0 22px 22px;
 }
 
 .final-cta-card {
@@ -1310,18 +1349,6 @@ textarea::placeholder {
 .footer-brand p {
   max-width: 320px;
   margin-top: 18px;
-}
-
-.footer-founder {
-  margin-top: 14px !important;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-  font-size: 0.86rem !important;
-  line-height: 1.55 !important;
-}
-
-.footer-founder strong {
-  color: var(--ink-strong);
 }
 
 .social-links {
@@ -1982,7 +2009,6 @@ textarea::placeholder {
   .app-screen-card,
   .emotional-card,
   .trust-card,
-  .faq-item,
   .download-card,
   .final-cta-card {
     min-height: auto;
@@ -2161,11 +2187,15 @@ textarea::placeholder {
   .app-screen-card,
   .emotional-card,
   .trust-card,
-  .faq-item,
   .download-card,
   .final-cta-card {
     min-height: auto;
     padding: 16px;
+  }
+
+  .faq-item__trigger,
+  .faq-item__panel p {
+    padding-inline: 16px;
   }
 
   .solution-card {

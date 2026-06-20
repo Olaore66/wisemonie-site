@@ -40,12 +40,12 @@ export const flowSteps = [
   {
     icon: "account_balance_wallet",
     title: "Fund your wallet.",
-    text: "Move your salary in — Wisemonie sits on regulated Nigerian bank rails, so funds are held with licensed partners, not by us."
+    text: "Move your salary in. Wisemonie sits on regulated Nigerian bank rails, so funds are held with licensed partners, not by us."
   },
   {
     icon: "shield",
     title: "Build your plan.",
-    text: "Create envelopes for transport, food, bills, savings, emergencies — or whatever categories match your real life. Set the duration, amount, and rules per envelope."
+    text: "Create envelopes for transport, food, bills, savings, emergencies, or whatever categories match your real life. Set the duration, amount, and rules per envelope."
   },
   {
     icon: "schedule",
@@ -55,7 +55,7 @@ export const flowSteps = [
   {
     icon: "shopping_cart_checkout",
     title: "Spend with confidence.",
-    text: "Pay bills, buy airtime, transfer to your bank — all from inside the right envelope. When today's transport money is gone, you don't accidentally dip into next week's food."
+    text: "Pay bills, buy airtime, transfer to your bank, all from inside the right envelope. When today's transport money is gone, you don't accidentally dip into next week's food."
   }
 ];
 
@@ -70,16 +70,16 @@ export const targetPersona = {
     "Tithe and give offerings",
     "Want better discipline but can't fight willpower battles 47 times a week"
   ],
-  closing: "If that sounds like you — you're who we built this for.",
+  closing: "If that sounds like you, you're who we built this for.",
   note:
-    "Other groups — students, freelancers, families — are welcome to join the waitlist. We built for this person first because winning one specific user well beats winning everyone weakly."
+    "Other groups, like students, freelancers, and families, are welcome to join the waitlist. We built for this person first because winning one specific user well beats winning everyone weakly."
 };
 
 export const trustCards = [
   {
     icon: "account_balance",
     title: "Regulated infrastructure",
-    text: "Your funds are held with licensed Nigerian banking and payment partners (Providus Bank BaaS). Wisemonie controls the discipline layer — the rules and timing — not the custody of your money."
+    text: "Your funds are held with licensed Nigerian banking and payment partners (Providus Bank BaaS). Wisemonie controls the discipline layer: the rules and timing, not the custody of your money."
   },
   {
     icon: "toggle_on",

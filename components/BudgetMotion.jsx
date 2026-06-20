@@ -1,13 +1,41 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import {
+  motion,
+  animate,
+  useMotionValue,
+  useTransform,
+  useInView,
+  useReducedMotion
+} from "framer-motion";
 import Icon from "@/components/Icon";
 
 const allocations = [
-  ["Transport", "NGN 45,000", "88%"],
-  ["Food", "NGN 60,000", "56%"],
-  ["Bills", "NGN 120,000", "92%"]
+  ["Transport", 45000, "88%"],
+  ["Food", 60000, "56%"],
+  ["Bills", 120000, "92%"]
 ];
+
+function AnimatedAmount({ value }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const shouldReduceMotion = useReducedMotion();
+  const count = useMotionValue(0);
+  const formatted = useTransform(count, (latest) => `NGN ${Math.round(latest).toLocaleString()}`);
+
+  useEffect(() => {
+    if (!isInView) return;
+    if (shouldReduceMotion) {
+      count.set(value);
+      return;
+    }
+    const controls = animate(count, value, { duration: 1.1, delay: 0.25, ease: [0.16, 1, 0.3, 1] });
+    return () => controls.stop();
+  }, [isInView, value, shouldReduceMotion, count]);
+
+  return <motion.span ref={ref}>{formatted}</motion.span>;
+}
 
 export default function BudgetMotion() {
   const shouldReduceMotion = useReducedMotion();
@@ -30,7 +58,7 @@ export default function BudgetMotion() {
           <div>
             <div className="budget-row__top">
               <strong>{name}</strong>
-              <span>{amount}</span>
+              <AnimatedAmount value={amount} />
             </div>
             <div className="progress-track">
               <motion.div

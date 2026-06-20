@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import "./globals.css";
 
 export const metadata = {
@@ -62,6 +63,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <SmoothScroll />
+        <ScrollProgressBar />
         <Header />
         {children}
         <Footer />

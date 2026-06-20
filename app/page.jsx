@@ -4,6 +4,7 @@ import WaitlistForm from "@/components/WaitlistForm";
 import HeroNotification from "@/components/HeroNotification";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
+import FaqAccordion from "@/components/FaqAccordion";
 import MotionButton from "@/components/MotionButton";
 import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
@@ -124,18 +125,18 @@ export default function HomePage() {
         <div className="hero-grid">
           <div className="hero-copy">
             <Badge icon="volunteer_activism">Private beta opening soon &middot; Built on regulated Nigerian rails</Badge>
-            <h1>Hi, I&apos;m Abraham. I&apos;m building Wisemonie.</h1>
+            <h1>Everyone&apos;s fine on payday. Almost nobody is by week 3.</h1>
             <p className="hero-subhead">
-              Because by week 3 of every month, half of Nigeria&apos;s salary earners are reaching
-              for loan apps. Including me &mdash; that&apos;s why I built this.
+              Half of Nigeria&apos;s salary earners quietly reach for a loan app before the next one
+              lands. Nobody talks about it. Wisemonie is built so you never have to.
             </p>
             <p className="hero-lede">
               Wisemonie holds your salary in{" "}
-              <span className="hero-highlight">structured envelopes</span> &mdash; transport, food,
-              bills, savings, emergencies &mdash; and only releases{" "}
+              <span className="hero-highlight">structured envelopes</span> for transport, food,
+              bills, savings, and emergencies. It only releases{" "}
               <span className="hero-highlight">today&apos;s spending limit</span> when you actually
-              need it. So you reach the next payday without breaking your own plan, and stop the
-              loan-app cycle for good.
+              need it, so you reach the next payday without breaking your plan, and without anyone
+              ever knowing how close it got.
             </p>
             <div className="hero-actions">
               <MotionButton as="a" href="#download" className="button button--primary">
@@ -158,7 +159,7 @@ export default function HomePage() {
         </Reveal>
         <div className="why-statement">
           <Reveal as="p" variant="up">
-            <strong>Salary lands.</strong> You write the plan in your head &mdash; rent savings,
+            <strong>Salary lands.</strong> You write the plan in your head: rent savings,
             food, transport, internet, tithe, something for your parents.
           </Reveal>
           <Reveal as="p" variant="up">
@@ -284,7 +285,7 @@ export default function HomePage() {
           <h2>See your money by purpose, not just balance.</h2>
           <p>
             wisemonie is designed to show what each part of your money is for, what has been used,
-            and what is still available &mdash; so you can make decisions with clarity.
+            and what is still available, so you can make decisions with clarity.
           </p>
         </Reveal>
 
@@ -326,7 +327,7 @@ export default function HomePage() {
           <h2>Less money pressure. More clarity to grow.</h2>
           <p>
             When money is unstructured, every decision feels heavier. wisemonie helps reduce the
-            pressure by giving your income a clear job &mdash; so you can stop reacting, start
+            pressure by giving your income a clear job, so you can stop reacting, start
             planning, and build toward financial stability.
           </p>
         </Reveal>
@@ -379,14 +380,7 @@ export default function HomePage() {
           <Badge icon="help">FAQ</Badge>
           <h2>Questions people ask before joining.</h2>
         </Reveal>
-        <RevealGroup as="div" className="faq-grid">
-          {faqItems.map((item) => (
-            <RevealItem as="article" className="faq-item" key={item.question}>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <FaqAccordion items={faqItems} />
       </section>
 
       <section className="section final-cta-section">

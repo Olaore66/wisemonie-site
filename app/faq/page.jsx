@@ -1,7 +1,6 @@
 import Badge from "@/components/Badge";
 import Reveal from "@/components/Reveal";
-import RevealGroup from "@/components/RevealGroup";
-import RevealItem from "@/components/RevealItem";
+import FaqAccordion from "@/components/FaqAccordion";
 import { faqItems } from "@/data/productContent";
 
 export const metadata = {
@@ -24,14 +23,7 @@ export default function FaqPage() {
         </p>
       </Reveal>
 
-      <RevealGroup as="section" className="faq-grid">
-        {faqItems.map((item) => (
-          <RevealItem as="article" className="faq-item" key={item.question}>
-            <h3>{item.question}</h3>
-            <p>{item.answer}</p>
-          </RevealItem>
-        ))}
-      </RevealGroup>
+      <FaqAccordion items={faqItems} />
     </main>
   );
 }
