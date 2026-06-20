@@ -3,6 +3,7 @@ import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
 import RevealItem from "@/components/RevealItem";
+import SectionIllustration from "@/components/SectionIllustration";
 import { moneyFeatures } from "@/data/productContent";
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function FeaturesPage() {
   return (
     <main className="page-shell page-shell--wide">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="right" />
         <Badge icon="apps">FEATURES</Badge>
         <h1>
           Features built for <span>real money pressure.</span>

@@ -2,6 +2,7 @@ import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import MotionButton from "@/components/MotionButton";
+import SectionIllustration from "@/components/SectionIllustration";
 
 export const metadata = {
   title: "About",
@@ -13,6 +14,7 @@ export default function AboutPage() {
   return (
     <main className="page-shell">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="right" />
         <Badge icon="diamond">Company and product</Badge>
         <h1>
           About <span>wisemonie</span>

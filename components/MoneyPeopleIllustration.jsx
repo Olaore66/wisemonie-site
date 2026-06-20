@@ -1,7 +1,7 @@
-export default function MoneyPeopleIllustration() {
+export default function MoneyPeopleIllustration({ className = "section-illustration" }) {
   return (
     <svg
-      className="hero-illustration"
+      className={className}
       viewBox="0 0 640 820"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"

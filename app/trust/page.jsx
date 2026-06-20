@@ -3,6 +3,7 @@ import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
 import RevealItem from "@/components/RevealItem";
+import SectionIllustration from "@/components/SectionIllustration";
 import { trustCards } from "@/data/productContent";
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function TrustPage() {
   return (
     <main className="page-shell page-shell--wide">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="left" />
         <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
         <h1>
           Secure by design. <span>Controlled by you.</span>

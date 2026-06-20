@@ -1,6 +1,7 @@
 import Badge from "@/components/Badge";
 import Reveal from "@/components/Reveal";
 import FaqAccordion from "@/components/FaqAccordion";
+import SectionIllustration from "@/components/SectionIllustration";
 import { faqItems } from "@/data/productContent";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function FaqPage() {
   return (
     <main className="page-shell page-shell--wide">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="left" />
         <Badge icon="help">FAQ</Badge>
         <h1>
           Questions before <span>joining wisemonie.</span>

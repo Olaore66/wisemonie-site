@@ -1,6 +1,7 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
+import SectionIllustration from "@/components/SectionIllustration";
 
 export const metadata = {
   title: "Contact",
@@ -22,6 +23,7 @@ export default function ContactPage() {
   return (
     <main className="page-shell page-shell--wide">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="left" />
         <Badge icon="support_agent">Support and partnership</Badge>
         <h1>
           Contact <span>Us</span>

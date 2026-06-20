@@ -2,7 +2,7 @@ import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
 import HeroNotification from "@/components/HeroNotification";
-import MoneyPeopleIllustration from "@/components/MoneyPeopleIllustration";
+import SectionIllustration from "@/components/SectionIllustration";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -123,9 +123,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="hero-section">
-        <div className="hero-illustration-wrap" aria-hidden="true">
-          <MoneyPeopleIllustration />
-        </div>
+        <SectionIllustration side="right" />
         <div className="hero-grid">
           <div className="hero-copy">
             <Badge icon="volunteer_activism">Private beta opening soon &middot; Built on regulated Nigerian rails</Badge>
@@ -157,6 +155,7 @@ export default function HomePage() {
       </section>
 
       <section className="section why-section">
+        <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
           <Badge icon="psychology_alt">WHY WISEMONIE</Badge>
           <h2>One reality, one solution.</h2>
@@ -182,6 +181,7 @@ export default function HomePage() {
       </section>
 
       <section id="problem" className="section app-section">
+        <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading section-heading--left">
           <Badge icon="psychology_alt">THE PROBLEM</Badge>
           <h2>Money stress starts when everything sits in one account.</h2>
@@ -247,6 +247,7 @@ export default function HomePage() {
       </section>
 
       <section id="features" className="section feature-section">
+        <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
           <Badge icon="apps">FEATURES</Badge>
           <h2>Built for the everyday money pressure.</h2>
@@ -268,6 +269,7 @@ export default function HomePage() {
       </section>
 
       <section id="how-it-works" className="section flow-section">
+        <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading">
           <Badge icon="route">HOW IT WORKS</Badge>
           <h2>A simple system for spending with more control.</h2>
@@ -306,6 +308,7 @@ export default function HomePage() {
       </section>
 
       <section id="who-its-for" className="section persona-section">
+        <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
           <Badge icon="groups">WHO IT&apos;S FOR</Badge>
           <h2>{targetPersona.heading}</h2>
@@ -347,6 +350,7 @@ export default function HomePage() {
       </section>
 
       <section id="trust" className="section trust-section">
+        <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading">
           <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
           <h2>Secure by design. User-controlled by default.</h2>
@@ -367,6 +371,7 @@ export default function HomePage() {
       </section>
 
       <section id="download" className="section cta-section">
+        <SectionIllustration side="left" />
         <Reveal as="div" variant="scale" className="download-card">
           <Badge icon="bolt">PRIVATE BETA</Badge>
           <h2>Join the early-access list.</h2>
@@ -388,6 +393,7 @@ export default function HomePage() {
       </section>
 
       <section className="section final-cta-section">
+        <SectionIllustration side="right" />
         <Reveal as="div" className="final-cta-card">
           <h2>Give your money structure before the pressure starts.</h2>
           <p>

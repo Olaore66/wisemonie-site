@@ -1,6 +1,7 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
+import SectionIllustration from "@/components/SectionIllustration";
 import { targetPersona } from "@/data/productContent";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function WhoItsForPage() {
   return (
     <main className="page-shell page-shell--wide">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="right" />
         <Badge icon="groups">WHO IT&apos;S FOR</Badge>
         <h1>
           Built for one person <span>first.</span>

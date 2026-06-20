@@ -1,10 +1,12 @@
 import Badge from "@/components/Badge";
 import Reveal from "@/components/Reveal";
+import SectionIllustration from "@/components/SectionIllustration";
 
 export default function LegalPage({ eyebrow, icon, title, updated, intro, sections }) {
   return (
     <main className="page-shell">
       <Reveal as="section" className="page-hero">
+        <SectionIllustration side="right" />
         <Badge icon={icon}>{eyebrow}</Badge>
         <h1>{title}</h1>
         {updated ? <p className="page-hero__meta">Last updated: {updated}</p> : null}
