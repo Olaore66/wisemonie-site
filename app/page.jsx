@@ -1,8 +1,9 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
-import HeroEnvelopeStack from "@/components/HeroEnvelopeStack";
+import HeroNotification from "@/components/HeroNotification";
 import SectionIllustration from "@/components/SectionIllustration";
+import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
 import WeekCalendar from "@/components/WeekCalendar";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -105,7 +106,17 @@ const emotionalValues = [
 function ProductPreview() {
   return (
     <div className="product-preview" aria-label="wisemonie mobile app preview">
-      <HeroEnvelopeStack />
+      <HeroNotification />
+
+      <TiltCard className="phone-tilt-wrap">
+        <div className="phone-stage phone-stage--image phone-stage--hero">
+          <img
+            src="/images/wisemonie1.jpeg"
+            alt="wisemonie app home dashboard"
+            className="phone-hero-image"
+          />
+        </div>
+      </TiltCard>
     </div>
   );
 }
