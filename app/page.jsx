@@ -128,7 +128,10 @@ export default function HomePage() {
         <SectionIllustration side="right" />
         <div className="hero-grid">
           <div className="hero-copy">
-            <Badge icon="volunteer_activism">Private beta opening soon &middot; Built on regulated Nigerian rails</Badge>
+            <Badge icon="volunteer_activism">
+              Private beta opening soon{" "}
+              <span className="eyebrow__secondary">&middot; Built on regulated Nigerian rails</span>
+            </Badge>
             <h1>Salary on the 25th. Life on every other day.</h1>
             <p className="hero-subhead">
               Wisemonie splits one salary into the rhythms of your actual week.
