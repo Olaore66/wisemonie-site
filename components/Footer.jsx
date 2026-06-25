@@ -76,7 +76,7 @@ export default function Footer() {
       <div className="site-footer__inner">
         <div className="footer-brand">
           <img src="/images/logo2.svg" alt="wisemonie" />
-          <p>Plan your money. Protect essentials. Spend with control.</p>
+          <p>One salary. A full week. Lived on time.</p>
         </div>
         <div className="footer-grid">
           <FooterColumn title="Product" links={productLinks} />

@@ -41,6 +41,17 @@ import {
   Gem,
   ChevronDown,
   Bot,
+  Heart,
+  Bus,
+  Utensils,
+  Gift,
+  PiggyBank,
+  ShoppingBag,
+  Home,
+  CalendarDays,
+  GraduationCap,
+  Laptop,
+  Store,
   Circle
 } from "lucide-react";
 
@@ -87,7 +98,18 @@ const iconMap = {
   support_agent: Headset,
   diamond: Gem,
   chevron_down: ChevronDown,
-  smart_toy: Bot
+  smart_toy: Bot,
+  favorite: Heart,
+  bus: Bus,
+  utensils: Utensils,
+  gift: Gift,
+  piggy_bank: PiggyBank,
+  shopping_bag: ShoppingBag,
+  home: Home,
+  calendar_days: CalendarDays,
+  graduation_cap: GraduationCap,
+  laptop: Laptop,
+  store: Store
 };
 
 export default function Icon({ name, className = "", ariaHidden = true }) {

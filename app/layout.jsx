@@ -7,29 +7,29 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://wisemonie.app"),
   title: {
-    default: "Wisemonie - Budgeting App for Nigerian Income Earners",
+    default: "Wisemonie: The layer that runs your week. One salary, every commitment, on time.",
     template: "%s | Wisemonie"
   },
   description:
-    "Wisemonie holds your income in structured envelopes and only releases today's spending limit when you need it, so you reach payday without breaking your plan or reaching for a loan app.",
+    "Wisemonie splits one salary into the rhythms of your week. Monday lunch. Wednesday service. Friday date. Saturday parents. Sunday tithe. Every commitment shows up on time. Built on regulated Nigerian banking rails.",
   keywords: [
-    "wisemonie",
-    "budgeting app",
-    "digital envelope system",
-    "personal finance",
-    "money management app",
-    "Nigeria fintech",
-    "income earners",
-    "loan app alternative"
+    "weekly money planner",
+    "household money management",
+    "envelope budgeting Nigeria",
+    "salary planning Nigeria",
+    "structured spending",
+    "recurring money rhythms",
+    "Nigerian fintech",
+    "regulated wallet"
   ],
   authors: [{ name: "Wisemonie" }],
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Wisemonie - Stop Running Out of Money Before Payday",
+    title: "Wisemonie: Live your full week, every week, on one salary.",
     description:
-      "Structured envelopes for transport, food, bills, savings, and emergencies. Wisemonie releases today's spending limit only when you need it.",
+      "The first app that knows what day it is. Wisemonie holds your salary in envelopes that release on schedule, so Monday lunch shows up Monday, Sunday tithe shows up Sunday, and you stop doing maths in your head.",
     url: "https://wisemonie.app",
     siteName: "Wisemonie",
     type: "website",
@@ -44,9 +44,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wisemonie - Stop Running Out of Money Before Payday",
+    title: "Wisemonie: Live your full week, every week, on one salary.",
     description:
-      "Structured envelopes for transport, food, bills, savings, and emergencies. Wisemonie releases today's spending limit only when you need it.",
+      "The first app that knows what day it is. Wisemonie holds your salary in envelopes that release on schedule, so Monday lunch shows up Monday, Sunday tithe shows up Sunday, and you stop doing maths in your head.",
     images: ["/images/main_logo.png"]
   },
   icons: {

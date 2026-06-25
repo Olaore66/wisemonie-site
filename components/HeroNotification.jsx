@@ -9,15 +9,15 @@ export default function HeroNotification() {
           <img src="/images/iconwithoutbackground.png" alt="" />
         </span>
         <span className="hero-notification__app-name">Wisemonie</span>
-        <span className="hero-notification__time">now</span>
+        <span className="hero-notification__time">Sat 9:00am</span>
       </div>
       <div className="hero-notification__body">
         <span className="hero-notification__unlock-icon" aria-hidden="true">
           <Icon name="lock_open" />
         </span>
         <p>
-          <strong>&#8358;2,500.00</strong> has been unlocked in your <strong>&apos;Security&apos;</strong>{" "}
-          envelope. It&apos;s ready to spend!
+          Your <strong>&apos;Parents&apos;</strong> envelope just released <strong>&#8358;5,000</strong>.
+          Ready to send.
         </p>
       </div>
       <span className="hero-notification__check" aria-hidden="true">
