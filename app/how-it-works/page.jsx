@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
 import RevealItem from "@/components/RevealItem";
 import SectionIllustration from "@/components/SectionIllustration";
+import WeekReleaseTimeline from "@/components/WeekReleaseTimeline";
 import { flowSteps } from "@/data/productContent";
 
 export const metadata = {
@@ -23,8 +24,8 @@ export default function HowItWorksPage() {
           A simple flow for <span>controlled spending.</span>
         </h1>
         <p>
-          wisemonie turns your income into a clear plan, then helps you spend with structure
-          instead of guessing from one account balance.
+          Wisemonie turns your income into a clear plan, so you spend with structure instead of
+          guessing from one balance.
         </p>
       </Reveal>
 
@@ -38,6 +39,12 @@ export default function HowItWorksPage() {
           </RevealItem>
         ))}
       </RevealGroup>
+
+      <Reveal as="section" className="viz-section viz-section--wide">
+        <h2>Then your week runs itself</h2>
+        <p>Once the rhythm is set, every envelope opens at its time — no maths, no reminders.</p>
+        <WeekReleaseTimeline />
+      </Reveal>
     </main>
   );
 }

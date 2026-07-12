@@ -23,8 +23,8 @@ export default function TrustPage() {
           Secure by design. <span>Controlled by you.</span>
         </h1>
         <p>
-          wisemonie is built around clear rules, transparent money movement, and regulated wallet
-          and payment infrastructure.
+          Wisemonie is built around clear rules, transparent money movement, and regulated banking
+          infrastructure.
         </p>
       </Reveal>
 

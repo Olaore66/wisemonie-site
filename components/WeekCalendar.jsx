@@ -8,7 +8,7 @@ export default function WeekCalendar() {
     <div className="week-calendar-wrap">
       <RevealGroup as="div" className="week-calendar" stagger={0.07}>
         {weekCalendar.days.map((day) => (
-          <RevealItem as="div" className="week-day" key={day.day} aria-label={day.full} hover={false}>
+          <RevealItem as="div" className="week-day" key={day.day} aria-label={day.full}>
             <h3 className="week-day__label">{day.day}</h3>
             <div className="week-day__items">
               {day.items.map((item) => (

@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
 import RevealItem from "@/components/RevealItem";
 import SectionIllustration from "@/components/SectionIllustration";
+import EssentialFirstFlow from "@/components/EssentialFirstFlow";
 import { moneyFeatures } from "@/data/productContent";
 
 export const metadata = {
@@ -23,8 +24,7 @@ export default function FeaturesPage() {
           Features built for <span>real money pressure.</span>
         </h1>
         <p>
-          Plan your budget into smart envelopes, protect essentials, get helpful guidance, and
-          spend from the app based on the conditions you define.
+          Plan into smart envelopes, protect essentials, and spend on the conditions you set.
         </p>
       </Reveal>
 
@@ -37,6 +37,15 @@ export default function FeaturesPage() {
           </RevealItem>
         ))}
       </RevealGroup>
+
+      <Reveal as="section" className="viz-section">
+        <h2>Essentials come first, always</h2>
+        <p>
+          The rule behind every envelope: your non-negotiables are funded on payday, before flex
+          money exists.
+        </p>
+        <EssentialFirstFlow />
+      </Reveal>
     </main>
   );
 }

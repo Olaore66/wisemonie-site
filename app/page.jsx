@@ -3,6 +3,7 @@ import Icon from "@/components/Icon";
 import WaitlistForm from "@/components/WaitlistForm";
 import HeroNotification from "@/components/HeroNotification";
 import SectionIllustration from "@/components/SectionIllustration";
+import SalaryAllocation from "@/components/SalaryAllocation";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
 import WeekCalendar from "@/components/WeekCalendar";
@@ -24,22 +25,22 @@ const problemCards = [
   {
     icon: "query_stats",
     title: "Monday morning.",
-    text: "You check your account. ₦200K. You feel rich. But ₦80K is rent. ₦25K is tithe. ₦20K is mum. ₦15K is debt. You actually have ₦40K to live on this week. The account didn't tell you that."
+    text: "₦200K in the app. You feel rich — until you remember ₦140K is already rent, tithe, mum and debt. This week is really ₦60K."
   },
   {
     icon: "schedule",
     title: "Wednesday service.",
-    text: "Church starts in two hours. You're doing maths in your head about how much is for offering. You shouldn't have to be doing this. The offering money was supposed to be set aside on the 25th."
+    text: "Church in two hours, and you're doing maths in your head for offering — money you meant to set aside on the 25th."
   },
   {
     icon: "volunteer_activism",
     title: "Saturday call to mum.",
-    text: "You promised yourself you'd send ₦5K every Saturday. This is the third Saturday you've skipped. Not because you don't have ₦5K. Because you're not sure if you do."
+    text: "You meant to send ₦5K every Saturday. Third one skipped — not because you don't have it, but because you're not sure you do."
   },
   {
     icon: "favorite",
     title: "Friday night.",
-    text: "Your partner is asking what you're doing this weekend. You say “let's just stay in,” but really you can't tell if there's money for a date or not. So you skip it. Again."
+    text: "“Let's just stay in,” you tell your partner — because you can't tell if there's money for a date. So you skip it. Again."
   }
 ];
 
@@ -47,59 +48,22 @@ const solutionCards = [
   {
     icon: "utensils",
     title: "Monday lunch shows up on Monday.",
-    text: "₦3,000 in your “Work lunch” envelope, released Monday morning at 11am. Wednesday too. Friday too. Tuesday and Thursday, the envelope stays closed. You bring food from home and don't even think about it."
+    text: "₦3,000 in “Work lunch,” released Mon/Wed/Fri at 11am. Tue and Thu it stays shut — so you bring food from home without thinking about it."
   },
   {
     icon: "gift",
     title: "Sunday offering is sacred again.",
-    text: "₦2,000 in your “Offering” envelope, locked until Sunday 8am. When the basket comes around, you give without doing the maths. The money was set aside on the 25th. Sunday-you just lives the result."
+    text: "₦2,000 in “Offering,” locked until Sunday 8am. When the basket comes, you give without doing maths — it was set aside on the 25th."
   },
   {
     icon: "volunteer_activism",
     title: "Mum gets her ₦5K every Saturday.",
-    text: "Automatic. Same time every week. She knows it's coming. You know it's coming. You become the person you've always wanted to be, without willpower, without remembering."
+    text: "Automatic, same time every week. She knows it's coming; so do you. No willpower, no remembering."
   },
   {
     icon: "favorite",
     title: "Friday night money is Friday night money.",
-    text: "₦15,000 in your “Chillout” envelope, released Friday at 6pm. You take your partner out. You see your friends. You don't dip into rent. You don't start next Monday already behind."
-  }
-];
-
-const appScreens = [
-  {
-    title: "Create your money plan",
-    text: "Set the amount, duration, and purpose for your money cycle."
-  },
-  {
-    title: "Split into envelopes",
-    text: "Divide money into essentials, savings, bills, transport, and flexible spending."
-  },
-  {
-    title: "Track your position",
-    text: "See what is available and what should stay protected."
-  },
-  {
-    title: "Spend through rules",
-    text: "Use money within the limits and conditions you created."
-  }
-];
-
-const emotionalValues = [
-  {
-    icon: "lightbulb",
-    title: "Clarity",
-    text: "Know what is safe to spend."
-  },
-  {
-    icon: "rule",
-    title: "Discipline",
-    text: "Stay within the structure you created."
-  },
-  {
-    icon: "self_improvement",
-    title: "Peace of mind",
-    text: "Protect essentials before pressure builds."
+    text: "₦15,000 in “Chillout,” released Friday 6pm. Go out, see friends — without dipping into rent or starting Monday behind."
   }
 ];
 
@@ -132,14 +96,12 @@ export default function HomePage() {
               Private beta opening soon{" "}
               <span className="eyebrow__secondary">&middot; Built on regulated Nigerian rails</span>
             </Badge>
-            <h1>Salary on the 25th. Life on every other day.</h1>
+            <h1>Budget on Wisemonie and spend directly from the budget.</h1>
             <p className="hero-subhead">
               Wisemonie splits one salary into the rhythms of your actual week.
             </p>
             <p className="hero-lede">
-              <span className="hero-highlight">Monday lunch</span>, Wednesday service, Friday
-              chillout, <span className="hero-highlight">Sunday offering</span>, Saturday call to
-              your parents. Every commitment shows up on time. You stop doing maths in your head.
+              <span className="hero-highlight">Wisemonie turns your budget into the account you spend from. Your income splits into envelopes — transport, food, offering, family — each one releasing money on the schedule you set, so you spend directly from your plan instead of around it.</span>.
             </p>
             <div className="hero-actions">
               <MotionButton as="a" href="#download" className="button button--primary">
@@ -163,18 +125,16 @@ export default function HomePage() {
         </Reveal>
         <div className="why-statement">
           <Reveal as="p" variant="up">
-            <strong>Salary arrives on the 25th.</strong> Your brain plans it perfectly in the
-            first 30 minutes: rent goes here, tithe goes there, &#8358;25K to mum, food and
-            transport sorted, something for the partner, a little left for the weekend.
+            <strong>Salary lands on the 25th.</strong> In 30 minutes your brain has it all planned —
+            rent, tithe, &#8358;25K to mum, transport, a little for the weekend.
           </Reveal>
           <Reveal as="p" variant="up">
-            <strong>By Friday of the same week,</strong> you&apos;re already not sure how much of
-            any of that is left. The bank shows one big number. The plan was in your head. The two
-            never match.
+            <strong>By Friday,</strong> you&apos;ve lost track of what&apos;s left. The bank shows one
+            big number; the plan lived in your head. They never match.
           </Reveal>
           <Reveal as="p" variant="up">
-            <strong>You don&apos;t have a money problem.</strong> You have a week problem. Nothing
-            in your bank account knows what day it is. Wisemonie does.
+            <strong>You don&apos;t have a money problem. You have a week problem.</strong> Nothing in
+            your account knows what day it is. Wisemonie does.
           </Reveal>
           <Reveal as="p" variant="up" className="why-statement__cta">
             Wisemonie runs the week.
@@ -188,10 +148,13 @@ export default function HomePage() {
           <Badge icon="psychology_alt">THE PROBLEM</Badge>
           <h2>One account. Ten commitments. No structure.</h2>
           <p>
-            Most Nigerians are running ten parallel commitments from one bank balance, and the
-            balance refuses to tell them which money belongs to which commitment. The result is
-            not failure. It&apos;s exhaustion.
+            Ten commitments, one balance that won&apos;t tell you which money belongs to what. The
+            result isn&apos;t failure — it&apos;s exhaustion.
           </p>
+        </Reveal>
+
+        <Reveal as="div" variant="up" className="problem-visual">
+          <SalaryAllocation />
         </Reveal>
 
         <RevealGroup as="div" className="feature-grid">
@@ -207,7 +170,7 @@ export default function HomePage() {
 
       <section className="section transition-section">
         <Reveal as="div" className="transition-statement">
-          <h2>All of this stops the moment your week is structured the way your life is.</h2>
+          <h2>It all stops the moment your week is structured the way your life is.</h2>
           <p>Set your week once. Let it run on its own.</p>
         </Reveal>
       </section>
@@ -217,9 +180,8 @@ export default function HomePage() {
           <Badge icon="tune">THE SOLUTION</Badge>
           <h2>Give every day of your week its own money.</h2>
           <p>
-            Wisemonie splits one salary into envelopes that match your real week, and releases the
-            right money on the right day, automatically. You stop deciding. The week decides for
-            you.
+            One salary, split into envelopes that match your real week — each releasing on the right
+            day, automatically. You stop deciding; the week decides for you.
           </p>
           <RevealGroup as="div" className="solution-list">
             {solutionCards.map(({ icon, title, text }) => (
@@ -295,27 +257,6 @@ export default function HomePage() {
         <WeekCalendar />
       </section>
 
-      <section className="section app-screens-section">
-        <Reveal as="div" className="section-heading">
-          <h2>See your money by purpose, not just balance.</h2>
-          <p>
-            wisemonie is designed to show what each part of your money is for, what has been used,
-            and what is still available, so you can make decisions with clarity.
-          </p>
-        </Reveal>
-
-        <RevealGroup as="div" className="app-screen-grid">
-          {appScreens.map(({ title, text }) => (
-            <RevealItem as="article" className="app-screen-card" key={title}>
-              <div className="app-screen-card__caption">
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
       <section id="who-its-for" className="section persona-section">
         <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
@@ -337,26 +278,6 @@ export default function HomePage() {
         <Reveal as="p" variant="up" className="audience-closing">
           {homeAudience.closing}
         </Reveal>
-      </section>
-
-      <section className="section emotional-section">
-        <Reveal as="div" className="section-heading">
-          <h2>Less money pressure. More clarity to grow.</h2>
-          <p>
-            When money is unstructured, every decision feels heavier. wisemonie helps reduce the
-            pressure by giving your income a clear job, so you can stop reacting, start
-            planning, and build toward financial stability.
-          </p>
-        </Reveal>
-        <RevealGroup as="div" className="emotional-grid">
-          {emotionalValues.map(({ icon, title, text }) => (
-            <RevealItem as="article" className="emotional-card" key={title}>
-              <Icon name={icon} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
       </section>
 
       <section id="trust" className="section trust-section">

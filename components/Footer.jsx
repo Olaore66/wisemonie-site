@@ -15,8 +15,9 @@ const companyLinks = [
 ];
 
 const legalLinks = [
-  { href: "/terms-of-service", label: "Terms of Service" },
-  { href: "/privacy-policy", label: "Privacy Policy" }
+  { href: "/terms-of-use", label: "Terms of Use" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/delete-account", label: "Delete account" }
 ];
 
 const socialLinks = [

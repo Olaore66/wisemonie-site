@@ -829,6 +829,7 @@ img {
 .week-calendar {
   display: grid;
   grid-template-columns: repeat(7, minmax(150px, 1fr));
+  align-items: start;
   gap: 12px;
   overflow-x: auto;
   padding-bottom: 6px;
@@ -1785,6 +1786,478 @@ textarea::placeholder {
 .legal-card a {
   color: var(--teal);
   font-weight: 900;
+}
+
+/* Salary allocation infographic (homepage Problem section). */
+.allocation {
+  margin: 0 0 34px;
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.allocation__caption {
+  color: var(--ink-strong);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.allocation__caption strong {
+  color: var(--teal);
+}
+
+.allocation__bar {
+  display: flex;
+  height: 58px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(16, 33, 31, 0.06);
+}
+
+.allocation__seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.allocation__seg-amt {
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  padding: 0 4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.seg--rent {
+  background: #0f3b38;
+}
+
+.seg--tithe {
+  background: #1c6f66;
+}
+
+.seg--family {
+  background: #c9982a;
+}
+
+.seg--debt {
+  background: #b45c3a;
+}
+
+.seg--left {
+  background: #17a866;
+}
+
+.allocation__legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.allocation__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.allocation__legend-amt {
+  color: var(--ink-strong);
+  font-weight: 800;
+}
+
+.allocation__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  flex: none;
+}
+
+.allocation__callout {
+  margin: 0;
+  padding: 12px 16px;
+  background: rgba(180, 92, 58, 0.08);
+  border-left: 3px solid #b45c3a;
+  border-radius: 10px;
+  color: var(--ink-strong);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.allocation__callout strong {
+  color: #b45c3a;
+}
+
+@media (max-width: 520px) {
+  .allocation__seg-amt {
+    font-size: 0.7rem;
+  }
+
+  .allocation__seg.seg--debt .allocation__seg-amt,
+  .allocation__seg.seg--family .allocation__seg-amt {
+    display: none;
+  }
+}
+
+/* Centred wrapper for supporting infographics on the standalone pages. */
+.viz-section {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+  margin: 8px auto 0;
+  text-align: center;
+}
+
+.viz-section > h2 {
+  margin: 0;
+}
+
+.viz-section > p {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.viz-section--wide {
+  max-width: none;
+}
+
+/* Essential-first allocation flow (Features page). */
+.ef-flow {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 26px 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.ef-flow__caption {
+  color: var(--ink-strong);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.ef-flow__salary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+}
+
+.ef-flow__salary .icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ef-flow__arrow {
+  width: 2px;
+  height: 22px;
+  background: linear-gradient(var(--border), var(--teal));
+  position: relative;
+}
+
+.ef-flow__arrow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--teal);
+  border-bottom: 2px solid var(--teal);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.ef-flow__stage {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.ef-flow__stage-label {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.ef-flow__pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ef-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+
+.ef-pill .icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ef-pill--locked {
+  border-color: rgba(0, 95, 90, 0.35);
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+.ef-pill__amt {
+  color: var(--ink-strong);
+  font-weight: 800;
+}
+
+.ef-pill--locked .ef-pill__amt {
+  color: var(--teal);
+}
+
+.ef-pill--flex {
+  background: rgba(23, 168, 102, 0.12);
+  border-color: rgba(23, 168, 102, 0.4);
+  color: #0f5c3c;
+}
+
+.ef-flow__callout {
+  margin: 6px 0 0;
+  padding: 12px 16px;
+  max-width: 460px;
+  background: var(--teal-soft);
+  border-radius: 10px;
+  color: var(--ink-strong);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.ef-flow__callout strong {
+  color: var(--teal);
+}
+
+/* Weekly release timeline (How-it-works page). */
+.release-timeline {
+  margin: 0;
+  min-width: 0;
+  padding: 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.release-timeline__caption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-strong);
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+.release-timeline__caption .icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--teal);
+}
+
+.release-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.release-day {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 10px 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.release-day__label {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--muted);
+  text-align: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.release-chip {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2px 7px;
+  padding: 7px 8px;
+  border-radius: 9px;
+  background: var(--teal-soft);
+}
+
+.release-chip__icon {
+  grid-row: span 2;
+  display: inline-flex;
+  align-items: center;
+  color: var(--teal);
+}
+
+.release-chip__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.release-chip__time {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1.1;
+}
+
+.release-chip__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-strong);
+  line-height: 1.1;
+}
+
+.release-timeline__note {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 780px) {
+  .release-week {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(140px, 70%);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  .release-day {
+    scroll-snap-align: start;
+  }
+}
+
+/* Live legal / account content embedded from the backend (raw HTML). */
+.legal-html {
+  display: grid;
+  gap: 14px;
+}
+
+.legal-html > *:first-child {
+  margin-top: 0;
+}
+
+.legal-html h1,
+.legal-html h2,
+.legal-html h3,
+.legal-html h4 {
+  margin: 14px 0 0;
+  color: var(--ink-strong);
+  line-height: 1.25;
+}
+
+.legal-html h1 {
+  font-size: 1.5rem;
+}
+
+.legal-html h2 {
+  font-size: 1.25rem;
+}
+
+.legal-html h3 {
+  font-size: 1.05rem;
+}
+
+.legal-html h4 {
+  font-size: 0.98rem;
+}
+
+.legal-html p,
+.legal-html li {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.legal-html p.meta {
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.legal-html ul,
+.legal-html ol {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.legal-html li::marker {
+  color: var(--teal);
+}
+
+.legal-html a {
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.legal-html strong {
+  color: var(--ink-strong);
+  font-weight: 800;
+}
+
+.legal-html blockquote {
+  margin: 0;
+  padding: 10px 16px;
+  border-left: 3px solid var(--teal);
+  background: var(--surface-strong);
+  border-radius: 8px;
+  color: var(--muted);
+}
+
+.legal-html hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 8px 0;
 }
 
 .feature-card,

@@ -21,8 +21,8 @@ export default function AboutPage() {
           About <span>wisemonie</span>
         </h1>
         <p>
-          A personal finance management platform designed to help individuals budget smarter,
-          control spending, and manage money intentionally.
+          A personal finance app that helps you budget smarter, control spending, and manage money
+          intentionally.
         </p>
       </Reveal>
 
@@ -30,21 +30,18 @@ export default function AboutPage() {
         <div>
           <h2>Our Core Purpose</h2>
           <p>
-            The wisemonie mobile application uses envelope-based budgeting, automation, and
-            financial insights to help users plan expenses, track spending, and build healthier
-            financial habits.
+            The wisemonie app uses envelope budgeting, automation and insights to help you plan
+            expenses, track spending, and build healthier money habits.
           </p>
         </div>
         <div>
           <h2>Why we built it</h2>
           <p>
-            Wisemonie is a technology-driven personal finance platform built for everyday income
-            earners. This website is an informational platform created to share details about the
-            product and its features.
+            Wisemonie is a personal finance platform built for everyday income earners. This site is
+            informational — it shares details about the product and its features.
           </p>
           <p>
-            User registration, budgeting activities, and financial transactions are carried out
-            solely within the wisemonie mobile application.
+            Registration, budgeting and transactions all happen inside the wisemonie mobile app.
           </p>
         </div>
       </Reveal>
@@ -54,10 +51,9 @@ export default function AboutPage() {
         <div>
           <h2>Important Disclosure</h2>
           <p>
-            wisemonie does not operate as a bank or financial institution. All payments and
-            transfers initiated within the app are processed through licensed third-party payment
-            service providers and partner financial institutions. Wisemonie does not hold or
-            store customer funds.
+            wisemonie is not a bank or financial institution. Payments and transfers in the app are
+            processed by licensed third-party providers and partner institutions. Wisemonie does not
+            hold or store customer funds.
           </p>
         </div>
       </Reveal>

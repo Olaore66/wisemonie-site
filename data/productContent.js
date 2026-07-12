@@ -2,42 +2,42 @@ export const moneyFeatures = [
   {
     icon: "account_balance_wallet",
     title: "Smart Money Envelopes",
-    text: "Create one envelope per real commitment in your life. Monday lunch. Tithe. Mum. Rent saving. Friday date. Each one is real money, separated from everything else."
+    text: "One envelope per real commitment — Monday lunch, tithe, mum, rent, Friday date. Each holds real money, separated from the rest."
   },
   {
     icon: "schedule",
     title: "Scheduled Releases",
-    text: "Set the day and time each envelope opens. Transport at 7am Monday-Friday. Offering at 8am Sunday. Parents at 9am Saturday. Your week runs on a clock."
+    text: "Set the day and time each envelope opens: transport 7am weekdays, offering 8am Sunday, parents 9am Saturday. Your week runs on a clock."
   },
   {
     icon: "verified",
     title: "Essential-First Allocation",
-    text: "On payday, the system makes sure rent, tithe, parents, and savings get their envelopes filled first. Whatever's left becomes your flex money, and you can spend it without guilt."
+    text: "On payday, rent, tithe, parents and savings are filled first. Whatever's left is flex money you can spend without guilt."
   },
   {
     icon: "rule",
     title: "Spending Rules",
-    text: "Lock high-stakes envelopes (rent saving, tithe) so you cannot raid them. Set soft envelopes (flex, food) to release on schedule. You choose the strictness for each one."
+    text: "Lock high-stakes envelopes like rent and tithe so you can't raid them; let soft ones release on schedule. You set the strictness per envelope."
   },
   {
     icon: "receipt_long",
     title: "Bill and Airtime Flows",
-    text: "Pay your data, electricity, DStv, airtime, directly from the envelope that owns that bill. No more spending lunch money on data top-up because you forgot the bill envelope existed."
+    text: "Pay data, electricity, DStv and airtime straight from the envelope that owns each bill — so bill money never comes out of lunch money."
   },
   {
     icon: "query_stats",
     title: "Real-Time Position",
-    text: "See exactly what's available right now in every envelope. Not a single confusing balance, a clear picture of each commitment: what's released, what's locked, what's coming."
+    text: "See what's available in every envelope right now — what's released, what's locked, what's coming. Not one confusing balance."
   },
   {
     icon: "history",
     title: "Spending History by Purpose",
-    text: "See where your week's money went, organised by life category. Not \"47 transactions in May,\" but \"Lunch ₦18K. Tithe ₦8K. Mum ₦20K. Date ₦12K.\" Receipts that match your life."
+    text: "See where the money went by life category — not \"47 transactions in May\" but \"Lunch ₦18K, Tithe ₦8K, Mum ₦20K, Date ₦12K.\" Receipts that match your life."
   },
   {
     icon: "smart_toy",
     title: "AI Money Assistant",
-    text: "Tell it about an unusual week: wedding coming, parent visiting, school fees due, and it suggests how to adjust your envelopes without breaking the rest."
+    text: "Tell it about an unusual week — wedding, visiting parent, school fees — and it suggests how to adjust your envelopes without breaking the rest."
   }
 ];
 
@@ -45,22 +45,22 @@ export const flowSteps = [
   {
     icon: "account_balance_wallet",
     title: "Fund your wallet.",
-    text: "Move your income in on payday. Wisemonie sits on regulated Nigerian banking rails, your money is held with our licensed partner, not by us."
+    text: "Move your income in on payday. It's held by our licensed banking partner on regulated Nigerian rails — not by us."
   },
   {
     icon: "calendar_days",
     title: "Build your week.",
-    text: "Walk through your normal week with Wisemonie. Monday lunch. Wednesday service offering. Friday date. Saturday call to mum. Sunday tithe. Daily transport. Weekly chillout. Rent saving. Each becomes its own envelope."
+    text: "Walk through your normal week — Monday lunch, Wednesday offering, Friday date, Saturday mum, Sunday tithe, daily transport, rent saving. Each becomes its own envelope."
   },
   {
     icon: "schedule",
     title: "Set the release rhythm.",
-    text: "Transport opens at 7am Monday-Friday. Lunch at 11am Mon-Wed-Fri. Offering at 8am Sunday. Parents at 9am Saturday. Rent saving stays locked until rent is due. Your week now runs on a clock."
+    text: "Transport 7am weekdays, lunch 11am Mon/Wed/Fri, offering 8am Sunday, parents 9am Saturday, rent locked until it's due. Your week now runs on a clock."
   },
   {
     icon: "shopping_cart_checkout",
     title: "Live the week.",
-    text: "Spend directly from the envelope of the moment: buy lunch from the Monday lunch envelope, pay tithe from the Sunday tithe envelope, send mum's money from the Parents envelope. When today's envelope is empty, it's empty. Tomorrow's envelope opens on its own."
+    text: "Spend straight from the envelope of the moment — lunch from lunch, tithe from tithe, mum's money from Parents. When today's envelope is empty, it's empty. Tomorrow's opens on its own."
   }
 ];
 
@@ -77,38 +77,38 @@ export const targetPersona = {
   ],
   closing: "If that sounds like you, you're who we built this for.",
   note:
-    "Other groups, like students, freelancers, and families, are welcome to join the waitlist. We built for this person first because winning one specific user well beats winning everyone weakly."
+    "Students, freelancers and families are welcome on the waitlist too. We built for this one person first — winning one user well beats winning everyone weakly."
 };
 
 export const homeAudience = {
   heading: "Built for anyone running a real week on a finite income.",
   intro:
-    "If you've ever opened a second bank account to hide money from yourself, you understand the problem Wisemonie solves. You're not undisciplined. You're running too many parallel commitments through infrastructure that was never built to separate them.",
+    "If you've ever opened a second account to hide money from yourself, you get it. You're not undisciplined — you're running too many commitments through infrastructure that can't separate them.",
   personas: [
     {
       icon: "business",
       title: "Salary earners",
-      text: "Managing rent, tithe, family, food, transport, and a partner, every week, every month, with no built-in separation."
+      text: "Rent, tithe, family, food, transport, a partner — every month, with no built-in separation."
     },
     {
       icon: "graduation_cap",
       title: "Students",
-      text: "Running NYSC allowance, money from home, and side gigs through one account that pretends it's all the same money."
+      text: "NYSC allowance, money from home and side gigs, all through one account that treats it as the same money."
     },
     {
       icon: "laptop",
       title: "Freelancers",
-      text: "Receiving lumpy income: a big project payment that has to last three months covering tax, savings, family obligation, and daily life."
+      text: "Lumpy income — one project payment that has to last three months across tax, savings, family and daily life."
     },
     {
       icon: "store",
       title: "Small business owners",
-      text: "Whose business money, personal money, family obligation money, and tithe money all sit in the same account because there's no easy way to separate them."
+      text: "Business, personal, family and tithe money all sitting in one account, with no easy way to separate them."
     },
     {
       icon: "favorite",
       title: "Couples",
-      text: "Managing shared rent, shared school fees, individual tithes, and individual family obligations from two incomes and zero shared visibility."
+      text: "Shared rent and school fees, separate tithes and family obligations — two incomes, zero shared visibility."
     }
   ],
   closing: "Wisemonie was built for one core insight: your life has rhythms. Your money should follow them."
@@ -118,12 +118,12 @@ export const trustCards = [
   {
     icon: "account_balance",
     title: "Regulated infrastructure",
-    text: "Your funds are held with our licensed banking partner, Rubies Microfinance Bank, under Central Bank of Nigeria regulation. Wisemonie doesn't hold your money. We hold the rules and timing of your week: when each envelope opens, what's protected, what's available today."
+    text: "Your funds sit with our licensed partner, Rubies Microfinance Bank, under CBN regulation. We don't hold your money — we hold the rules and timing: when each envelope opens, what's protected, what's available today."
   },
   {
     icon: "toggle_on",
     title: "User-controlled rules",
-    text: "Every lock, limit, and release rule is something you turn on, not something we impose. You can adjust your plan when your life changes."
+    text: "Every lock, limit and release is something you turn on, not something we impose — and you can change it when life changes."
   },
   {
     icon: "receipt",
