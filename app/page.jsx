@@ -5,6 +5,7 @@ import HeroNotification from "@/components/HeroNotification";
 import SectionIllustration from "@/components/SectionIllustration";
 import SalaryAllocation from "@/components/SalaryAllocation";
 import AppScreen from "@/components/AppScreen";
+import HeroPerson from "@/components/HeroPerson";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
 import WeekCalendar from "@/components/WeekCalendar";
@@ -21,6 +22,10 @@ import {
   trustCards,
   weekCalendar
 } from "@/data/productContent";
+import { publicImage } from "@/data/assets";
+
+const HERO_PHOTO_ALT =
+  "A young man checking his phone as Wisemonie releases ₦5,000 from his budget";
 
 const problemCards = [
   {
@@ -83,6 +88,8 @@ function ProductPreview() {
 }
 
 export default function HomePage() {
+  const heroPhoto = publicImage("hero-person.jpg");
+
   return (
     <main>
       <section className="hero-section">
@@ -110,7 +117,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <ProductPreview />
+          {heroPhoto ? (
+            <HeroPerson src={heroPhoto} alt={HERO_PHOTO_ALT} />
+          ) : (
+            <ProductPreview />
+          )}
         </div>
       </section>
 
