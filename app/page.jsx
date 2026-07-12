@@ -4,6 +4,7 @@ import WaitlistForm from "@/components/WaitlistForm";
 import HeroNotification from "@/components/HeroNotification";
 import SectionIllustration from "@/components/SectionIllustration";
 import SalaryAllocation from "@/components/SalaryAllocation";
+import AppScreen from "@/components/AppScreen";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
 import WeekCalendar from "@/components/WeekCalendar";
@@ -73,12 +74,8 @@ function ProductPreview() {
       <HeroNotification />
 
       <TiltCard className="phone-tilt-wrap">
-        <div className="phone-stage phone-stage--image phone-stage--hero">
-          <img
-            src="/images/wisemonie1.jpeg"
-            alt="wisemonie app home dashboard"
-            className="phone-hero-image"
-          />
+        <div className="phone-stage phone-stage--image phone-stage--ui phone-stage--hero">
+          <AppScreen />
         </div>
       </TiltCard>
     </div>
@@ -197,12 +194,8 @@ export default function HomePage() {
         </Reveal>
 
         <Reveal as="div" variant="right" className="showcase-visual">
-          <div className="phone-stage phone-stage--image phone-stage--secondary">
-            <img
-              src="/images/wisemonie2.jpeg"
-              alt="wisemonie app budgets screen"
-              className="phone-hero-image"
-            />
+          <div className="phone-stage phone-stage--image phone-stage--ui phone-stage--secondary">
+            <AppScreen />
           </div>
           <BudgetMotion />
         </Reveal>
