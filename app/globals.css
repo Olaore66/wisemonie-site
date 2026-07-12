@@ -468,7 +468,7 @@ img {
 }
 
 .phone-stage--hero {
-  width: min(100%, 330px);
+  width: min(330px, 42vw);
   animation: phoneIntro 780ms 140ms cubic-bezier(0.16, 1, 0.3, 1) both, phoneFloat 4.6s 950ms ease-in-out infinite;
 }
 
@@ -2985,11 +2985,14 @@ textarea::placeholder {
     width: min(76vw, 320px);
   }
 
-  .app-screen-card__media,
-  .phone-stage--hero,
-  .phone-stage--secondary {
+  .app-screen-card__media {
     width: 100%;
     max-width: 100%;
+  }
+
+  .phone-stage--hero,
+  .phone-stage--secondary {
+    width: min(76vw, 300px);
   }
 
   .app-screen-card__media {
