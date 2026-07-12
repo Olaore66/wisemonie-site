@@ -96,7 +96,7 @@ export default function HomePage() {
               Private beta opening soon{" "}
               <span className="eyebrow__secondary">&middot; Built on regulated Nigerian rails</span>
             </Badge>
-            <h1>Budget on Wisemonie and spend directly from the budget.</h1>
+            <h1>Budget & spend directly from the budget.</h1>
             <p className="hero-subhead">
               Wisemonie splits one salary into the rhythms of your actual week.
             </p>

@@ -1,7 +1,10 @@
 import Badge from "@/components/Badge";
-import Reveal from "@/components/Reveal";
 import SectionIllustration from "@/components/SectionIllustration";
 
+// Legal / account pages render their content statically (no scroll-reveal).
+// These pages are content-heavy and often taller than the viewport, so a
+// `whileInView` fade-in can never trigger on the tall content block — the
+// legal copy must always be visible, so it is never wrapped in an animation.
 export default function LegalPage({
   eyebrow,
   icon,
@@ -21,15 +24,15 @@ export default function LegalPage({
 
   return (
     <main className="page-shell">
-      <Reveal as="section" className="page-hero">
+      <section className="page-hero">
         <SectionIllustration side="right" />
         <Badge icon={icon}>{eyebrow}</Badge>
         <h1>{title}</h1>
         {metaLine ? <p className="page-hero__meta">{metaLine}</p> : null}
         {intro ? <p>{intro}</p> : null}
-      </Reveal>
+      </section>
 
-      <Reveal as="article" className="content-card legal-card">
+      <article className="content-card legal-card">
         {html ? (
           <div className="legal-html" dangerouslySetInnerHTML={{ __html: html }} />
         ) : (
@@ -57,7 +60,7 @@ export default function LegalPage({
             </section>
           ))
         )}
-      </Reveal>
+      </article>
     </main>
   );
 }
