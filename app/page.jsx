@@ -79,8 +79,13 @@ function ProductPreview() {
       <HeroNotification />
 
       <TiltCard className="phone-tilt-wrap">
-        <div className="phone-stage phone-stage--image phone-stage--ui phone-stage--hero">
-          <AppScreen />
+        <div className="phone-stage phone-stage--image phone-stage--hero">
+          <img
+            src="/images/dashboard.png"
+            alt="Wisemonie app home screen: a ₦30,824 balance with budgets and envelopes"
+            className="phone-hero-image"
+            fetchPriority="high"
+          />
         </div>
       </TiltCard>
     </div>
@@ -312,7 +317,7 @@ export default function HomePage() {
           <h2>Join the early-access list.</h2>
           <p>
             We are opening private beta in phases. Drop your email and be among the first to test
-            Wisemonie and stop the loan-app cycle for good.
+            Wisemonie and live freely.
           </p>
           <WaitlistForm />
           <p className="private-beta-note">Coming to Android and iOS.</p>

@@ -69,7 +69,7 @@ export const targetPersona = {
   intro:
     "Wisemonie is designed for Nigerian income earners making ₦200K–₦700K per month, who:",
   points: [
-    "Already use 3–4 money apps (bank + OPay/PalmPay + savings app + maybe a loan app)",
+    "Already use 3–4 money apps (bank + fintech app + savings app + maybe a loan app)",
     "Try to budget but watch the plan fall apart by week 3",
     "Send something home to family every month",
     "Tithe and give offerings",
