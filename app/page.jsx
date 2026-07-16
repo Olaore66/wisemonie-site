@@ -54,12 +54,12 @@ const solutionCards = [
   {
     icon: "utensils",
     title: "Monday lunch shows up on Monday.",
-    text: "₦3,000 in “Work lunch,” released Mon/Wed/Fri at 11am. Tue and Thu it stays shut — so you bring food from home without thinking about it."
+    text: "₦3,000 in “Work lunch,” released Mon/Wed/Fri at 11am. Tue and Thu it stays shut — so you pack lunch without thinking."
   },
   {
     icon: "gift",
     title: "Sunday offering is sacred again.",
-    text: "₦2,000 in “Offering,” locked until Sunday 8am. When the basket comes, you give without doing maths — it was set aside on the 25th."
+    text: "₦2,000 in “Offering,” locked until Sunday 8am. When the basket comes, you give without doing maths."
   },
   {
     icon: "volunteer_activism",
@@ -69,7 +69,7 @@ const solutionCards = [
   {
     icon: "favorite",
     title: "Friday night money is Friday night money.",
-    text: "₦15,000 in “Chillout,” released Friday 6pm. Go out, see friends — without dipping into rent or starting Monday behind."
+    text: "₦15,000 in “Chillout,” released Friday 6pm. Go out without dipping into rent or starting Monday behind."
   }
 ];
 
@@ -110,11 +110,11 @@ export default function HomePage() {
               Wisemonie splits one salary into the rhythms of your actual week.
             </p>
             <p className="hero-lede">
-              <span className="hero-highlight">Wisemonie turns your budget into the account you spend from. Your income splits into envelopes — transport, food, offering, family — each one releasing money on the schedule you set, so you spend directly from your plan instead of around it.</span>.
+              <span className="hero-highlight">Your income splits into envelopes — transport, food, offering, family — each releasing on the day you set. You spend from your plan, not around it.</span>
             </p>
             <div className="hero-actions">
               <MotionButton as="a" href="#download" className="button button--primary">
-                Take back your week
+                Join the waitlist &rarr;
               </MotionButton>
               <MotionButton as="a" href="/how-it-works" className="button button--secondary">
                 See how Wisemonie runs your week &rarr;
@@ -161,8 +161,8 @@ export default function HomePage() {
           <Badge icon="psychology_alt">THE PROBLEM</Badge>
           <h2>One account. Ten commitments. No structure.</h2>
           <p>
-            Ten commitments, one balance that won&apos;t tell you which money belongs to what. The
-            result isn&apos;t failure — it&apos;s exhaustion.
+            One balance that won&apos;t tell you which money belongs to what. The result isn&apos;t
+            failure — it&apos;s exhaustion.
           </p>
         </Reveal>
 
@@ -193,8 +193,8 @@ export default function HomePage() {
           <Badge icon="tune">THE SOLUTION</Badge>
           <h2>Give every day of your week its own money.</h2>
           <p>
-            One salary, split into envelopes that match your real week — each releasing on the right
-            day, automatically. You stop deciding; the week decides for you.
+            One salary, split into envelopes that match your week — each releasing on the right day.
+            You stop deciding; the week decides for you.
           </p>
           <RevealGroup as="div" className="solution-list">
             {solutionCards.map(({ icon, title, text }) => (
@@ -223,8 +223,8 @@ export default function HomePage() {
           <Badge icon="apps">FEATURES</Badge>
           <h2>The mechanics that make your week run itself.</h2>
           <p>
-            Every feature exists to put the right money on the right day, automatically, so you
-            stop carrying the week in your head.
+            Every feature puts the right money on the right day — so you stop carrying the week in
+            your head.
           </p>
         </Reveal>
 
@@ -295,8 +295,8 @@ export default function HomePage() {
           <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
           <h2>Your money lives with a regulated bank. Wisemonie just runs the week.</h2>
           <p>
-            wisemonie is designed to work with regulated wallet and payment infrastructure while
-            wisemonie provides the money-structure and spending-control layer.
+            Your money sits on regulated banking infrastructure. Wisemonie adds the structure and
+            timing on top.
           </p>
         </Reveal>
         <RevealGroup as="div" className="trust-grid">
@@ -316,8 +316,7 @@ export default function HomePage() {
           <Badge icon="bolt">PRIVATE BETA</Badge>
           <h2>Join the early-access list.</h2>
           <p>
-            We are opening private beta in phases. Drop your email and be among the first to test
-            Wisemonie and live freely.
+            Private beta is opening in phases. Drop your email to be among the first in.
           </p>
           <WaitlistForm />
           <p className="private-beta-note">Coming to Android and iOS.</p>
@@ -351,8 +350,7 @@ export default function HomePage() {
         <Reveal as="div" className="final-cta-card">
           <h2>Give your money structure before the pressure starts.</h2>
           <p>
-            Join the Wisemonie early-access list and be among the first to stop the loan-app cycle
-            for good.
+            Join the early-access list and be first in when beta opens.
           </p>
           <MotionButton as="a" href="#download" className="button button--primary">
             Get Early Access
