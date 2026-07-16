@@ -42,7 +42,7 @@ export default function HowItWorksPage() {
 
       <Reveal as="section" className="viz-section viz-section--wide">
         <h2>Then your week runs itself</h2>
-        <p>Once the rhythm is set, every envelope opens at its time — no maths, no reminders.</p>
+        <p>Once the rhythm is set, every envelope opens at its time. No maths, no reminders.</p>
         <WeekReleaseTimeline />
       </Reveal>
     </main>

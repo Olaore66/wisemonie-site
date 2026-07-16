@@ -14,7 +14,7 @@ export default function SalaryAllocation() {
   return (
     <figure
       className="allocation"
-      aria-label="Of a ₦200,000 salary, ₦140,000 is already committed to rent, tithe, family and debt — leaving ₦60,000 to actually live on."
+      aria-label="Of a ₦200,000 salary, ₦140,000 is already committed to rent, tithe, family and debt, leaving ₦60,000 to actually live on."
     >
       <figcaption className="allocation__caption">
         What <strong>₦200,000</strong> really looks like

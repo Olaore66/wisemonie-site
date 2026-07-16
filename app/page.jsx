@@ -31,22 +31,22 @@ const problemCards = [
   {
     icon: "query_stats",
     title: "Monday morning.",
-    text: "₦200K in the app. You feel rich — until you remember ₦140K is already rent, tithe, mum and debt. This week is really ₦60K."
+    text: "₦200K in the app. You feel rich, until you remember ₦140K is already rent, tithe, mum and debt. This week is really ₦60K."
   },
   {
     icon: "schedule",
     title: "Wednesday service.",
-    text: "Church in two hours, and you're doing maths in your head for offering — money you meant to set aside on the 25th."
+    text: "Church in two hours, and you're doing maths in your head for offering you meant to set aside on payday."
   },
   {
     icon: "volunteer_activism",
     title: "Saturday call to mum.",
-    text: "You meant to send ₦5K every Saturday. Third one skipped — not because you don't have it, but because you're not sure you do."
+    text: "You meant to send ₦5K every Saturday. Third one skipped, not because you don't have it, but because you're not sure you do."
   },
   {
     icon: "favorite",
     title: "Friday night.",
-    text: "“Let's just stay in,” you tell your partner — because you can't tell if there's money for a date. So you skip it. Again."
+    text: "“Let's just stay in,” you tell your partner, because you can't tell if there's money for a date. So you skip it. Again."
   }
 ];
 
@@ -54,7 +54,7 @@ const solutionCards = [
   {
     icon: "utensils",
     title: "Monday lunch shows up on Monday.",
-    text: "₦3,000 in “Work lunch,” released Mon/Wed/Fri at 11am. Tue and Thu it stays shut — so you pack lunch without thinking."
+    text: "₦3,000 in “Work lunch,” released Mon/Wed/Fri at 11am. Tue and Thu it stays shut, so you pack lunch without thinking."
   },
   {
     icon: "gift",
@@ -110,11 +110,11 @@ export default function HomePage() {
               Wisemonie splits one salary into the rhythms of your actual week.
             </p>
             <p className="hero-lede">
-              <span className="hero-highlight">Your income splits into envelopes — transport, food, offering, family — each releasing on the day you set. You spend from your plan, not around it.</span>
+              <span className="hero-highlight">Your income splits into envelopes for transport, food, offering and family, each releasing on the day you set. You spend from your plan, not around it.</span>
             </p>
             <div className="hero-actions">
               <MotionButton as="a" href="#download" className="button button--primary">
-                Join the waitlist &rarr;
+                Join the waitlist
               </MotionButton>
               <MotionButton as="a" href="/how-it-works" className="button button--secondary">
                 See how Wisemonie runs your week &rarr;
@@ -138,7 +138,7 @@ export default function HomePage() {
         </Reveal>
         <div className="why-statement">
           <Reveal as="p" variant="up">
-            <strong>Salary lands on the 25th.</strong> In 30 minutes your brain has it all planned —
+            <strong>Salary lands on the 25th.</strong> In 30 minutes your brain has it all planned:
             rent, tithe, &#8358;25K to mum, transport, a little for the weekend.
           </Reveal>
           <Reveal as="p" variant="up">
@@ -162,7 +162,7 @@ export default function HomePage() {
           <h2>One account. Ten commitments. No structure.</h2>
           <p>
             One balance that won&apos;t tell you which money belongs to what. The result isn&apos;t
-            failure — it&apos;s exhaustion.
+            failure. It&apos;s exhaustion.
           </p>
         </Reveal>
 
@@ -193,7 +193,7 @@ export default function HomePage() {
           <Badge icon="tune">THE SOLUTION</Badge>
           <h2>Give every day of your week its own money.</h2>
           <p>
-            One salary, split into envelopes that match your week — each releasing on the right day.
+            One salary, split into envelopes that match your week, each releasing on the right day.
             You stop deciding; the week decides for you.
           </p>
           <RevealGroup as="div" className="solution-list">
@@ -223,7 +223,7 @@ export default function HomePage() {
           <Badge icon="apps">FEATURES</Badge>
           <h2>The mechanics that make your week run itself.</h2>
           <p>
-            Every feature puts the right money on the right day — so you stop carrying the week in
+            Every feature puts the right money on the right day, so you stop carrying the week in
             your head.
           </p>
         </Reveal>

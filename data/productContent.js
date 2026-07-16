@@ -2,12 +2,12 @@ export const moneyFeatures = [
   {
     icon: "account_balance_wallet",
     title: "Smart Money Envelopes",
-    text: "One envelope per real commitment — Monday lunch, tithe, mum, rent, Friday date. Each holds real money, separated from the rest."
+    text: "One envelope per real commitment: Monday lunch, tithe, mum, rent, Friday date. Each holds real money, kept separate."
   },
   {
     icon: "schedule",
     title: "Scheduled Releases",
-    text: "Set the day and time each envelope opens: transport 7am weekdays, offering 8am Sunday, parents 9am Saturday. Your week runs on a clock."
+    text: "Each envelope opens on a set day and time: transport 7am weekdays, offering 8am Sunday, parents 9am Saturday. Your week runs on a clock."
   },
   {
     icon: "verified",
@@ -17,27 +17,27 @@ export const moneyFeatures = [
   {
     icon: "rule",
     title: "Spending Rules",
-    text: "Lock high-stakes envelopes like rent and tithe so you can't raid them; let soft ones release on schedule. You set the strictness per envelope."
+    text: "Lock high-stakes envelopes like rent and tithe so you can't raid them; let soft ones release on schedule. You set the strictness."
   },
   {
     icon: "receipt_long",
     title: "Bill and Airtime Flows",
-    text: "Pay data, electricity, DStv and airtime straight from the envelope that owns each bill — so bill money never comes out of lunch money."
+    text: "Pay data, electricity, DStv and airtime from the envelope that owns each bill. Bill money never comes from lunch money."
   },
   {
     icon: "query_stats",
     title: "Real-Time Position",
-    text: "See what's available in every envelope right now — what's released, what's locked, what's coming. Not one confusing balance."
+    text: "See what's in every envelope right now: released, locked, or coming. Not one confusing balance."
   },
   {
     icon: "history",
     title: "Spending History by Purpose",
-    text: "See where the money went by life category — not \"47 transactions in May\" but \"Lunch ₦18K, Tithe ₦8K, Mum ₦20K, Date ₦12K.\" Receipts that match your life."
+    text: "See where money went by life category. Not \"47 transactions in May\" but \"Lunch ₦18K, Tithe ₦8K, Mum ₦20K, Date ₦12K.\" Receipts that match your life."
   },
   {
     icon: "smart_toy",
     title: "AI Money Assistant",
-    text: "Tell it about an unusual week — wedding, visiting parent, school fees — and it suggests how to adjust your envelopes without breaking the rest."
+    text: "Tell it about an unusual week, like a wedding or school fees, and it adjusts your envelopes without breaking the rest."
   }
 ];
 
@@ -45,12 +45,12 @@ export const flowSteps = [
   {
     icon: "account_balance_wallet",
     title: "Fund your wallet.",
-    text: "Move your income in on payday. It's held by our licensed banking partner on regulated Nigerian rails — not by us."
+    text: "Move your income in on payday. It's held by our licensed banking partner on regulated Nigerian rails, not by us."
   },
   {
     icon: "calendar_days",
     title: "Build your week.",
-    text: "Walk through your normal week — Monday lunch, Wednesday offering, Friday date, Saturday mum, Sunday tithe, daily transport, rent saving. Each becomes its own envelope."
+    text: "Walk through your normal week: Monday lunch, Wednesday offering, Friday date, Saturday mum, Sunday tithe, transport, rent. Each becomes its own envelope."
   },
   {
     icon: "schedule",
@@ -60,16 +60,16 @@ export const flowSteps = [
   {
     icon: "shopping_cart_checkout",
     title: "Live the week.",
-    text: "Spend straight from the envelope of the moment — lunch from lunch, tithe from tithe, mum's money from Parents. When today's envelope is empty, it's empty. Tomorrow's opens on its own."
+    text: "Spend straight from the envelope of the moment: lunch from lunch, tithe from tithe, mum's money from Parents. When today's is empty, it's empty. Tomorrow's opens on its own."
   }
 ];
 
 export const targetPersona = {
   heading: "Built for one person first",
   intro:
-    "Wisemonie is designed for Nigerian income earners making ₦200K–₦700K per month, who:",
+    "Wisemonie is designed for Nigerian income earners making ₦200K to ₦700K per month, who:",
   points: [
-    "Already use 3–4 money apps (bank + fintech app + savings app + maybe a loan app)",
+    "Already use 3 to 4 money apps (bank, fintech app, savings app, maybe a loan app)",
     "Try to budget but watch the plan fall apart by week 3",
     "Send something home to family every month",
     "Tithe and give offerings",
@@ -77,18 +77,18 @@ export const targetPersona = {
   ],
   closing: "If that sounds like you, you're who we built this for.",
   note:
-    "Students, freelancers and families are welcome on the waitlist too. We built for this one person first — winning one user well beats winning everyone weakly."
+    "Students, freelancers and families are welcome on the waitlist too. We built for this one person first: winning one user well beats winning everyone weakly."
 };
 
 export const homeAudience = {
   heading: "Built for anyone running a real week on a finite income.",
   intro:
-    "If you've ever opened a second account to hide money from yourself, you get it. You're not undisciplined — you're running too many commitments through infrastructure that can't separate them.",
+    "If you've ever opened a second account to hide money from yourself, you get it. You're not undisciplined. You're running too many commitments through infrastructure that can't separate them.",
   personas: [
     {
       icon: "business",
       title: "Salary earners",
-      text: "Rent, tithe, family, food, transport, a partner — every month, with no built-in separation."
+      text: "Rent, tithe, family, food, transport, a partner. Every month, with no built-in separation."
     },
     {
       icon: "graduation_cap",
@@ -98,7 +98,7 @@ export const homeAudience = {
     {
       icon: "laptop",
       title: "Freelancers",
-      text: "Lumpy income — one project payment that has to last three months across tax, savings, family and daily life."
+      text: "Lumpy income: one project payment that must last three months across tax, savings, family and daily life."
     },
     {
       icon: "store",
@@ -108,7 +108,7 @@ export const homeAudience = {
     {
       icon: "favorite",
       title: "Couples",
-      text: "Shared rent and school fees, separate tithes and family obligations — two incomes, zero shared visibility."
+      text: "Shared rent and school fees, separate tithes and family obligations. Two incomes, zero shared visibility."
     }
   ],
   closing: "Wisemonie was built for one core insight: your life has rhythms. Your money should follow them."
@@ -118,12 +118,12 @@ export const trustCards = [
   {
     icon: "account_balance",
     title: "Regulated infrastructure",
-    text: "Your funds sit with our licensed partner, Rubies Microfinance Bank, under CBN regulation. We don't hold your money — we hold the rules and timing: when each envelope opens, what's protected, what's available today."
+    text: "Your funds sit with our licensed partner, Rubies Microfinance Bank, under CBN regulation. We don't hold your money. We hold the rules and timing: when each envelope opens, what's protected, what's available today."
   },
   {
     icon: "toggle_on",
     title: "User-controlled rules",
-    text: "Every lock, limit and release is something you turn on, not something we impose — and you can change it when life changes."
+    text: "Every lock, limit and release is something you turn on, not something we impose. You can change it when life changes."
   },
   {
     icon: "receipt",

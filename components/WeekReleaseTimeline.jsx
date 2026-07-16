@@ -61,7 +61,7 @@ export default function WeekReleaseTimeline() {
     >
       <figcaption className="release-timeline__caption">
         <Icon name="schedule" />
-        Set it once — your week on a clock
+        Set it once. Your week on a clock
       </figcaption>
 
       <div className="release-week">

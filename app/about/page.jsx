@@ -38,7 +38,7 @@ export default function AboutPage() {
           <h2>Why we built it</h2>
           <p>
             Wisemonie is a personal finance platform built for everyday income earners. This site is
-            informational — it shares details about the product and its features.
+            informational. It shares details about the product and its features.
           </p>
           <p>
             Registration, budgeting and transactions all happen inside the wisemonie mobile app.

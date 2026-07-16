@@ -45,7 +45,7 @@ export default function EssentialFirstFlow() {
         <span className="ef-flow__stage-label">2 · The rest is yours</span>
         <div className="ef-pill ef-pill--flex">
           <Icon name="favorite" />
-          <span className="ef-pill__label">Flex money — spend without guilt</span>
+          <span className="ef-pill__label">Flex money, spend without guilt</span>
         </div>
       </div>
 
