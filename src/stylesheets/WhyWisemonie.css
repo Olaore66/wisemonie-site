@@ -1,0 +1,45 @@
+#why-wisemonie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.WhyWisemonieTimeline {
+  display: flex;
+  gap: 2rem;
+}
+
+.WhyWisemonieCard {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: white;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: .5rem;
+}
+
+.WhyWisemonieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.WhyWisemonieCardIllustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: .5px;
+  color: #005F5A;
+  background: #E6F4EF;
+}
+/* #E1F2A1 */
+.WhyWisemonieCardTitle {
+  font-size: 25px;
+}

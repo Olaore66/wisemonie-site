@@ -1,0 +1,108 @@
+#HeroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 10rem 1rem 7rem;
+}
+
+.HeroSectionImage {
+  animation: HeroSectionImageAnimation 1.5s forwards;
+  animation-delay: 0.05s;
+  will-change: transform, opacity;
+}
+
+.HeroSectionImage img {
+  opacity: 1;
+  width: 260px;
+  object-fit: cover;
+  border-radius: 30px;
+  border: 6px solid black;
+  animation: Bounce 3.5s ease infinite alternate;
+  transition: 0.3s ease;
+}
+
+.HeroSectionImage img:hover {
+  animation-play-state: paused;
+  transform: translateY(0);
+}
+
+@keyframes HeroSectionImageAnimation {
+  from {
+    opacity: 0;
+    transform: perspective(1700px) rotateY(-10deg) rotateX(6deg)
+      translateX(120px) translateY(-40px) rotate(25deg) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: perspective(500px) rotateY(-7deg) rotateX(0deg) translateX(0)
+      translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+.HeroSectionText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 50%;
+}
+
+.PrivateBetaOpeningSoon {
+  text-transform: uppercase;
+}
+
+.HeroSectionHeads {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.HeroSectionHead,
+.HeroSectionSubHead {
+  color: white;
+  line-height: -5px;
+}
+
+.HeroSectionHead {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.HeroSectionSubHead {
+  font-size: 19px;
+  font-weight: 300;
+}
+
+.HeroSectionCTAs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+}
+
+.HeroSectionCTAs .Btn {
+  padding: 1rem 1.3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.TakeBackYourWeekBtn {
+  background: linear-gradient(135deg, #B6F34D 0%, #18B27D 100%);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.SeeHowItWorksBtn {
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: #ffffff;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

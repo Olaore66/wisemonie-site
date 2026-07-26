@@ -1,0 +1,38 @@
+#download {
+  width: 750px;
+  padding: 2.2rem 2rem;
+  margin-top: 70px;
+  gap: 10px;
+  border-radius: 15px;
+  background: #ffffffc7;
+  border: 1px solid #dce9e1eb;
+  box-shadow: 0 22px 60px #10211f14;
+}
+
+.DownloadHeads {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.DownloadHead {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1.3px;
+  line-height: 1.1;
+}
+
+.DownloadSubHead {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+#download .DownloadBtn {
+  padding: 1rem 4rem;
+}

@@ -1,122 +1,98 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./stylesheets/App.css";
+import "./stylesheets/Navbar.css";
+import "./stylesheets/HeroSection.css";
+import "./stylesheets/Problem.css";
+import "./stylesheets/WhyWisemonie.css";
+import "./stylesheets/Features.css";
+import "./stylesheets/FundedWeek.css";
+import "./stylesheets/HowItWorks.css";
+import "./stylesheets/FAQ.css";
+import "./stylesheets/Download.css";
+import "./stylesheets/Footer.css";
+import "./stylesheets/About.css";
+import "./stylesheets/Responsiveness.css";
+import "./stylesheets/PagesResponsiveness.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Routes, Route, useMatch } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+// import Problem from "./components/Problem";
+// import WhyWisemonie from "./components/WhyWisemonie";
+import Features from "./components/Features";
+import FundedWeek from "./components/FundedWeek";
+import HowItWorks from "./components/HowItWorks";
+import FAQ from "./components/FAQ";
+import Download from "./components/Download";
+import Footer from "./components/Footer";
+
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+
+import { ChevronUpIcon } from "lucide-react";
+
+function AppContent() {
+  // Renamed to avoid shadowing the imported components
+  const isHome = useMatch("/");
+  const isAboutPage = useMatch("/about");
+  const isContactPage = useMatch("/contact");
+  const isTermsPage = useMatch("/terms-of-service");
+  const isPrivacyPage = useMatch("/privacy");
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <a href="#header" className="goToTop">
+        <ChevronUpIcon />
+      </a>
 
-      <div className="ticks"></div>
+      <header id="header" className={isHome ? "homeHeader" : ""}>
+        <Navbar />
+        {isHome && <HeroSection />}
+      </header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <main
+        id="Main"
+        className={`
+          ${isAboutPage ? "aboutPage" : ""} 
+          ${isContactPage ? "contactPage" : ""}
+          ${isTermsPage ? "termsPage" : ""}
+          ${isPrivacyPage ? "privacyPage" : ""}
+        `}
+      >
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Features />
+                <FundedWeek />
+                <HowItWorks />
+                <FAQ />
+                <Download />
+              </>
+            }
+          />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+        </Routes>
+      </main>
+
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+export default App;

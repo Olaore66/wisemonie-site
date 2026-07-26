@@ -1,0 +1,170 @@
+#funded-week {
+  /* background: linear-gradient(90deg, #eef7f1, #cbe84c24); */
+  /* background: #02a399; */
+  position: relative;
+  background: #d6fdf43e;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 3rem 4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.FundedWeekTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.FundedWeekHeads {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.FundedWeekHead {
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid #0e6759;
+  border-radius: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgb(72, 122, 72);
+  margin-bottom: 4px;
+  /* color: white; */
+}
+
+.FundedWeekSubHead {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.FundedWeekDescHead {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.FundedWeekFlowCards {
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  /* bottom: 340px;
+  right: 150px; */
+}
+
+.FundedWeekFlowCard {
+  width: 175px;
+  padding: 12px 10px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.FundedWeekFlowLabel {
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+}
+
+.FundedWeekFlowAmount {
+  font-size: 24px;
+  color: #005f5a;
+  font-weight: 600;
+  text-align: center;
+}
+
+.FundedWeekCards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 15px; */
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.FundedWeekCard {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 220px;
+  width: 175px;
+  padding: 12px 10px;
+  /* background: #0e6759; */
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.011), transparent 10%), #176d5e;
+  color: white;
+  box-shadow: 0px 0px 10px #00000015;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.FundedWeekCard:hover {
+  transform: scale(1.0125);
+}
+
+.FundedWeekCardDay {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.FundedWeekCardEvent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.FundedWeekCardTime {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.FundedWeekCardDetails {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+.FundedWeekCardLabel,
+.FundedWeekCardAmount {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.FundedWeekCardAmount {
+  margin-left: auto;
+}
+
+.FundedWeekAccounted {
+  /* color: white; */
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.FundedWeekCardIcon {
+  display: inline-flex;
+  font-size: 12px;
+  margin-right: 4px;
+  color: #ffffff;
+  opacity: 0.8;
+  flex-shrink: 0;
+}

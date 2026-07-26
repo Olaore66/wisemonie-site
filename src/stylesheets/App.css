@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background: #f8faf8;
+}
+
+body.NoScroll {
+  overflow-y: scroll;
+  position: fixed;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans";
+  text-decoration: none;
+}
+
+:root {
+  --primary-btn-bg: linear-gradient(135deg, #cbe84c, #23c97d 55%, #005f5a);
+  --primary-text-color: #071817;
+  --secondary-text-color: #005f5a;
+  --white-transparent-bg: #ffffff01;
+  --border: #dce9e1;
+}
+
+@keyframes Bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.Btn {
+  display: inline-block;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition:.3s ease;
+}
+
+.Btn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .18);
+}
+
+.Btn:active {
+  transform: translateY(0) scale(.98);
+  transition-duration: .12s;
+}
+
+.goToTop {
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 92%;
+  right: 2.5%;
+  border-radius: 25px;
+  border: 1px solid #07181736;
+  padding: 6px;
+  background: #fff;
+  color: #071817;
+  transition: all .4s ease;
+}
+
+.goToTop:hover {
+  background: #005f5a;
+  color: #fff;
+  border-color: #005f5a;
+}
+
+#header {
+  background: transparent;
+  min-height: auto;
+  padding: 0;
+}
+
+#header.homeHeader {
+  background: #0f322d;
+  min-height: 100vh;
+}
+
+#Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  padding: 5rem 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5rem;
+}
+
+.SectionHeads {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.SectionHead {
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+.SectionSubHead {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1;
+  color: #0f172a;
+}

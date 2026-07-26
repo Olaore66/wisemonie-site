@@ -1,0 +1,103 @@
+#Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 100px;
+  background: rgb(15, 50, 45);
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: LogoAnimation 0.5s forwards;
+}
+
+.Logo img {
+  width: 160px;
+}
+
+@keyframes LogoAnimation {
+  from {
+    transform: translateX(-400px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.NavLinksCon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.NavLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.NavLink {
+  font-size: 16px;
+  color: #e5e7eb;
+  transition:
+    color,
+    background 0.3s ease;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.NavLink:hover {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+.DownloadBtn {
+  animation: GetEarlyAccessBtnAnimation 0.5s linear;
+  animation-delay: 0.05s;
+  color: white;
+  background: var(--primary-btn-bg);
+}
+
+@keyframes GetEarlyAccessBtnAnimation {
+  from {
+    transform: translateX(400px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.Hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.Hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #00ff9c;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.Hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.Hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.Hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}

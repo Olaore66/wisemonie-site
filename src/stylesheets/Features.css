@@ -1,0 +1,128 @@
+#features {
+  padding: 3rem 0;
+}
+
+.FeaturesCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  column-gap: 2rem;
+  row-gap: 1.25rem;
+}
+
+.FeaturesCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  height: 200px;
+  cursor: pointer;
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  animation-fill-mode: both;
+  animation-timeline: view();
+}
+
+.FeaturesCard:nth-child(1),
+.FeaturesCard:nth-child(2),
+.FeaturesCard:nth-child(3) {
+  animation-name: FeaturesCardOne;
+}
+
+.FeaturesCard:nth-child(1) {
+  animation-range: entry 10% cover 40%;
+}
+
+.FeaturesCard:nth-child(2) {
+  animation-range: entry 30% cover 35%;
+}
+
+.FeaturesCard:nth-child(3) {
+  animation-range: entry 50% cover 30%;
+}
+
+.FeaturesCard:nth-child(4),
+.FeaturesCard:nth-child(5),
+.FeaturesCard:nth-child(6) {
+  animation-name: FeaturesCardTwo;
+}
+.FeaturesCard:nth-child(4) {
+  animation-range: entry 10% cover 10%;
+}
+.FeaturesCard:nth-child(5) {
+  animation-range: entry 15% cover 15%;
+}
+.FeaturesCard:nth-child(6) {
+  animation-range: entry 20% cover 20%;
+}
+
+/* .FeaturesCard:nth-child(7),
+.FeaturesCard:nth-child(8),
+.FeaturesCard:nth-child(9) {
+  animation-name: FeaturesCardThree;
+}
+.FeaturesCard:nth-child(7) {
+  animation-range: entry 0% cover 30%;
+}
+.FeaturesCard:nth-child(8) {
+  animation-range: entry 15% cover 45%;
+}
+.FeaturesCard:nth-child(9) {
+  animation-range: entry 30% cover 60%;
+} */
+
+@keyframes FeaturesCardOne {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes FeaturesCardTwo {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.FeaturesCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  /* border: 1px solid #22c55e; */
+}
+
+.FeaturesCardIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #eaf3f0;
+  color: #005548;
+  margin-bottom: 10px;
+}
+
+.FeaturesCardTitle {
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.FeaturesCardDescription {
+  font-size: 15px;
+}

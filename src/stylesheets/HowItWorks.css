@@ -1,0 +1,162 @@
+#how-it-works {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4rem 10rem;
+  background: #ffffff;
+}
+
+.HowItWorksPhoneCon {
+  position: sticky;
+  top: 2rem;
+  width: 500px;
+  height: 92vh;
+  padding: 40px;
+  flex-shrink: 0;
+  background: #047857;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PhoneImage {
+  width: 300px;
+  position: absolute;
+  top: 1.5%;
+  left: 20%;
+  transform: scale(0.95);
+  opacity: 0;
+  object-fit: cover;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transform: scale(0.95);
+  border-radius: 28px;
+  padding: 2px;
+  border: 6px solid #b9ffd0;
+}
+
+.PhoneImage.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.HowItWorksContent {
+  position: sticky;
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  scroll-snap-type: mandatory;
+}
+
+.PreviewStep {
+  min-height: 90vh; /* CRITICAL: Creates scroll time */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
+}
+
+.PreviewStep.active {
+  opacity: 1;
+}
+
+.PreviewLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #22c55e;
+  margin-bottom: 0.5rem;
+}
+
+.PreviewTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.PreviewDescription {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 460px;
+  line-height: 1.6;
+}
+
+.HowItWorksMobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  background: #ffffff;
+  gap: 4rem;
+}
+
+.MobileStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0.3;
+  height: 85vh;
+  transition: opacity 0.5s ease;
+}
+
+.MobileStep.active {
+  opacity: 1;
+}
+
+.MobilePhoneFrame {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 2rem;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 8px solid #f1f5f9;
+}
+
+.MobilePhoneImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+
+.MobileTextContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+}
+
+.HowItWorksMobile.PreviewLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #22c55e;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.HowItWorksMobile .PreviewTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.HowItWorksMobile .PreviewDescription {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+}

@@ -1,0 +1,69 @@
+
+
+.AboutContent {
+  width: 60rem;
+}
+
+.AboutCards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  gap: 20px;
+  background: #fff;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.AboutCardTitle {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.AboutCardDescription {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.AboutDisclosure {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 20px;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+.AboutDisclosure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.AboutDisclosureIcon {
+    transition: all 0.2s ease-in;
+}
+
+.AboutDisclosure:hover .AboutDisclosureIcon {
+    transform: rotate(-7deg) scale(1.05);
+}
+
+.AboutDisclosureText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.AboutDisclosureHead {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.AboutDisclosureSubHead {
+  font-weight: 300;
+  font-size: 16px;
+}
