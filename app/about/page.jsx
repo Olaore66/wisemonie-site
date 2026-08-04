@@ -1,7 +1,7 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import Reveal from "@/components/Reveal";
-import MotionButton from "@/components/MotionButton";
+import StoreButtons from "@/components/StoreButtons";
 import SectionIllustration from "@/components/SectionIllustration";
 
 export const metadata = {
@@ -59,10 +59,8 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal as="section" className="cta-card">
-        <h2>Start Budgeting Smarter</h2>
-        <MotionButton as="a" href="/#download" className="button button--primary">
-          Get Early Access
-        </MotionButton>
+        <h2>Start budgeting smarter.</h2>
+        <StoreButtons layout="row" />
       </Reveal>
     </main>
   );

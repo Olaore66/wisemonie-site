@@ -1,10 +1,9 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
-import WaitlistForm from "@/components/WaitlistForm";
+import StoreButtons from "@/components/StoreButtons";
 import HeroNotification from "@/components/HeroNotification";
 import SectionIllustration from "@/components/SectionIllustration";
 import SalaryAllocation from "@/components/SalaryAllocation";
-import AppScreen from "@/components/AppScreen";
 import HeroPerson from "@/components/HeroPerson";
 import TiltCard from "@/components/TiltCard";
 import BudgetMotion from "@/components/BudgetMotion";
@@ -112,12 +111,10 @@ export default function HomePage() {
             <p className="hero-lede">
               <span className="hero-highlight">Your income splits into envelopes for transport, food, offering and family, each releasing on the day you set. You spend from your plan, not around it.</span>
             </p>
-            <div className="hero-actions">
-              <MotionButton as="a" href="#download" className="button button--primary">
-                Join the waitlist
-              </MotionButton>
-              <MotionButton as="a" href="/how-it-works" className="button button--secondary">
-                See how Wisemonie runs your week &rarr;
+            <div className="hero-actions hero-actions--stack">
+              <StoreButtons layout="row" />
+              <MotionButton as="a" href="/how-it-works" className="button button--ghost">
+                See how it works &rarr;
               </MotionButton>
             </div>
           </div>
@@ -210,8 +207,13 @@ export default function HomePage() {
         </Reveal>
 
         <Reveal as="div" variant="right" className="showcase-visual">
-          <div className="phone-stage phone-stage--image phone-stage--ui phone-stage--secondary">
-            <AppScreen />
+          <div className="phone-stage phone-stage--image phone-stage--secondary">
+            <img
+              src="/images/app/enveloperules.png"
+              alt="Wisemonie release rules: pick the days and time each envelope opens (e.g. Mon/Wed/Fri at 7:30am)"
+              className="phone-hero-image"
+              loading="lazy"
+            />
           </div>
           <BudgetMotion />
         </Reveal>
@@ -313,13 +315,12 @@ export default function HomePage() {
       <section id="download" className="section cta-section">
         <SectionIllustration side="left" />
         <Reveal as="div" variant="scale" className="download-card">
-          <Badge icon="bolt">PRIVATE BETA</Badge>
-          <h2>Join the early-access list.</h2>
+          <Badge icon="bolt">AVAILABLE NOW</Badge>
+          <h2>Download Wisemonie.</h2>
           <p>
-            Private beta is opening in phases. Drop your email to be among the first in.
+            Live on Google Play today. Just add your salary and let the week run itself.
           </p>
-          <WaitlistForm />
-          <p className="private-beta-note">Coming to Android and iOS.</p>
+          <StoreButtons layout="row" />
         </Reveal>
       </section>
 
@@ -350,11 +351,9 @@ export default function HomePage() {
         <Reveal as="div" className="final-cta-card">
           <h2>Give your money structure before the pressure starts.</h2>
           <p>
-            Join the early-access list and be first in when beta opens.
+            Wisemonie is live on Google Play. iOS is on the way.
           </p>
-          <MotionButton as="a" href="#download" className="button button--primary">
-            Get Early Access
-          </MotionButton>
+          <StoreButtons layout="row" />
         </Reveal>
       </section>
     </main>

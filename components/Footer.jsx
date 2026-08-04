@@ -23,6 +23,8 @@ const legalLinks = [
 const socialLinks = [
   { href: "https://www.instagram.com/wisemonie_app/", label: "Instagram", icon: "instagram" },
   { href: "https://x.com/wisemonie_app", label: "X", icon: "x" },
+  { href: "https://www.facebook.com/wisemonie_app", label: "Facebook", icon: "facebook" },
+  { href: "https://www.tiktok.com/@wisemonie_app", label: "TikTok", icon: "tiktok" },
   { href: "https://whatsapp.com/channel/0029Vb6kU683bbUy3azQF047", label: "WhatsApp", icon: "whatsapp" }
 ];
 
@@ -36,6 +38,12 @@ function SocialIcon({ name }) {
       </>
     ),
     x: <path d="M4 4l7.2 8.4L4.6 20h2.8l5.1-5.9 5 5.9H20l-7-8.2L19.4 4h-2.8l-4.9 5.6L7 4H4z" />,
+    facebook: (
+      <path d="M13.5 21v-7.5h2.5l.4-3H13.5v-2c0-.9.3-1.5 1.6-1.5H16.6V4.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4v2.4H8v3h2.2V21h3.3z" />
+    ),
+    tiktok: (
+      <path d="M20 8.5a5.7 5.7 0 0 1-3.4-1.1v6.9a5 5 0 1 1-5-5c.3 0 .6 0 .8.1v2.5a2.6 2.6 0 1 0 1.8 2.5V3h2.4a3.4 3.4 0 0 0 3.4 3.1V8.5z" />
+    ),
     whatsapp: (
       <>
         <path d="M5.2 19l1-3A7.8 7.8 0 1 1 9 18.3l-3.8.7z" />

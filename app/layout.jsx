@@ -72,6 +72,8 @@ const organizationSchema = {
   sameAs: [
     "https://www.instagram.com/wisemonie_app/",
     "https://x.com/wisemonie_app",
+    "https://www.facebook.com/wisemonie_app",
+    "https://www.tiktok.com/@wisemonie_app",
     "https://whatsapp.com/channel/0029Vb6kU683bbUy3azQF047"
   ]
 };

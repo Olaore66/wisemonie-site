@@ -53,7 +53,9 @@ export default function Header() {
         </nav>
 
         <MotionLink
-          href="/#download"
+          href="https://play.google.com/store/apps/details?id=com.wisemonie"
+          target="_blank"
+          rel="noopener"
           className="button button--primary header-cta"
           {...(shouldReduceMotion
             ? {}
@@ -63,7 +65,7 @@ export default function Header() {
                 transition: { type: "spring", stiffness: 400, damping: 22 }
               })}
         >
-          Get Early Access
+          Download app
         </MotionLink>
       </div>
     </header>

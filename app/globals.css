@@ -1,19 +1,20 @@
 :root {
-  --ink: #10211f;
-  --ink-strong: #071817;
-  --teal: #005f5a;
-  --teal-soft: #e6f4ef;
-  --mint: #23c97d;
-  --lime: #cbe84c;
+  --ink: #0d3b37;
+  --ink-strong: #06221f;
+  --teal: #02a399;
+  --teal-strong: #016078;
+  --teal-soft: #e0f5f2;
+  --mint: #68e570;
+  --lime: #d9fc62;
   --gold: #c9982a;
   --paper: #f7fbf7;
   --paper-soft: #eef7f1;
   --surface: #ffffff;
   --surface-strong: #fbfffb;
-  --border: #dce9e1;
-  --muted: #61746f;
-  --shadow: rgba(16, 33, 31, 0.12);
-  --shadow-strong: rgba(16, 33, 31, 0.2);
+  --border: #d5e6df;
+  --muted: #5a6f6a;
+  --shadow: rgba(13, 59, 55, 0.12);
+  --shadow-strong: rgba(13, 59, 55, 0.22);
   --radius: 8px;
 }
 
@@ -3373,5 +3374,102 @@ textarea::placeholder {
 
   .phone-hero-image {
     border-radius: 18px;
+  }
+}
+
+/* Store buttons (Google Play + iOS coming-soon), used across every CTA. */
+.store-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.store-buttons--stack {
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 220px;
+}
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--ink-strong);
+  color: #fff;
+  text-decoration: none;
+  min-height: 54px;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  box-shadow: 0 10px 24px rgba(6, 34, 31, 0.18);
+}
+.store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(6, 34, 31, 0.24);
+  background: var(--ink);
+}
+.store-btn--ios {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink-strong);
+  border: 1px solid var(--border);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.store-btn--ios:hover {
+  transform: none;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.06);
+}
+.store-btn__icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+.store-btn--ios .store-btn__icon {
+  color: var(--ink-strong);
+  fill: currentColor;
+}
+.store-btn__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-align: left;
+}
+.store-btn__text small {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.store-btn__text strong {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+}
+.hero-actions--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.button--ghost {
+  background: transparent;
+  color: var(--ink-strong);
+  border: none;
+  padding: 4px 6px;
+  font-weight: 700;
+}
+.button--ghost:hover {
+  color: var(--teal);
+}
+@media (max-width: 520px) {
+  .store-buttons {
+    width: 100%;
+  }
+  .store-btn {
+    flex: 1 1 45%;
+    min-width: 0;
+    justify-content: center;
+    padding: 10px 12px;
   }
 }

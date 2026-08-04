@@ -159,9 +159,9 @@ export const faqItems = [
       "Anyone running a real week on a finite income: salary earners, students, freelancers, business owners, couples managing shared obligations. If your life has multiple recurring commitments (rent, tithe, family, partner, daily essentials) and one or two income streams, wisemonie was built for you."
   },
   {
-    question: "When will the app launch?",
+    question: "Where can I get the app?",
     answer:
-      "Private beta is opening in phases now. Join the early-access list to be invited as we open more spots. Public launch on Android and iOS is coming shortly after."
+      "Wisemonie is live on Google Play now. Search 'Wisemonie' or install it directly at play.google.com/store/apps/details?id=com.wisemonie. iOS is on the way."
   },
   {
     question: "Will there be fees?",
