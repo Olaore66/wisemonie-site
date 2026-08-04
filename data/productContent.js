@@ -77,7 +77,7 @@ export const targetPersona = {
   ],
   closing: "If that sounds like you, you're who we built this for.",
   note:
-    "Students, freelancers and families are welcome on the waitlist too. We built for this one person first: winning one user well beats winning everyone weakly."
+    "Students, freelancers and families are welcome too. We built for this one person first: winning one user well beats winning everyone weakly."
 };
 
 export const homeAudience = {

@@ -101,7 +101,7 @@ export default function HomePage() {
         <div className="hero-grid">
           <div className="hero-copy">
             <Badge icon="volunteer_activism">
-              Private beta opening soon{" "}
+              Live on Google Play{" "}
               <span className="eyebrow__secondary">&middot; Built on regulated Nigerian rails</span>
             </Badge>
             <h1>Budget & spend directly from the budget.</h1>

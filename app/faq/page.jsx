@@ -7,7 +7,7 @@ import { faqItems } from "@/data/productContent";
 export const metadata = {
   title: "FAQ",
   description:
-    "Answers to common questions about wisemonie, private beta access, spending rules, locks, fees, and who the app is for.",
+    "Answers to common questions about wisemonie: how envelopes work, spending rules, locks, fees, and who the app is for.",
   alternates: { canonical: "/faq" }
 };
 
@@ -35,8 +35,7 @@ export default function FaqPage() {
           Questions before <span>joining wisemonie.</span>
         </h1>
         <p>
-          Quick answers about how wisemonie works, what it controls, and what to expect before
-          joining the private beta.
+          Quick answers about how wisemonie works, what it controls, and what to expect.
         </p>
       </Reveal>
 

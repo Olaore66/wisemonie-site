@@ -1722,40 +1722,12 @@ img {
   line-height: 1.7;
 }
 
-.waitlist-form {
-  display: grid;
-  width: min(100%, 640px);
-  margin: 0 auto;
-  gap: 18px;
-  text-align: left;
-}
-
-.waitlist-form label,
 .contact-form label {
   display: grid;
   gap: 7px;
   color: var(--ink-strong);
   font-size: 0.94rem;
   font-weight: 800;
-}
-
-.waitlist-form__optional {
-  color: var(--muted);
-  font-weight: 600;
-  text-transform: none;
-}
-
-.waitlist-form--compact textarea {
-  min-height: 48px;
-  max-height: 220px;
-  overflow: hidden;
-  resize: none;
-  transition: height 160ms ease;
-}
-
-.waitlist-form__submit {
-  display: flex;
-  justify-content: center;
 }
 
 input,
@@ -1827,14 +1799,6 @@ textarea::placeholder {
 
 .form-feedback--error {
   color: #b42318;
-}
-
-.private-beta-note {
-  margin: 4px 0 0 !important;
-  color: var(--teal) !important;
-  font-size: 0.9rem;
-  font-weight: 900;
-  text-transform: uppercase;
 }
 
 .spin {
@@ -3144,7 +3108,6 @@ textarea::placeholder {
   }
 
   .hero-actions .button,
-  .waitlist-form .button,
   .contact-form .button {
     width: 100%;
   }
