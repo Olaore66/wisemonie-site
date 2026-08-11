@@ -3374,13 +3374,19 @@ textarea::placeholder {
   background: rgba(255, 255, 255, 0.06);
   color: var(--ink-strong);
   border: 1px solid var(--border);
-  cursor: not-allowed;
+  cursor: pointer;
   box-shadow: none;
+  font: inherit;
 }
 .store-btn--ios:hover {
-  transform: none;
-  box-shadow: none;
-  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(6, 34, 31, 0.14);
+  background: rgba(2, 163, 153, 0.06);
+  border-color: var(--teal);
+}
+.store-btn--ios:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
 }
 .store-btn__icon {
   width: 28px;
@@ -3435,4 +3441,137 @@ textarea::placeholder {
     justify-content: center;
     padding: 10px 12px;
   }
+}
+
+/* iOS waitlist dialog: opened by the App Store "Notify me" button. */
+.ios-dialog__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(6, 34, 31, 0.55);
+  backdrop-filter: blur(6px);
+  animation: iosDialogFade 180ms ease-out both;
+}
+@keyframes iosDialogFade { from { opacity: 0; } to { opacity: 1; } }
+
+.ios-dialog__card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px 24px 24px;
+  box-shadow: 0 32px 80px rgba(6, 34, 31, 0.35);
+  animation: iosDialogRise 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  color: var(--ink-strong);
+}
+@keyframes iosDialogRise {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ios-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+.ios-dialog__close:hover {
+  color: var(--ink-strong);
+  background: var(--paper-soft);
+  border-color: var(--teal);
+}
+.ios-dialog__close .icon svg { width: 18px; height: 18px; }
+
+.ios-dialog__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(150deg, var(--lime), var(--mint));
+  display: grid;
+  place-items: center;
+  color: var(--ink-strong);
+  margin-bottom: 14px;
+}
+.ios-dialog__icon .icon svg { width: 28px; height: 28px; }
+
+.ios-dialog__title {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+}
+.ios-dialog__sub {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.ios-dialog__form { display: grid; gap: 12px; }
+.ios-dialog__label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--ink-strong);
+  letter-spacing: 0.02em;
+}
+.ios-dialog__form input {
+  height: 48px;
+  border-radius: 12px;
+  padding: 0 16px;
+}
+
+.ios-dialog__submit {
+  height: 50px;
+  border-radius: 12px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.ios-dialog__feedback {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 20px;
+  text-align: center;
+}
+.ios-dialog__feedback--error { color: #b42318; }
+.ios-dialog__feedback--success { color: var(--teal); }
+
+.ios-dialog__success {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 8px 0 4px;
+  text-align: center;
+}
+.ios-dialog__check {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(23, 168, 102, 0.14);
+  color: #0f7a4d;
+  display: grid;
+  place-items: center;
+}
+.ios-dialog__check .icon svg { width: 30px; height: 30px; }
+.ios-dialog__success p { margin: 0; color: var(--ink-strong); font-weight: 600; line-height: 1.5; }
+
+@media (max-width: 480px) {
+  .ios-dialog__card { padding: 24px 20px 20px; }
+  .ios-dialog__title { font-size: 1.2rem; }
 }
