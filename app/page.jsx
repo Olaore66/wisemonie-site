@@ -24,51 +24,51 @@ import {
 import { publicImage } from "@/data/assets";
 
 const HERO_PHOTO_ALT =
-  "A young man checking his phone as Wisemonie releases ₦5,000 from his budget";
+  "A young man checking Wisemonie on his phone — every naira already assigned to a purpose";
 
 const problemCards = [
   {
     icon: "query_stats",
-    title: "Monday morning.",
-    text: "₦200K in the app. You feel rich, until you remember ₦140K is already rent, tithe, mum and debt. This week is really ₦60K."
+    title: "You planned it. Then spent past it.",
+    text: "You had a plan on payday. By week two the plan is in your head and the money is everywhere else."
   },
   {
     icon: "schedule",
-    title: "Wednesday service.",
-    text: "Church in two hours, and you're doing maths in your head for offering you meant to set aside on payday."
+    title: "One balance hides ten commitments.",
+    text: "Your bank shows ₦85K. But ₦40K is rent, ₦15K is tithe, ₦10K is family. The number lies about what's actually available."
   },
   {
     icon: "volunteer_activism",
-    title: "Saturday call to mum.",
-    text: "You meant to send ₦5K every Saturday. Third one skipped, not because you don't have it, but because you're not sure you do."
+    title: "Good intentions with no guardrails.",
+    text: "You meant to set aside ₦5K for mum every week. Nothing stopped you from spending it on something else first."
   },
   {
     icon: "favorite",
-    title: "Friday night.",
-    text: "“Let's just stay in,” you tell your partner, because you can't tell if there's money for a date. So you skip it. Again."
+    title: "Guilt replaces every spending decision.",
+    text: "Can I afford this lunch? Should I go out tonight? Every purchase triggers a mental audit because nothing is pre-decided."
   }
 ];
 
 const solutionCards = [
   {
     icon: "utensils",
-    title: "Monday lunch shows up on Monday.",
-    text: "₦3,000 in “Work lunch,” released Mon/Wed/Fri at 11am. Tue and Thu it stays shut, so you pack lunch without thinking."
+    title: "Every naira has a job before you spend it.",
+    text: "Lunch money is lunch money. It can't accidentally become transport or data. Your plan holds."
   },
   {
     icon: "gift",
-    title: "Sunday offering is sacred again.",
-    text: "₦2,000 in “Offering,” locked until Sunday 8am. When the basket comes, you give without doing maths."
+    title: "Commitments are funded, not remembered.",
+    text: "Tithe, offering, family support — each sits in its own envelope, protected until the moment it's needed."
   },
   {
     icon: "volunteer_activism",
-    title: "Mum gets her ₦5K every Saturday.",
-    text: "Automatic, same time every week. She knows it's coming; so do you. No willpower, no remembering."
+    title: "Spending guilt disappears.",
+    text: "When money is pre-assigned, every purchase is a yes-or-no against your own plan. No mental maths, no second-guessing."
   },
   {
     icon: "favorite",
-    title: "Friday night money is Friday night money.",
-    text: "₦15,000 in “Chillout,” released Friday 6pm. Go out without dipping into rent or starting Monday behind."
+    title: "Your plan survives the whole month.",
+    text: "Not just payday week. Week two, three, four — the structure holds because the money is already separated."
   }
 ];
 
@@ -104,12 +104,12 @@ export default function HomePage() {
               Live on Google Play{" "}
               <span className="eyebrow__secondary">&middot; Built on regulated Nigerian rails</span>
             </Badge>
-            <h1>Budget & spend directly from the budget.</h1>
+            <h1>Your financial plan and your spending, finally aligned.</h1>
             <p className="hero-subhead">
-              Wisemonie splits one salary into the rhythms of your actual week.
+              Wisemonie makes sure the money you planned for rent stays rent, the money for family stays family, and every naira you spend comes from a decision you already made.
             </p>
             <p className="hero-lede">
-              <span className="hero-highlight">Your income splits into envelopes for transport, food, offering and family, each releasing on the day you set. You spend from your plan, not around it.</span>
+              <span className="hero-highlight">Create a plan. Assign money to it. Spend only from what you assigned. No willpower required.</span>
             </p>
             <div className="hero-actions hero-actions--stack">
               <StoreButtons layout="row" />
@@ -131,23 +131,24 @@ export default function HomePage() {
         <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
           <Badge icon="psychology_alt">WHY WISEMONIE</Badge>
-          <h2>Your salary lands once a month. Your life happens every day.</h2>
+          <h2>You already know where your money should go. The problem is keeping it there.</h2>
         </Reveal>
         <div className="why-statement">
           <Reveal as="p" variant="up">
-            <strong>Salary lands on the 25th.</strong> In 30 minutes your brain has it all planned:
-            rent, tithe, &#8358;25K to mum, transport, a little for the weekend.
+            <strong>You have a plan.</strong> Rent, family, tithe, savings, daily expenses — you know
+            exactly how your money should be divided. That part isn&apos;t hard.
           </Reveal>
           <Reveal as="p" variant="up">
-            <strong>By Friday,</strong> you&apos;ve lost track of what&apos;s left. The bank shows one
-            big number; the plan lived in your head. They never match.
+            <strong>But your bank account doesn&apos;t know your plan.</strong> It shows one number.
+            Every spend chips away at everything at once. By mid-month, the plan and reality have
+            diverged.
           </Reveal>
           <Reveal as="p" variant="up">
-            <strong>You don&apos;t have a money problem. You have a week problem.</strong> Nothing in
-            your account knows what day it is. Wisemonie does.
+            <strong>The gap between your plan and your spending is the whole problem.</strong>{" "}
+            Wisemonie closes it.
           </Reveal>
           <Reveal as="p" variant="up" className="why-statement__cta">
-            Wisemonie runs the week.
+            Plan it. Fund it. Spend from it.
           </Reveal>
         </div>
       </section>
@@ -156,10 +157,10 @@ export default function HomePage() {
         <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading section-heading--left">
           <Badge icon="psychology_alt">THE PROBLEM</Badge>
-          <h2>One account. Ten commitments. No structure.</h2>
+          <h2>Your plan exists. Your account ignores it.</h2>
           <p>
-            One balance that won&apos;t tell you which money belongs to what. The result isn&apos;t
-            failure. It&apos;s exhaustion.
+            Ten commitments, one balance, zero separation. You know what each naira is for — your
+            account doesn&apos;t.
           </p>
         </Reveal>
 
@@ -180,18 +181,18 @@ export default function HomePage() {
 
       <section className="section transition-section">
         <Reveal as="div" className="transition-statement">
-          <h2>It all stops the moment your week is structured the way your life is.</h2>
-          <p>Set your week once. Let it run on its own.</p>
+          <h2>What if your spending could only happen inside your plan?</h2>
+          <p>That&apos;s exactly what Wisemonie does.</p>
         </Reveal>
       </section>
 
       <section id="solution" className="section showcase-section solution-section">
         <Reveal as="div" variant="left" className="showcase-copy">
           <Badge icon="tune">THE SOLUTION</Badge>
-          <h2>Give every day of your week its own money.</h2>
+          <h2>Assign money to your plan. Spend only from what you assigned.</h2>
           <p>
-            One salary, split into envelopes that match your week, each releasing on the right day.
-            You stop deciding; the week decides for you.
+            Every commitment gets its own envelope with real money in it. You spend from the
+            envelope, not from a shared pool. Your plan and your spending stay in sync.
           </p>
           <RevealGroup as="div" className="solution-list">
             {solutionCards.map(({ icon, title, text }) => (
@@ -223,10 +224,10 @@ export default function HomePage() {
         <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
           <Badge icon="apps">FEATURES</Badge>
-          <h2>The mechanics that make your week run itself.</h2>
+          <h2>The tools that keep your plan and your spending aligned.</h2>
           <p>
-            Every feature puts the right money on the right day, so you stop carrying the week in
-            your head.
+            Envelopes, release schedules, spending rules, and real-time visibility — each feature
+            closes the gap between intention and action.
           </p>
         </Reveal>
 
@@ -245,7 +246,7 @@ export default function HomePage() {
         <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading">
           <Badge icon="route">HOW IT WORKS</Badge>
-          <h2>Set your week once. Live it every week.</h2>
+          <h2>Set your plan once. Spend from it every day.</h2>
         </Reveal>
         <RevealGroup as="div" className="flow-grid">
           {flowSteps.map((step, index) => (
@@ -295,10 +296,10 @@ export default function HomePage() {
         <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading">
           <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
-          <h2>Your money lives with a regulated bank. Wisemonie just runs the week.</h2>
+          <h2>Your money lives with a regulated bank. Wisemonie adds the plan layer.</h2>
           <p>
-            Your money sits on regulated banking infrastructure. Wisemonie adds the structure and
-            timing on top.
+            Funds sit on regulated banking infrastructure. Wisemonie provides the structure, rules,
+            and timing on top.
           </p>
         </Reveal>
         <RevealGroup as="div" className="trust-grid">
@@ -318,7 +319,7 @@ export default function HomePage() {
           <Badge icon="bolt">AVAILABLE NOW</Badge>
           <h2>Download Wisemonie.</h2>
           <p>
-            Live on Google Play today. Just add your salary and let the week run itself.
+            Live on Google Play today. Make a plan, fund it, and spend from it.
           </p>
           <StoreButtons layout="row" />
         </Reveal>
@@ -341,7 +342,7 @@ export default function HomePage() {
         />
         <Reveal as="div" className="section-heading">
           <Badge icon="help">FAQ</Badge>
-          <h2>Questions people ask before joining.</h2>
+          <h2>Questions people ask before downloading.</h2>
         </Reveal>
         <FaqAccordion items={faqItems} />
       </section>
@@ -349,7 +350,7 @@ export default function HomePage() {
       <section className="section final-cta-section">
         <SectionIllustration side="right" />
         <Reveal as="div" className="final-cta-card">
-          <h2>Give your money structure before the pressure starts.</h2>
+          <h2>Stop spending past your plan. Start spending from it.</h2>
           <p>
             Wisemonie is live on Google Play. iOS is on the way.
           </p>

@@ -8,18 +8,18 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://wisemonie.app"),
   title: {
-    default: "Wisemonie: The layer that runs your week. One salary, every commitment, on time.",
+    default: "Wisemonie: Align your financial plan with your spending.",
     template: "%s | Wisemonie"
   },
   description:
-    "Wisemonie splits one salary into the rhythms of your week. Monday lunch. Wednesday service. Friday date. Saturday parents. Sunday tithe. Every commitment shows up on time. Built on regulated Nigerian banking rails.",
+    "Wisemonie aligns your financial plan with your actual spending. Assign money to commitments, set release rules, and spend only from what you planned. Built on regulated Nigerian banking rails.",
   keywords: [
-    "weekly money planner",
-    "household money management",
+    "personal finance Nigeria",
+    "spending plan app",
     "envelope budgeting Nigeria",
-    "salary planning Nigeria",
+    "money management app",
     "structured spending",
-    "recurring money rhythms",
+    "financial planning Nigeria",
     "Nigerian fintech",
     "regulated wallet"
   ],
@@ -28,9 +28,9 @@ export const metadata = {
     canonical: "/"
   },
   openGraph: {
-    title: "Wisemonie: Live your full week, every week, on one salary.",
+    title: "Wisemonie: Your financial plan and your spending, finally aligned.",
     description:
-      "The first app that knows what day it is. Wisemonie holds your salary in envelopes that release on schedule, so Monday lunch shows up Monday, Sunday tithe shows up Sunday, and you stop doing maths in your head.",
+      "Assign money to commitments, set release rules, and spend only from what you planned. Wisemonie closes the gap between your plan and your spending.",
     url: "https://wisemonie.app",
     siteName: "Wisemonie",
     type: "website",
@@ -45,9 +45,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wisemonie: Live your full week, every week, on one salary.",
+    title: "Wisemonie: Your financial plan and your spending, finally aligned.",
     description:
-      "The first app that knows what day it is. Wisemonie holds your salary in envelopes that release on schedule, so Monday lunch shows up Monday, Sunday tithe shows up Sunday, and you stop doing maths in your head.",
+      "Assign money to commitments, set release rules, and spend only from what you planned. Wisemonie closes the gap between your plan and your spending.",
     images: ["/images/main_logo.png"]
   },
   icons: {

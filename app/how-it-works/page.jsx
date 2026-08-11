@@ -10,7 +10,7 @@ import { flowSteps } from "@/data/productContent";
 export const metadata = {
   title: "How It Works",
   description:
-    "See how wisemonie helps you add income, protect essentials, set spending rules, and spend directly from smart envelopes.",
+    "Add income, create your plan, set rules, and spend from assigned envelopes — see how Wisemonie aligns your finances.",
   alternates: { canonical: "/how-it-works" }
 };
 
@@ -21,11 +21,11 @@ export default function HowItWorksPage() {
         <SectionIllustration side="left" />
         <Badge icon="route">HOW IT WORKS</Badge>
         <h1>
-          A simple flow for <span>controlled spending.</span>
+          Four steps to <span>plan-aligned spending.</span>
         </h1>
         <p>
-          Wisemonie turns your income into a clear plan, so you spend with structure instead of
-          guessing from one balance.
+          Add income, assign it to commitments, set the rules, and spend from the plan — not
+          from one undivided balance.
         </p>
       </Reveal>
 
@@ -41,8 +41,8 @@ export default function HowItWorksPage() {
       </RevealGroup>
 
       <Reveal as="section" className="viz-section viz-section--wide">
-        <h2>Then your week runs itself</h2>
-        <p>Once the rhythm is set, every envelope opens at its time. No maths, no reminders.</p>
+        <h2>Then your plan runs itself</h2>
+        <p>Once set, every envelope opens on schedule. No maths, no reminders, no willpower.</p>
         <WeekReleaseTimeline />
       </Reveal>
     </main>

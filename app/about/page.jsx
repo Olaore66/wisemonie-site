@@ -7,7 +7,7 @@ import SectionIllustration from "@/components/SectionIllustration";
 export const metadata = {
   title: "About",
   description:
-    "Learn about wisemonie's mission to bring clarity to personal finance through envelope-based budgeting.",
+    "Learn about wisemonie's mission to align your financial plans with your spending.",
   alternates: { canonical: "/about" }
 };
 
@@ -21,8 +21,7 @@ export default function AboutPage() {
           About <span>wisemonie</span>
         </h1>
         <p>
-          A personal finance app that helps you budget smarter, control spending, and manage money
-          intentionally.
+          A personal finance app that aligns your financial plans with your actual spending.
         </p>
       </Reveal>
 
@@ -30,18 +29,20 @@ export default function AboutPage() {
         <div>
           <h2>Our Core Purpose</h2>
           <p>
-            The wisemonie app uses envelope budgeting, automation and insights to help you plan
-            expenses, track spending, and build healthier money habits.
+            Wisemonie closes the gap between what you planned for your money and what actually
+            happens to it. Using envelopes, automation, and spending rules, every naira is assigned
+            to a purpose before it&apos;s spent.
           </p>
         </div>
         <div>
           <h2>Why we built it</h2>
           <p>
-            Wisemonie is a personal finance platform built for everyday income earners. This site is
-            informational. It shares details about the product and its features.
+            Everyone makes a plan on payday. Almost no one sticks to it — not because of
+            discipline, but because nothing in a regular bank account enforces the plan. Wisemonie
+            provides that missing structure.
           </p>
           <p>
-            Registration, budgeting and transactions all happen inside the wisemonie mobile app.
+            Registration, planning, and transactions all happen inside the wisemonie mobile app.
           </p>
         </div>
       </Reveal>
@@ -59,7 +60,7 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal as="section" className="cta-card">
-        <h2>Start budgeting smarter.</h2>
+        <h2>Align your plan and your spending.</h2>
         <StoreButtons layout="row" />
       </Reveal>
     </main>

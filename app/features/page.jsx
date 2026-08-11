@@ -10,7 +10,7 @@ import { moneyFeatures } from "@/data/productContent";
 export const metadata = {
   title: "Features",
   description:
-    "Explore wisemonie's AI personal finance assistant, smart envelopes, essential-first allocation, spending rules, alerts, and money tracking features.",
+    "Smart envelopes, scheduled releases, spending rules, and AI assistance — the features that keep your financial plan and your spending aligned.",
   alternates: { canonical: "/features" }
 };
 
@@ -21,10 +21,11 @@ export default function FeaturesPage() {
         <SectionIllustration side="right" />
         <Badge icon="apps">FEATURES</Badge>
         <h1>
-          Features built for <span>real money pressure.</span>
+          Features that keep your plan <span>and your spending aligned.</span>
         </h1>
         <p>
-          Plan into smart envelopes, protect essentials, and spend on the conditions you set.
+          Envelopes, release schedules, spending rules, and real-time visibility — everything you
+          need to spend from your plan, not past it.
         </p>
       </Reveal>
 
@@ -39,10 +40,10 @@ export default function FeaturesPage() {
       </RevealGroup>
 
       <Reveal as="section" className="viz-section">
-        <h2>Essentials come first, always</h2>
+        <h2>Non-negotiables are funded first, always</h2>
         <p>
-          The rule behind every envelope: your non-negotiables are funded on payday, before flex
-          money exists.
+          Before you see any flex money, rent, tithe, savings, and family are already set aside.
+          That&apos;s the foundation of every plan.
         </p>
         <EssentialFirstFlow />
       </Reveal>

@@ -9,7 +9,7 @@ import { trustCards } from "@/data/productContent";
 export const metadata = {
   title: "Trust",
   description:
-    "Learn how wisemonie approaches regulated infrastructure, user-controlled rules, clear money movement, and transparent fees.",
+    "Your money lives with a regulated bank. Wisemonie adds the plan layer — envelopes, rules, and timing you control.",
   alternates: { canonical: "/trust" }
 };
 

@@ -7,7 +7,7 @@ import { targetPersona } from "@/data/productContent";
 export const metadata = {
   title: "Who It's For",
   description:
-    "Wisemonie is built first for Nigerian income earners making ₦200K-₦700K a month who watch their budget fall apart by week 3.",
+    "Wisemonie is for anyone whose financial plan and spending don't stay aligned — salary earners, freelancers, students, business owners, and couples.",
   alternates: { canonical: "/who-its-for" }
 };
 
