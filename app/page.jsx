@@ -101,15 +101,14 @@ export default function HomePage() {
         <div className="hero-grid">
           <div className="hero-copy">
             <Badge icon="volunteer_activism">
-              Live on Google Play{" "}
-              <span className="eyebrow__secondary">&middot; Built on regulated Nigerian rails</span>
+              Live on Google Play
             </Badge>
-            <h1>Your financial plan and your spending, finally aligned.</h1>
+            <h1>Plan your money. Spend from the plan.</h1>
             <p className="hero-subhead">
-              Wisemonie makes sure the money you planned for rent stays rent, the money for family stays family, and every naira you spend comes from a decision you already made.
+              Wisemonie assigns every naira to a purpose before you spend it. Rent stays rent. Family stays family. No willpower required.
             </p>
             <p className="hero-lede">
-              <span className="hero-highlight">Create a plan. Assign money to it. Spend only from what you assigned. No willpower required.</span>
+              <span className="hero-highlight">Create a plan. Fund it. Spend only from what you assigned.</span>
             </p>
             <div className="hero-actions hero-actions--stack">
               <StoreButtons layout="row" />
@@ -131,24 +130,17 @@ export default function HomePage() {
         <SectionIllustration side="left" />
         <Reveal as="div" className="section-heading">
           <Badge icon="psychology_alt">WHY WISEMONIE</Badge>
-          <h2>You already know where your money should go. The problem is keeping it there.</h2>
+          <h2>You know where your money should go. The problem is keeping it there.</h2>
         </Reveal>
         <div className="why-statement">
           <Reveal as="p" variant="up">
-            <strong>You have a plan.</strong> Rent, family, tithe, savings, daily expenses — you know
-            exactly how your money should be divided. That part isn&apos;t hard.
+            <strong>You have a plan.</strong> Rent, family, tithe, savings. You know the split. That part isn&apos;t hard.
           </Reveal>
           <Reveal as="p" variant="up">
-            <strong>But your bank account doesn&apos;t know your plan.</strong> It shows one number.
-            Every spend chips away at everything at once. By mid-month, the plan and reality have
-            diverged.
+            <strong>Your bank account doesn&apos;t.</strong> One balance, no separation. Every spend chips away at everything at once.
           </Reveal>
           <Reveal as="p" variant="up">
-            <strong>The gap between your plan and your spending is the whole problem.</strong>{" "}
-            Wisemonie closes it.
-          </Reveal>
-          <Reveal as="p" variant="up" className="why-statement__cta">
-            Plan it. Fund it. Spend from it.
+            <strong>That gap is the whole problem.</strong> Wisemonie closes it.
           </Reveal>
         </div>
       </section>
