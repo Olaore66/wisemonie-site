@@ -18,6 +18,7 @@ import {
   flowSteps,
   homeAudience,
   moneyFeatures,
+  testimonials,
   trustCards,
   weekCalendar
 } from "@/data/productContent";
@@ -281,6 +282,50 @@ export default function HomePage() {
 
         <Reveal as="p" variant="up" className="audience-closing">
           {homeAudience.closing}
+        </Reveal>
+      </section>
+
+      <section id="testimonials" className="section testimonial-section">
+        <SectionIllustration side="right" />
+        <Reveal as="div" className="section-heading">
+          <Badge icon="star">REAL REVIEWS</Badge>
+          <h2>Rated 5.0 on Google Play.</h2>
+          <p>
+            From real users who aligned their plan with their spending.
+          </p>
+        </Reveal>
+
+        <RevealGroup as="div" className="testimonial-grid">
+          {testimonials.map(({ name, initials, date, rating, text, highlight }) => (
+            <RevealItem as="article" className="testimonial-card" key={name}>
+              <div className="testimonial-card__stars" aria-label={`${rating} out of 5 stars`}>
+                {Array.from({ length: rating }, (_, i) => (
+                  <Icon name="star" key={i} />
+                ))}
+              </div>
+              <blockquote className="testimonial-card__quote">
+                <p>{text}</p>
+              </blockquote>
+              <div className="testimonial-card__author">
+                <div className="testimonial-card__avatar" aria-hidden="true">{initials}</div>
+                <div>
+                  <cite className="testimonial-card__name">{name}</cite>
+                  <span className="testimonial-card__date">{date} &middot; Google Play</span>
+                </div>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+
+        <Reveal as="div" variant="up" className="testimonial-cta">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.wisemonie"
+            target="_blank"
+            rel="noopener"
+            className="testimonial-play-link"
+          >
+            <Icon name="star" /> See all reviews on Google Play &rarr;
+          </a>
         </Reveal>
       </section>
 

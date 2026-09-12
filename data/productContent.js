@@ -1,3 +1,30 @@
+export const testimonials = [
+  {
+    name: "Babalotin Joy",
+    initials: "BJ",
+    date: "July 2026",
+    rating: 5,
+    text: "I've tried different budgeting methods before, but Wisemonie makes it much easier to stay on track. I love how it encourages intentional spending instead of just telling you to save. The app is simple to use, well organized, and helps me plan my money better.",
+    highlight: "encourages intentional spending instead of just telling you to save"
+  },
+  {
+    name: "Abdullahi Mkudu",
+    initials: "AM",
+    date: "August 2026",
+    rating: 5,
+    text: "I have a good experience using Wisemonie, it helps me to minimize impulse spending and also managing my finances.",
+    highlight: "helps me to minimize impulse spending"
+  },
+  {
+    name: "airdrop scavenger",
+    initials: "AS",
+    date: "August 2026",
+    rating: 5,
+    text: "It's been really wonderful so far. I've been able to properly manage and stay in control of my savings, and it's been making a real difference.",
+    highlight: "properly manage and stay in control of my savings"
+  }
+];
+
 export const moneyFeatures = [
   {
     icon: "account_balance_wallet",
