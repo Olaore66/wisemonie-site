@@ -4141,6 +4141,8 @@ body:has(.ba-root) .scroll-progress-bar { display: none; }
 .ba-btn--danger:hover { background: #fef2f2; }
 .ba-btn--sm { padding: 6px 12px; font-size: 0.82rem; border-radius: 8px; }
 .ba-btn--active { background: #02A399; color: #fff; border-color: #02A399; }
+.ba-btn--upload { background: #f0faf8; color: #02A399; border-color: #b2e4de; }
+.ba-btn--upload:hover { background: #e0f5f1; }
 
 .ba-error {
   background: #fef2f2;

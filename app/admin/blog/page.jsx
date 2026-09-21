@@ -204,6 +204,22 @@ function PostList({ token, onEdit, onCreate, onLogout }) {
   );
 }
 
+// ── Standalone upload (works for new + existing posts) ──
+async function uploadFile(token, file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  const res = await fetch(`${API}/admin/blog/upload`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    body: formData,
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || body.message || `Upload failed (${res.status})`);
+  }
+  return res.json();
+}
+
 // ── Post editor ──
 function PostEditor({ token, post, onBack, onSaved }) {
   const isNew = !post;
@@ -215,9 +231,11 @@ function PostEditor({ token, post, onBack, onSaved }) {
   const [showPreview, setShowPreview] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
-  const [uploadingMedia, setUploadingMedia] = useState(false);
+  const [uploadingCover, setUploadingCover] = useState(false);
+  const [uploadingInline, setUploadingInline] = useState(false);
   const fileInputRef = useRef(null);
   const coverFileRef = useRef(null);
+  const textareaRef = useRef(null);
 
   async function handleSave(e) {
     e.preventDefault();
@@ -246,50 +264,44 @@ function PostEditor({ token, post, onBack, onSaved }) {
     }
   }
 
-  async function handleMediaUpload(e, isCover) {
+  async function handleCoverUpload(e) {
     const file = e.target.files?.[0];
-    if (!file || isNew) return;
-
-    setUploadingMedia(true);
+    if (!file) return;
+    setUploadingCover(true);
     setError("");
-
-    const mediaType = file.type.startsWith("video/") ? "VIDEO"
-      : file.type === "image/gif" ? "GIF"
-      : "IMAGE";
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("mediaType", mediaType);
-
     try {
-      const res = await fetch(`${API}/admin/blog/${post.id}/media`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-        body: formData,
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || `Upload failed (${res.status})`);
-      }
-      const data = await res.json();
+      const data = await uploadFile(token, file);
+      setCoverImageUrl(data.url);
+    } catch (err) {
+      setError(`Cover upload failed: ${err.message}`);
+    } finally {
+      setUploadingCover(false);
+      e.target.value = "";
+    }
+  }
 
-      if (isCover && data.coverImageUrl) {
-        setCoverImageUrl(data.coverImageUrl);
-      } else if (data.media && data.media.length > 0) {
-        const uploaded = data.media[data.media.length - 1];
-        if (isCover) {
-          setCoverImageUrl(uploaded.url);
-        } else {
-          const mdImg = mediaType === "VIDEO"
-            ? `\n\n[Video: ${file.name}](${uploaded.url})\n`
-            : `\n\n![${file.name}](${uploaded.url})\n`;
-          setContent((prev) => prev + mdImg);
-        }
+  async function handleInlineUpload(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingInline(true);
+    setError("");
+    try {
+      const data = await uploadFile(token, file);
+      const isVideo = file.type.startsWith("video/");
+      const md = isVideo
+        ? `\n\n[Video: ${data.fileName || file.name}](${data.url})\n`
+        : `\n\n![${data.fileName || file.name}](${data.url})\n`;
+      const textarea = textareaRef.current;
+      if (textarea) {
+        const pos = textarea.selectionStart || content.length;
+        setContent((prev) => prev.slice(0, pos) + md + prev.slice(pos));
+      } else {
+        setContent((prev) => prev + md);
       }
     } catch (err) {
-      setError(`Upload failed: ${err.message}`);
+      setError(`Image upload failed: ${err.message}`);
     } finally {
-      setUploadingMedia(false);
+      setUploadingInline(false);
       e.target.value = "";
     }
   }
@@ -357,33 +369,29 @@ function PostEditor({ token, post, onBack, onSaved }) {
 
         <div className="ba-form__row ba-form__cover-row">
           <label>
-            Cover Image URL
+            Cover Image
             <input
               type="url"
               value={coverImageUrl}
               onChange={(e) => setCoverImageUrl(e.target.value)}
-              placeholder="https://firebasestorage.googleapis.com/..."
+              placeholder="Paste a URL or use the upload button"
             />
           </label>
-          {!isNew && (
-            <>
-              <button
-                type="button"
-                className="ba-btn ba-btn--sm"
-                onClick={() => coverFileRef.current?.click()}
-                disabled={uploadingMedia}
-              >
-                Upload cover
-              </button>
-              <input
-                ref={coverFileRef}
-                type="file"
-                accept="image/*"
-                hidden
-                onChange={(e) => handleMediaUpload(e, true)}
-              />
-            </>
-          )}
+          <button
+            type="button"
+            className="ba-btn ba-btn--sm ba-btn--upload"
+            onClick={() => coverFileRef.current?.click()}
+            disabled={uploadingCover}
+          >
+            {uploadingCover ? "Uploading..." : "Upload image"}
+          </button>
+          <input
+            ref={coverFileRef}
+            type="file"
+            accept="image/*"
+            hidden
+            onChange={handleCoverUpload}
+          />
         </div>
 
         {coverImageUrl && (
@@ -395,25 +403,21 @@ function PostEditor({ token, post, onBack, onSaved }) {
         <div className="ba-form__row ba-form__content-row">
           <div className="ba-content-label">
             <span>Content (Markdown)</span>
-            {!isNew && (
-              <>
-                <button
-                  type="button"
-                  className="ba-btn ba-btn--sm"
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={uploadingMedia}
-                >
-                  {uploadingMedia ? "Uploading..." : "Insert image"}
-                </button>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*,video/*"
-                  hidden
-                  onChange={(e) => handleMediaUpload(e, false)}
-                />
-              </>
-            )}
+            <button
+              type="button"
+              className="ba-btn ba-btn--sm ba-btn--upload"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploadingInline}
+            >
+              {uploadingInline ? "Uploading..." : "Insert image"}
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*,video/*"
+              hidden
+              onChange={handleInlineUpload}
+            />
           </div>
 
           {showPreview ? (
@@ -422,6 +426,7 @@ function PostEditor({ token, post, onBack, onSaved }) {
             </div>
           ) : (
             <textarea
+              ref={textareaRef}
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder={"## Introduction\n\nWrite your post in Markdown..."}
