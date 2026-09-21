@@ -3717,16 +3717,20 @@ textarea::placeholder {
 /* ─── TUTORIAL VIDEO ─── */
 .tutorial-section { text-align: center; }
 .tutorial-video-wrap {
-  max-width: 780px;
+  max-width: 420px;
+  max-height: 70vh;
   margin: 0 auto;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  background: var(--surface-dim, #111);
+  background: #000;
+  box-shadow: 0 8px 40px rgba(0,0,0,.12);
 }
 .tutorial-video {
   width: 100%;
+  max-height: 70vh;
   display: block;
-  border-radius: 16px;
+  border-radius: 20px;
+  object-fit: contain;
 }
 .tutorial-video-skeleton {
   width: 100%;
