@@ -9,7 +9,7 @@ async function fetchJsonWithRetry(url, attempts = 3) {
     try {
       const res = await fetch(url, {
         headers: { Accept: "application/json" },
-        next: { revalidate: 3600 },
+        next: { revalidate: 60 },
         signal: AbortSignal.timeout(20000),
       });
       if (res.ok) return await res.json();

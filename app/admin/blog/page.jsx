@@ -18,6 +18,16 @@ async function api(path, opts = {}) {
   return res.json();
 }
 
+async function revalidateBlog(slug) {
+  try {
+    await fetch("/api/revalidate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug }),
+    });
+  } catch {}
+}
+
 // ── Login ──
 function LoginScreen({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -115,6 +125,7 @@ function PostList({ token, onEdit, onCreate, onLogout }) {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPosts((prev) => prev.filter((p) => p.id !== post.id));
+      await revalidateBlog(post.slug);
     } catch (err) {
       alert(`Delete failed: ${err.message}`);
     } finally {
@@ -243,19 +254,21 @@ function PostEditor({ token, post, onBack, onSaved }) {
     setSaving(true);
     try {
       const body = { title, content, excerpt, coverImageUrl, publish };
+      let saved;
       if (isNew) {
-        await api("/admin/blog", {
+        saved = await api("/admin/blog", {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: JSON.stringify(body),
         });
       } else {
-        await api(`/admin/blog/${post.id}`, {
+        saved = await api(`/admin/blog/${post.id}`, {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
           body: JSON.stringify(body),
         });
       }
+      await revalidateBlog(saved?.slug || post?.slug);
       onSaved();
     } catch (err) {
       setError(err.message);
