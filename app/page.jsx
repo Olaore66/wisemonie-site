@@ -13,6 +13,7 @@ import MotionButton from "@/components/MotionButton";
 import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
 import RevealItem from "@/components/RevealItem";
+import TutorialVideo from "@/components/TutorialVideo";
 import {
   faqItems,
   flowSteps,
@@ -251,6 +252,19 @@ export default function HomePage() {
             </RevealItem>
           ))}
         </RevealGroup>
+      </section>
+
+      <section id="see-it-work" className="section tutorial-section">
+        <Reveal as="div" className="section-heading">
+          <Badge icon="play_circle">SEE IT IN ACTION</Badge>
+          <h2>Watch how Wisemonie works.</h2>
+          <p>
+            Two minutes. One walkthrough. See how your plan becomes your spending structure.
+          </p>
+        </Reveal>
+        <Reveal as="div" variant="up">
+          <TutorialVideo />
+        </Reveal>
       </section>
 
       <section id="your-week" className="section week-section">

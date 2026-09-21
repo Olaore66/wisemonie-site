@@ -5,6 +5,7 @@ const productLinks = [
   { href: "/features", label: "Features" },
   { href: "/who-its-for", label: "Who it's for" },
   { href: "/trust", label: "Trust" },
+  { href: "/blog", label: "Blog" },
   { href: "/#download", label: "Download" },
   { href: "/faq", label: "FAQ" }
 ];

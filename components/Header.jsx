@@ -11,6 +11,7 @@ const navItems = [
   { href: "/features", label: "Features" },
   { href: "/who-its-for", label: "Who it's for" },
   { href: "/trust", label: "Trust" },
+  { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" }
 ];
 
