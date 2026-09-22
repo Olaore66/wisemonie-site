@@ -98,9 +98,9 @@ export default async function BlogPostPage({ params }) {
           </Reveal>
         )}
 
-        <Reveal as="div" variant="up" className="blog-post__body">
+        <div className="blog-post__body">
           <BlogContent content={post.content} />
-        </Reveal>
+        </div>
 
         {post.media && post.media.length > 0 && (
           <div className="blog-post__media">
