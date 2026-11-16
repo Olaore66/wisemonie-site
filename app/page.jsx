@@ -1,12 +1,8 @@
 import Badge from "@/components/Badge";
 import Icon from "@/components/Icon";
 import StoreButtons from "@/components/StoreButtons";
-import HeroNotification from "@/components/HeroNotification";
 import SectionIllustration from "@/components/SectionIllustration";
 import SalaryAllocation from "@/components/SalaryAllocation";
-import HeroPerson from "@/components/HeroPerson";
-import TiltCard from "@/components/TiltCard";
-import BudgetMotion from "@/components/BudgetMotion";
 import WeekCalendar from "@/components/WeekCalendar";
 import FaqAccordion from "@/components/FaqAccordion";
 import MotionButton from "@/components/MotionButton";
@@ -23,11 +19,6 @@ import {
   trustCards,
   weekCalendar
 } from "@/data/productContent";
-import { publicImage } from "@/data/assets";
-
-const HERO_PHOTO_ALT =
-  "A young man checking Wisemonie on his phone — every naira already assigned to a purpose";
-
 const problemCards = [
   {
     icon: "query_stats",
@@ -74,37 +65,13 @@ const solutionCards = [
   }
 ];
 
-function ProductPreview() {
-  return (
-    <div className="product-preview" aria-label="wisemonie mobile app preview">
-      <HeroNotification />
-
-      <TiltCard className="phone-tilt-wrap">
-        <div className="phone-stage phone-stage--image phone-stage--hero">
-          <img
-            src="/images/dashboard.png"
-            alt="Wisemonie app home screen: a ₦30,824 balance with budgets and envelopes"
-            className="phone-hero-image"
-            fetchPriority="high"
-          />
-        </div>
-      </TiltCard>
-    </div>
-  );
-}
-
 export default function HomePage() {
-  const heroPhoto = publicImage("hero-person.jpg");
-
   return (
     <main>
       <section className="hero-section">
         <SectionIllustration side="right" />
         <div className="hero-grid">
           <div className="hero-copy">
-            <Badge icon="volunteer_activism">
-              Live on Google Play
-            </Badge>
             <h1>Plan your money. Spend from the plan.</h1>
             <p className="hero-subhead">
               Wisemonie assigns every naira to a purpose before you spend it. Rent stays rent. Family stays family. No willpower required.
@@ -119,12 +86,9 @@ export default function HomePage() {
               </MotionButton>
             </div>
           </div>
-
-          {heroPhoto ? (
-            <HeroPerson src={heroPhoto} alt={HERO_PHOTO_ALT} />
-          ) : (
-            <ProductPreview />
-          )}
+          <div className="hero-proof">
+            <SalaryAllocation />
+          </div>
         </div>
       </section>
 
@@ -156,10 +120,6 @@ export default function HomePage() {
             Ten commitments, one balance, zero separation. You know what each naira is for — your
             account doesn&apos;t.
           </p>
-        </Reveal>
-
-        <Reveal as="div" variant="up" className="problem-visual">
-          <SalaryAllocation />
         </Reveal>
 
         <RevealGroup as="div" className="feature-grid">
@@ -210,7 +170,6 @@ export default function HomePage() {
               loading="lazy"
             />
           </div>
-          <BudgetMotion />
         </Reveal>
       </section>
 

@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function HowItWorksPage() {
   return (
-    <main className="page-shell page-shell--wide">
+    <main className="page-shell page-shell--wide page-how">
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="left" />
         <Badge icon="route">HOW IT WORKS</Badge>

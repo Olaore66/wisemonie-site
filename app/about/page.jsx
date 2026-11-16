@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell page-about">
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="right" />
         <Badge icon="diamond">Company and product</Badge>

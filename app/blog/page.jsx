@@ -59,7 +59,7 @@ export default async function BlogPage({ searchParams }) {
   const { posts, totalPages, empty } = await fetchBlogPosts(page, 12);
 
   return (
-    <main className="blog-main">
+    <main className="blog-main page-blog">
       <section className="section blog-hero-section">
         <SectionIllustration side="right" />
         <Reveal as="div" className="section-heading">

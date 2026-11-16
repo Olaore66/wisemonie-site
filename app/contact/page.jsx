@@ -21,7 +21,7 @@ const contactItems = [
 
 export default function ContactPage() {
   return (
-    <main className="page-shell page-shell--wide">
+    <main className="page-shell page-shell--wide page-contact">
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="left" />
         <Badge icon="support_agent">Support and partnership</Badge>

@@ -1,9 +1,9 @@
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import "./globals.css";
+import "./ledger.css";
 
 export const metadata = {
   metadataBase: new URL("https://wisemonie.app"),
@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Besley:opsz,wght@12..72,500;12..72,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap"
           rel="stylesheet"
         />
         <script
@@ -105,7 +105,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <SmoothScroll />
         <ScrollProgressBar />
         <Header />
         {children}

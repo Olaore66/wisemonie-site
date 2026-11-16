@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function WhoItsForPage() {
   return (
-    <main className="page-shell page-shell--wide">
+    <main className="page-shell page-shell--wide page-who">
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="right" />
         <Badge icon="groups">WHO IT&apos;S FOR</Badge>

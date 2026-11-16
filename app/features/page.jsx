@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function FeaturesPage() {
   return (
-    <main className="page-shell page-shell--wide">
+    <main className="page-shell page-shell--wide page-features">
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="right" />
         <Badge icon="apps">FEATURES</Badge>

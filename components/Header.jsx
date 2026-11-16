@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-
-const MotionLink = motion(Link);
 
 const navItems = [
   { href: "/how-it-works", label: "How it works" },
@@ -17,7 +14,6 @@ const navItems = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
 
   return (
     <header className="site-header">
@@ -53,21 +49,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <MotionLink
+        <Link
           href="https://play.google.com/store/apps/details?id=com.wisemonie"
           target="_blank"
           rel="noopener"
           className="button button--primary header-cta"
-          {...(shouldReduceMotion
-            ? {}
-            : {
-                whileHover: { y: -3, scale: 1.02 },
-                whileTap: { scale: 0.96 },
-                transition: { type: "spring", stiffness: 400, damping: 22 }
-              })}
         >
           Download app
-        </MotionLink>
+        </Link>
       </div>
     </header>
   );

@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function FaqPage() {
   return (
-    <main className="page-shell page-shell--wide">
+    <main className="page-shell page-shell--wide page-faq">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

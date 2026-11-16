@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T18:40:00.000Z",
+  "title": "Design System: Wisemonie",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Ledger ink", "canonical": "#17211c", "tonalRamp": ["#0c1210", "#17211c", "#24312b", "#3c4d44", "#5c6f65", "#8ea097", "#c9d2cb", "#eef1ec"] },
+      "ink-strong": { "role": "neutral", "displayName": "Night ink", "canonical": "#101612", "tonalRamp": ["#070b09", "#101612", "#1c2822", "#314038", "#516158", "#84948b", "#c5d0c9", "#eef1ec"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#eef1ec", "tonalRamp": ["#17211c", "#2a3832", "#46564e", "#6d7d74", "#9aaba1", "#c9d2cb", "#e4e8e2", "#eef1ec"] },
+      "paper-soft": { "role": "neutral", "displayName": "Paper soft", "canonical": "#e4e8e2", "tonalRamp": ["#17211c", "#2c3a34", "#4a5a52", "#73847b", "#a3b2a9", "#cdd6d0", "#e4e8e2", "#f4f6f2"] },
+      "surface": { "role": "neutral", "displayName": "Surface", "canonical": "#f7f8f5", "tonalRamp": ["#171c19", "#2e3833", "#4d5a54", "#74827b", "#a7b3ac", "#d5dbd6", "#e8ebe6", "#f7f8f5"] },
+      "surface-strong": { "role": "neutral", "displayName": "Input surface", "canonical": "#fbfcfa", "tonalRamp": ["#171c19", "#303a35", "#51605a", "#7a8881", "#aeb8b2", "#d9dfda", "#eef1ee", "#fbfcfa"] },
+      "border": { "role": "neutral", "displayName": "Rule", "canonical": "#c9d2cb", "tonalRamp": ["#17211c", "#314038", "#516158", "#74867c", "#9aaba1", "#c9d2cb", "#e4e8e2", "#f4f6f2"] },
+      "muted": { "role": "neutral", "displayName": "Secondary ink", "canonical": "#3d4f46", "tonalRamp": ["#121a16", "#24312b", "#3d4f46", "#5c6f65", "#84948b", "#b7c3bb", "#dce3de", "#f3f6f2"] },
+      "accent": { "role": "primary", "displayName": "Oxide", "canonical": "#0e6b4e", "tonalRamp": ["#06281c", "#0a4a36", "#0e6b4e", "#1d8664", "#4aaa86", "#8dccb4", "#c5e4d6", "#e7f4ee"] },
+      "accent-deep": { "role": "primary", "displayName": "Oxide deep", "canonical": "#0a4a36", "tonalRamp": ["#04180f", "#06281c", "#0a4a36", "#0e6b4e", "#3d9170", "#7dbaa0", "#c0e0d2", "#e8f5ef"] },
+      "on-accent": { "role": "neutral", "displayName": "On oxide", "canonical": "#f4f7f4", "tonalRamp": ["#17211c", "#2a3832", "#4a5c54", "#74867c", "#a3b2a9", "#d0d8d3", "#e7ece8", "#f4f7f4"] },
+      "on-ink": { "role": "neutral", "displayName": "On ink", "canonical": "#f3f6f2", "tonalRamp": ["#17211c", "#2a3832", "#4a5c54", "#74867c", "#a3b2a9", "#d0d8d3", "#e6ebe7", "#f3f6f2"] },
+      "on-ink-soft": { "role": "neutral", "displayName": "On ink soft", "canonical": "#d5e0d8", "tonalRamp": ["#17211c", "#2c3b34", "#4c5e54", "#74867c", "#a3b2a9", "#d5e0d8", "#e7eee9", "#f4f7f4"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page headlines and the large review. Besley, optical size, tracking -0.03em." },
+      "headline": { "displayName": "Headline", "purpose": "The one strong line in a section." },
+      "title": { "displayName": "Title", "purpose": "Row labels in an index. Figtree." },
+      "body": { "displayName": "Body", "purpose": "Instructions and paragraphs. Figtree. Also used for code." },
+      "label": { "displayName": "Label", "purpose": "Data labels such as weekly totals. Not an eyebrow." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "press", "value": "transform 0.28s cubic-bezier(0.2, 0, 0, 1)", "purpose": "Button press to scale 0.98. Critically settled, no bounce. Disabled under reduced motion." },
+      { "name": "scroll-progress", "value": "spring bounce 0, duration 0.35s", "purpose": "The 2px reading progress bar. Interruptible." },
+      { "name": "ledger-fill", "value": "scaleX 0.7s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The one authored entrance. Salary slices fill from the left. None under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "900px" },
+      { "name": "nav", "value": "780px" },
+      { "name": "phone", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The download and send action. Oxide, square, no glow.",
+      "html": "<button class=\"ds-btn-primary\">Download app</button>",
+      "css": ".ds-btn-primary { background: #0e6b4e; color: #f4f7f4; border: 1px solid #0e6b4e; border-radius: 3px; min-height: 48px; padding: 0 1.1rem; font-family: Figtree, Segoe UI, sans-serif; font-weight: 600; letter-spacing: 0; } .ds-btn-primary:hover { background: #0a4a36; } .ds-btn-primary:focus-visible { outline: 2px solid #0e6b4e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "A secondary rectangular action on paper.",
+      "html": "<button class=\"ds-btn-ghost\">See how it works</button>",
+      "css": ".ds-btn-ghost { background: transparent; color: #17211c; border: 1px solid #17211c; border-radius: 3px; min-height: 48px; padding: 0 1.1rem; font-family: Figtree, Segoe UI, sans-serif; font-weight: 600; } .ds-btn-ghost:hover { background: #101612; color: #f3f6f2; }"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact and waitlist fields.",
+      "html": "<input class=\"ds-input\" placeholder=\"Name\" />",
+      "css": ".ds-input { background: #fbfcfa; color: #17211c; border: 1px solid #c9d2cb; border-radius: 3px; min-height: 48px; padding: 0.6rem 0.8rem; font-family: Figtree, Segoe UI, sans-serif; font-size: 1rem; } .ds-input:focus-visible { outline: 2px solid #0e6b4e; outline-offset: 2px; }"
+    },
+    {
+      "name": "Salary split",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "The signature object. Committed money in ink steps, left to live in oxide.",
+      "html": "<div class=\"ds-bar\"><i style=\"width:40%\"></i><i style=\"width:12.5%;background:#24312b\"></i><i style=\"width:10%;background:#3c4d44\"></i><i style=\"width:7.5%;background:#5c6f65\"></i><i style=\"width:30%;background:#0e6b4e\"></i></div>",
+      "css": ".ds-bar { display: flex; height: 3.25rem; background: #e4e8e2; } .ds-bar i { display: block; background: #101612; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Ledger",
+    "overview": "The page is the quiet hour after payday, when the salary is already spoken for and each named envelope is waiting for its clock. The strong idea is the split itself: a bar of committed money, with oxide green only on what is left to live. This file replaces the earlier scan of the retired mint grid.",
+    "keyCharacteristics": [
+      "One accent, oxide green, used for what remains and for the primary action.",
+      "Besley for sums and headlines, Figtree for UI and body.",
+      "Rules and type carry the sections. Cards, pills, and icon tiles do not.",
+      "Ink bands use a light green-gray text, never neutral gray.",
+      "The wordmark stays on its night plate. Do not recolor the SVG."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Oxide is the only UI color outside the logo. Lime, mint, and teal stay inside the mark.", "section": "colors" },
+      { "name": "The No Gray on Color Rule", "body": "Text on oxide or on night ink is on-accent, on-ink, or on-ink-soft.", "section": "colors" },
+      { "name": "The Pairing Rule", "body": "Besley for the claim and the figures. Figtree for everything you operate.", "section": "typography" },
+      { "name": "The Tracking Floor", "body": "Display tracking stays between -0.03em and -0.02em. Do not go past -0.04em.", "section": "typography" },
+      { "name": "The Flat Ledger Rule", "body": "A surface gets a 1px rule or a ground change. Not a shadow, and not both a border and a shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the salary split as the thing the first screen proves.",
+      "Do use Besley at weight 500 with optical sizing for headlines and figures.",
+      "Do keep text on night bands at on-ink or on-ink-soft.",
+      "Do let each section have its own structure.",
+      "Do keep the logo's own lime, mint, and teal inside the mark, on the night plate."
+    ],
+    "donts": [
+      "Don't bring back a purple or blue gradient, a glowing button, or a pill as the default control.",
+      "Don't use Inter, Roboto, Arial, or DM Sans as the brand face.",
+      "Don't put an icon tile above a heading, or three equal cards in a row, or a card inside a card.",
+      "Don't use gray text on oxide or on a night band.",
+      "Don't give every block the same radius and the same padding.",
+      "Don't recolor the wordmark SVG. The white fill is what makes the plate work."
+    ]
+  }
+}

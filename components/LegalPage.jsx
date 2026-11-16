@@ -23,7 +23,7 @@ export default function LegalPage({
       .join(" · ");
 
   return (
-    <main className="page-shell">
+    <main className="page-shell page-legal">
       <section className="page-hero">
         <SectionIllustration side="right" />
         <Badge icon={icon}>{eyebrow}</Badge>

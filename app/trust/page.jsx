@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function TrustPage() {
   return (
-    <main className="page-shell page-shell--wide">
+    <main className="page-shell page-shell--wide page-trust">
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="left" />
         <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
