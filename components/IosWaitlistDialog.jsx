@@ -14,6 +14,7 @@ export default function IosWaitlistDialog({ open, onClose }) {
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
   const inputRef = useRef(null);
+  const webLinkRef = useRef(null);
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function IosWaitlistDialog({ open, onClose }) {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    const focusTimer = setTimeout(() => inputRef.current?.focus(), 60);
+    const focusTimer = setTimeout(() => webLinkRef.current?.focus(), 60);
 
     function onKeyDown(e) {
       if (e.key === "Escape") onClose();
@@ -71,7 +72,7 @@ export default function IosWaitlistDialog({ open, onClose }) {
       }
       setEmail("");
       setStatus("success");
-      setMessage("You're on the list — we'll email you the moment iOS launches.");
+      setMessage("You're on the list. We'll email you when the App Store version is live.");
       try {
         confetti({
           particleCount: 90,
@@ -107,17 +108,49 @@ export default function IosWaitlistDialog({ open, onClose }) {
           <Icon name="close" />
         </button>
 
-        <div className="ios-dialog__icon" aria-hidden="true">
-          <Icon name="smartphone" />
-        </div>
+        <img
+          className="ios-dialog__art"
+          src="/images/brand/scene-people.jpg"
+          alt=""
+        />
 
         <h2 id="ios-dialog-title" className="ios-dialog__title">
-          Be first when iOS is ready
+          Use Wisemonie on your iPhone
         </h2>
         <p className="ios-dialog__sub">
-          Wisemonie is live on Google Play now. Drop your email and we'll ping you the moment the
-          App Store version is live.
+          The App Store app is still on the way. Use the web app today, then add it to your Home Screen.
         </p>
+
+        <ol className="ios-dialog__steps">
+          <li>
+            <span>1</span>
+            <p>
+              Open Safari and go to{" "}
+              <a href="https://web.wisemonie.app" target="_blank" rel="noopener">
+                web.wisemonie.app
+              </a>
+              .
+            </p>
+          </li>
+          <li>
+            <span>2</span>
+            <p>Tap Share, then Add to Home Screen.</p>
+          </li>
+          <li>
+            <span>3</span>
+            <p>Turn on Open as Web App, then tap Add.</p>
+          </li>
+        </ol>
+
+        <a
+          ref={webLinkRef}
+          className="button button--primary ios-dialog__web"
+          href="https://web.wisemonie.app"
+          target="_blank"
+          rel="noopener"
+        >
+          Open web.wisemonie.app
+        </a>
 
         {status === "success" ? (
           <div className="ios-dialog__success" role="status">
@@ -131,6 +164,7 @@ export default function IosWaitlistDialog({ open, onClose }) {
           </div>
         ) : (
           <form className="ios-dialog__form" onSubmit={handleSubmit} noValidate>
+            <p className="ios-dialog__later">Want the App Store app later? Leave your email.</p>
             <label className="ios-dialog__label" htmlFor="ios-waitlist-email">
               Email address
             </label>
@@ -158,7 +192,7 @@ export default function IosWaitlistDialog({ open, onClose }) {
               {status === "loading" ? (
                 <Icon name="progress_activity" className="spin" />
               ) : (
-                "Notify me when iOS launches"
+                "Email me when the App Store version is live"
               )}
             </button>
 
@@ -167,7 +201,7 @@ export default function IosWaitlistDialog({ open, onClose }) {
               aria-live="polite"
             >
               {status === "idle"
-                ? "No spam. One email when iOS is ready."
+                ? "No spam. One email when the App Store version is ready."
                 : message}
             </p>
           </form>

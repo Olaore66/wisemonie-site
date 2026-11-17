@@ -2,7 +2,8 @@ export const securityPage = {
   eyebrow: "Trust and protection",
   icon: "shield_lock",
   title: "Security",
-  intro: "Your security is our priority.",
+  intro:
+    "Funds sit with Rubies Microfinance Bank under CBN regulation. Wisemonie is the plan. Your security is our priority.",
   sections: [
     {
       body: [

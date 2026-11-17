@@ -1,372 +1,124 @@
-import Badge from "@/components/Badge";
-import Icon from "@/components/Icon";
-import StoreButtons from "@/components/StoreButtons";
-import SectionIllustration from "@/components/SectionIllustration";
+import Link from "next/link";
+import Envelope from "@/components/Envelope";
+import EnvelopeFilm from "@/components/EnvelopeFilm";
+import FeatureList from "@/components/FeatureList";
+import HeroNotification from "@/components/HeroNotification";
+import PhoneReel from "@/components/PhoneReel";
+import ReviewCarousel from "@/components/ReviewCarousel";
+import Rise from "@/components/Rise";
 import SalaryAllocation from "@/components/SalaryAllocation";
-import WeekCalendar from "@/components/WeekCalendar";
-import FaqAccordion from "@/components/FaqAccordion";
-import MotionButton from "@/components/MotionButton";
-import Reveal from "@/components/Reveal";
-import RevealGroup from "@/components/RevealGroup";
-import RevealItem from "@/components/RevealItem";
-import TutorialVideo from "@/components/TutorialVideo";
-import {
-  faqItems,
-  flowSteps,
-  homeAudience,
-  moneyFeatures,
-  testimonials,
-  trustCards,
-  weekCalendar
-} from "@/data/productContent";
-const problemCards = [
-  {
-    icon: "query_stats",
-    title: "You planned it. Then spent past it.",
-    text: "You had a plan on payday. By week two the plan is in your head and the money is everywhere else."
-  },
-  {
-    icon: "schedule",
-    title: "One balance hides ten commitments.",
-    text: "Your bank shows ₦85K. But ₦40K is rent, ₦15K is tithe, ₦10K is family. The number lies about what's actually available."
-  },
-  {
-    icon: "volunteer_activism",
-    title: "Good intentions with no guardrails.",
-    text: "You meant to set aside ₦5K for mum every week. Nothing stopped you from spending it on something else first."
-  },
-  {
-    icon: "favorite",
-    title: "Guilt replaces every spending decision.",
-    text: "Can I afford this lunch? Should I go out tonight? Every purchase triggers a mental audit because nothing is pre-decided."
-  }
-];
+import StoreButtons from "@/components/StoreButtons";
+import { testimonials, weekCalendar } from "@/data/productContent";
 
-const solutionCards = [
-  {
-    icon: "utensils",
-    title: "Every naira has a job before you spend it.",
-    text: "Lunch money is lunch money. It can't accidentally become transport or data. Your plan holds."
-  },
-  {
-    icon: "gift",
-    title: "Commitments are funded, not remembered.",
-    text: "Tithe, offering, family support — each sits in its own envelope, protected until the moment it's needed."
-  },
-  {
-    icon: "volunteer_activism",
-    title: "Spending guilt disappears.",
-    text: "When money is pre-assigned, every purchase is a yes-or-no against your own plan. No mental maths, no second-guessing."
-  },
-  {
-    icon: "favorite",
-    title: "Your plan survives the whole month.",
-    text: "Not just payday week. Week two, three, four — the structure holds because the money is already separated."
-  }
-];
+const beats = [
+  ["Monday", "Transport"],
+  ["Friday", "Fun / date night"],
+  ["Sunday", "Tithe"]
+].map(([dayName, label]) => {
+  const day = weekCalendar.days.find((entry) => entry.full === dayName);
+  const item = day.items.find((entry) => entry.label === label);
+  return { day: day.full, time: item.time, label: item.label, amount: item.amount };
+});
 
 export default function HomePage() {
   return (
-    <main>
-      <section className="hero-section">
-        <SectionIllustration side="right" />
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <h1>Plan your money. Spend from the plan.</h1>
-            <p className="hero-subhead">
-              Wisemonie assigns every naira to a purpose before you spend it. Rent stays rent. Family stays family. No willpower required.
+    <main className="home">
+      <section className="open">
+        <div className="open__inner">
+          <div className="open__copy">
+            <h1>
+              Plan your money.
+              <br />
+              Spend from the plan.
+            </h1>
+            <p className="open__lede">
+              Every naira gets an envelope. The envelope opens when you said it should.
             </p>
-            <p className="hero-lede">
-              <span className="hero-highlight">Create a plan. Fund it. Spend only from what you assigned.</span>
-            </p>
-            <div className="hero-actions hero-actions--stack">
-              <StoreButtons layout="row" />
-              <MotionButton as="a" href="/how-it-works" className="button button--ghost">
-                See how it works &rarr;
-              </MotionButton>
-            </div>
+            <StoreButtons layout="row" />
           </div>
-          <div className="hero-proof">
-            <SalaryAllocation />
-          </div>
-        </div>
-      </section>
-
-      <section className="section why-section">
-        <SectionIllustration side="left" />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="psychology_alt">WHY WISEMONIE</Badge>
-          <h2>You know where your money should go. The problem is keeping it there.</h2>
-        </Reveal>
-        <div className="why-statement">
-          <Reveal as="p" variant="up">
-            <strong>You have a plan.</strong> Rent, family, tithe, savings. You know the split. That part isn&apos;t hard.
-          </Reveal>
-          <Reveal as="p" variant="up">
-            <strong>Your bank account doesn&apos;t.</strong> One balance, no separation. Every spend chips away at everything at once.
-          </Reveal>
-          <Reveal as="p" variant="up">
-            <strong>That gap is the whole problem.</strong> Wisemonie closes it.
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="problem" className="section app-section">
-        <SectionIllustration side="right" />
-        <Reveal as="div" className="section-heading section-heading--left">
-          <Badge icon="psychology_alt">THE PROBLEM</Badge>
-          <h2>Your plan exists. Your account ignores it.</h2>
-          <p>
-            Ten commitments, one balance, zero separation. You know what each naira is for — your
-            account doesn&apos;t.
-          </p>
-        </Reveal>
-
-        <RevealGroup as="div" className="feature-grid">
-          {problemCards.map(({ icon, title, text }) => (
-            <RevealItem as="article" className="feature-card" key={title}>
-              <Icon name={icon} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
-      <section className="section transition-section">
-        <Reveal as="div" className="transition-statement">
-          <h2>What if your spending could only happen inside your plan?</h2>
-          <p>That&apos;s exactly what Wisemonie does.</p>
-        </Reveal>
-      </section>
-
-      <section id="solution" className="section showcase-section solution-section">
-        <Reveal as="div" variant="left" className="showcase-copy">
-          <Badge icon="tune">THE SOLUTION</Badge>
-          <h2>Assign money to your plan. Spend only from what you assigned.</h2>
-          <p>
-            Every commitment gets its own envelope with real money in it. You spend from the
-            envelope, not from a shared pool. Your plan and your spending stay in sync.
-          </p>
-          <RevealGroup as="div" className="solution-list">
-            {solutionCards.map(({ icon, title, text }) => (
-              <RevealItem as="article" className="solution-card" key={title}>
-                <Icon name={icon} />
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </Reveal>
-
-        <Reveal as="div" variant="right" className="showcase-visual">
-          <div className="phone-stage phone-stage--image phone-stage--secondary">
+          <div className="open__stage">
             <img
-              src="/images/app/enveloperules.png"
-              alt="Wisemonie release rules: pick the days and time each envelope opens (e.g. Mon/Wed/Fri at 7:30am)"
-              className="phone-hero-image"
-              loading="lazy"
+              className="open__mark"
+              src="/images/brand/envelopes.svg"
+              alt=""
             />
+            <HeroNotification />
+            <PhoneReel />
           </div>
-        </Reveal>
+        </div>
       </section>
 
-      <section id="features" className="section feature-section">
-        <SectionIllustration side="left" />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="apps">FEATURES</Badge>
-          <h2>The tools that keep your plan and your spending aligned.</h2>
-          <p>
-            Envelopes, release schedules, spending rules, and real-time visibility — each feature
-            closes the gap between intention and action.
+      <Rise className="split" id="split">
+        <div className="split__inner">
+          <div className="split__copy">
+            <img className="scene-photo" src="/images/brand/scene-envelopes.jpg" alt="" />
+            <h2>₦140,000 is already spoken for.</h2>
+            <p>Of a ₦200,000 salary, ₦60,000 is left to live on.</p>
+          </div>
+          <SalaryAllocation />
+        </div>
+      </Rise>
+
+      <Rise className="clock" id="week">
+        <div className="clock__inner">
+          <div className="clock__head">
+            <h2>It opens on a clock.</h2>
+            <img className="scene-photo" src="/images/brand/scene-clock.jpg" alt="" />
+          </div>
+          <p>The rest of the week follows the same rule.</p>
+          <ol className="clock__beats">
+            {beats.map((beat, index) => (
+              <li key={beat.day}>
+                <Envelope className={`clock__env clock__env--${index + 1}`} />
+                <span className="clock__when">
+                  {beat.day}
+                  <span>{beat.time}</span>
+                </span>
+                <strong>{beat.label}</strong>
+                <span className="clock__amount">{beat.amount}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="clock__total">
+            The week comes to ~{weekCalendar.summary.weeklyTotal}.
           </p>
-        </Reveal>
+        </div>
+      </Rise>
 
-        <RevealGroup as="div" className="money-feature-grid">
-          {moneyFeatures.map(({ icon, title, text }) => (
-            <RevealItem as="article" className="money-feature-card" key={title}>
-              <Icon name={icon} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
+      <Rise className="band" id="features">
+        <div className="band__inner">
+          <div className="band__head">
+            <div>
+              <h2>Features that keep your plan and your spending aligned.</h2>
+              <p>
+                Envelopes, release schedules, spending rules, and real-time visibility — everything you need to spend from your plan, not past it.
+              </p>
+              <Link className="band__more" href="/features">
+                See every feature
+              </Link>
+            </div>
+            <EnvelopeFilm />
+          </div>
+          <FeatureList />
+        </div>
+      </Rise>
 
-      <section id="how-it-works" className="section flow-section">
-        <SectionIllustration side="right" />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="route">HOW IT WORKS</Badge>
-          <h2>Set your plan once. Spend from it every day.</h2>
-        </Reveal>
-        <RevealGroup as="div" className="flow-grid">
-          {flowSteps.map((step, index) => (
-            <RevealItem as="article" className="flow-card" key={step.title}>
-              <div className="flow-card__number">{index + 1}</div>
-              <Icon name={step.icon} />
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
-      <section id="see-it-work" className="section tutorial-section">
-        <Reveal as="div" className="section-heading">
-          <Badge icon="play_circle">SEE IT IN ACTION</Badge>
-          <h2>Watch how Wisemonie works.</h2>
-          <p>
-            Two minutes. One walkthrough. See how your plan becomes your spending structure.
-          </p>
-        </Reveal>
-        <Reveal as="div" variant="up">
-          <TutorialVideo />
-        </Reveal>
-      </section>
-
-      <section id="your-week" className="section week-section">
-        <Reveal as="div" className="section-heading">
-          <Badge icon="calendar_days">YOUR WEEK ON WISEMONIE</Badge>
-          <h2>{weekCalendar.heading}</h2>
-          <p>{weekCalendar.intro}</p>
-        </Reveal>
-        <WeekCalendar />
-      </section>
-
-      <section id="who-its-for" className="section persona-section">
-        <SectionIllustration side="left" />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="groups">WHO IT&apos;S FOR</Badge>
-          <h2>{homeAudience.heading}</h2>
-          <p>{homeAudience.intro}</p>
-        </Reveal>
-
-        <RevealGroup as="div" className="money-feature-grid audience-grid">
-          {homeAudience.personas.map(({ icon, title, text }) => (
-            <RevealItem as="article" className="money-feature-card" key={title}>
-              <Icon name={icon} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-
-        <Reveal as="p" variant="up" className="audience-closing">
-          {homeAudience.closing}
-        </Reveal>
-      </section>
-
-      <section id="testimonials" className="section testimonial-section">
-        <SectionIllustration side="right" />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="star">REAL REVIEWS</Badge>
+      <Rise className="reviews" id="reviews">
+        <div className="reviews__inner">
           <h2>Rated 5.0 on Google Play.</h2>
+          <ReviewCarousel reviews={testimonials} />
+        </div>
+      </Rise>
+
+      <Rise className="close" id="download">
+        <div className="close__inner">
+          <h2>Rubies holds the money.</h2>
           <p>
-            From real users who aligned their plan with their spending.
-          </p>
-        </Reveal>
-
-        <RevealGroup as="div" className="testimonial-grid">
-          {testimonials.map(({ name, initials, date, rating, text, highlight }) => (
-            <RevealItem as="article" className="testimonial-card" key={name}>
-              <div className="testimonial-card__stars" aria-label={`${rating} out of 5 stars`}>
-                {Array.from({ length: rating }, (_, i) => (
-                  <Icon name="star" key={i} />
-                ))}
-              </div>
-              <blockquote className="testimonial-card__quote">
-                <p>{text}</p>
-              </blockquote>
-              <div className="testimonial-card__author">
-                <div className="testimonial-card__avatar" aria-hidden="true">{initials}</div>
-                <div>
-                  <cite className="testimonial-card__name">{name}</cite>
-                  <span className="testimonial-card__date">{date} &middot; Google Play</span>
-                </div>
-              </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-
-        <Reveal as="div" variant="up" className="testimonial-cta">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.wisemonie"
-            target="_blank"
-            rel="noopener"
-            className="testimonial-play-link"
-          >
-            <Icon name="star" /> See all reviews on Google Play &rarr;
-          </a>
-        </Reveal>
-      </section>
-
-      <section id="trust" className="section trust-section">
-        <SectionIllustration side="right" />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
-          <h2>Your money lives with a regulated bank. Wisemonie adds the plan layer.</h2>
-          <p>
-            Funds sit on regulated banking infrastructure. Wisemonie provides the structure, rules,
-            and timing on top.
-          </p>
-        </Reveal>
-        <RevealGroup as="div" className="trust-grid">
-          {trustCards.map(({ icon, title, text }) => (
-            <RevealItem as="article" className="trust-card" key={title}>
-              <Icon name={icon} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
-      <section id="download" className="section cta-section">
-        <SectionIllustration side="left" />
-        <Reveal as="div" variant="scale" className="download-card">
-          <Badge icon="bolt">AVAILABLE NOW</Badge>
-          <h2>Download Wisemonie.</h2>
-          <p>
-            Live on Google Play today. Make a plan, fund it, and spend from it.
+            Funds sit with Rubies Microfinance Bank under CBN regulation. Wisemonie is the plan.
           </p>
           <StoreButtons layout="row" />
-        </Reveal>
-      </section>
-
-      <section id="faq" className="section faq-section">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqItems.map((item) => ({
-                "@type": "Question",
-                name: item.question,
-                acceptedAnswer: { "@type": "Answer", text: item.answer }
-              }))
-            })
-          }}
-        />
-        <Reveal as="div" className="section-heading">
-          <Badge icon="help">FAQ</Badge>
-          <h2>Questions people ask before downloading.</h2>
-        </Reveal>
-        <FaqAccordion items={faqItems} />
-      </section>
-
-      <section className="section final-cta-section">
-        <SectionIllustration side="right" />
-        <Reveal as="div" className="final-cta-card">
-          <h2>Stop spending past your plan. Start spending from it.</h2>
-          <p>
-            Wisemonie is live on Google Play. iOS is on the way.
-          </p>
-          <StoreButtons layout="row" />
-        </Reveal>
-      </section>
+        </div>
+      </Rise>
     </main>
   );
 }

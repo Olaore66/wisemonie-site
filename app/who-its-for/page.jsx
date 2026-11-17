@@ -1,7 +1,5 @@
-import Badge from "@/components/Badge";
-import Icon from "@/components/Icon";
-import Reveal from "@/components/Reveal";
-import SectionIllustration from "@/components/SectionIllustration";
+import WhoAudience from "@/components/WhoAudience";
+import WhoFit from "@/components/WhoFit";
 import { targetPersona } from "@/data/productContent";
 
 export const metadata = {
@@ -14,27 +12,24 @@ export const metadata = {
 export default function WhoItsForPage() {
   return (
     <main className="page-shell page-shell--wide page-who">
-      <Reveal as="section" className="page-hero">
-        <SectionIllustration side="right" />
-        <Badge icon="groups">WHO IT&apos;S FOR</Badge>
-        <h1>
-          Built for one person <span>first.</span>
-        </h1>
-        <p>{targetPersona.intro}</p>
-      </Reveal>
-
-      <Reveal as="section" variant="scale" className="persona-card">
-        <div className="check-list">
-          {targetPersona.points.map((point) => (
-            <div key={point}>
-              <Icon name="check_circle" />
-              <span>{point}</span>
-            </div>
-          ))}
+      <section className="feat">
+        <div className="feat__hero">
+          <div>
+            <h1>{targetPersona.heading}.</h1>
+            <p>{targetPersona.intro}</p>
+          </div>
+          <img className="scene-photo who__art" src="/images/brand/scene-people.jpg" alt="" />
         </div>
-        <p className="persona-card__closing">{targetPersona.closing}</p>
-        <p className="persona-card__note">{targetPersona.note}</p>
-      </Reveal>
+        <WhoAudience />
+      </section>
+
+      <section className="feat-order">
+        <div className="feat-order__copy">
+          <h2>If that's you.</h2>
+          <img className="scene-photo" src="/images/brand/scene-envelopes.jpg" alt="" />
+        </div>
+        <WhoFit />
+      </section>
     </main>
   );
 }

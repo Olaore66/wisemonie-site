@@ -19,12 +19,10 @@ export default function TrustPage() {
       <Reveal as="section" className="page-hero">
         <SectionIllustration side="left" />
         <Badge icon="shield_lock">TRUST &amp; SECURITY</Badge>
-        <h1>
-          Secure by design. <span>Controlled by you.</span>
-        </h1>
+        <h1>Rubies holds the money.</h1>
         <p>
-          Wisemonie is built around clear rules, transparent money movement, and regulated banking
-          infrastructure.
+          Funds sit with Rubies Microfinance Bank under CBN regulation. Wisemonie is the plan.
+          Clear rules, transparent money movement, and you still control every lock.
         </p>
       </Reveal>
 

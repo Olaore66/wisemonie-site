@@ -4,8 +4,10 @@ import Reveal from "@/components/Reveal";
 import RevealGroup from "@/components/RevealGroup";
 import RevealItem from "@/components/RevealItem";
 import SectionIllustration from "@/components/SectionIllustration";
+import TutorialVideo from "@/components/TutorialVideo";
+import WeekCalendar from "@/components/WeekCalendar";
 import WeekReleaseTimeline from "@/components/WeekReleaseTimeline";
-import { flowSteps } from "@/data/productContent";
+import { flowSteps, weekCalendar } from "@/data/productContent";
 
 export const metadata = {
   title: "How It Works",
@@ -41,9 +43,16 @@ export default function HowItWorksPage() {
       </RevealGroup>
 
       <Reveal as="section" className="viz-section viz-section--wide">
+        <h2>{weekCalendar.heading}</h2>
+        <p>{weekCalendar.intro}</p>
+        <WeekCalendar />
+      </Reveal>
+
+      <Reveal as="section" className="viz-section viz-section--wide">
         <h2>Then your plan runs itself</h2>
         <p>Once set, every envelope opens on schedule. No maths, no reminders, no willpower.</p>
         <WeekReleaseTimeline />
+        <TutorialVideo />
       </Reveal>
     </main>
   );

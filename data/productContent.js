@@ -34,7 +34,7 @@ export const moneyFeatures = [
   {
     icon: "schedule",
     title: "Scheduled Releases",
-    text: "Each envelope opens on a day and time you choose. Transport at 7am weekdays, offering Sunday morning, date night Friday evening. Your plan runs on a clock."
+    text: "Each envelope opens on a day and time you choose. Transport at 7am weekdays, offering Sunday morning, date night Friday evening."
   },
   {
     icon: "verified",
@@ -64,7 +64,7 @@ export const moneyFeatures = [
   {
     icon: "smart_toy",
     title: "AI Money Assistant",
-    text: "Tell it about an unusual expense — a wedding, school fees, car repair — and it adjusts your envelopes without breaking the rest of your plan."
+    text: "Tell it about an unusual expense, a wedding, school fees, a car repair, and it adjusts your envelopes without breaking the rest of your plan."
   }
 ];
 
@@ -93,52 +93,49 @@ export const flowSteps = [
 
 export const targetPersona = {
   heading: "Built for one person first",
-  intro:
-    "Wisemonie is designed for anyone who earns money, makes a plan for it, and then watches the plan fall apart before the month ends.",
+  intro: "You make a plan. It slips before the month ends.",
   points: [
-    "You have multiple financial commitments competing for the same income",
-    "You've tried budgeting but can't make the plan stick past week two",
-    "You send money home, tithe, save, and still need to eat and move around",
-    "You want to spend without guilt but can't tell what's truly available",
-    "You need structure, not more willpower"
+    "Several commitments, one income",
+    "The budget dies by week two",
+    "Home, tithe, savings, and daily life",
+    "You can't tell what's actually free",
+    "Structure, not more willpower"
   ],
-  closing: "If that sounds like you, you're who we built this for.",
-  note:
-    "Salary earners, freelancers, students, business owners, and couples are all welcome. We built for the core problem first: your plan and your spending are misaligned."
+  closing: "If that's you, this is for you.",
+  note: "Salary earners, freelancers, students, business owners, and couples. The problem is the same: plan and spending don't match."
 };
 
 export const homeAudience = {
   heading: "Built for anyone whose plan and spending don't match.",
-  intro:
-    "If you've ever opened a second account to hide money from yourself, you get it. You're not undisciplined. Your money just has no structure.",
+  intro: "The money has no structure.",
   personas: [
     {
       icon: "business",
       title: "Salary earners",
-      text: "Rent, tithe, family, food, transport — all from one income with no built-in separation."
+      text: "One income. Rent, tithe, family, food, transport."
     },
     {
       icon: "graduation_cap",
       title: "Students",
-      text: "Allowance, money from home, and side-gig income all pooled in one account that treats it as the same money."
+      text: "Allowance, home, and side gigs in one account."
     },
     {
       icon: "laptop",
       title: "Freelancers",
-      text: "Irregular income that must be stretched across tax, savings, family, and daily life — with no payroll doing the splitting."
+      text: "Irregular income. No payroll to split it."
     },
     {
       icon: "store",
       title: "Small business owners",
-      text: "Business revenue, personal expenses, and family obligations all sitting in one account with no clear boundaries."
+      text: "Business, personal, and family in one account."
     },
     {
       icon: "favorite",
       title: "Couples",
-      text: "Shared rent and school fees, separate tithes and family commitments. Two incomes, zero shared visibility."
+      text: "Shared bills. Separate commitments."
     }
   ],
-  closing: "Wisemonie exists for one reason: your money should follow your plan, not fight it."
+  closing: "Your money should follow the plan."
 };
 
 export const trustCards = [

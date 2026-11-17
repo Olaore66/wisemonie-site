@@ -1,58 +1,59 @@
-// "Essential-first allocation" flow for the Features page: on payday, protected
-// commitments are funded before any flex money exists. Pure markup + CSS (no
-// binary assets), themed with the site's colour tokens.
+"use client";
 
-import Icon from "@/components/Icon";
+import { useEffect, useRef, useState } from "react";
+import Envelope from "@/components/Envelope";
 
-const essentials = [
-  { label: "Rent", amount: "₦80K", locked: true },
-  { label: "Tithe", amount: "₦15K", locked: true },
-  { label: "Parents", amount: "₦20K", locked: false },
-  { label: "Savings", amount: "₦25K", locked: true }
+const steps = [
+  { label: "Rent", amount: "₦80K", tone: "lagoon" },
+  { label: "Tithe", amount: "₦15K", tone: "teal" },
+  { label: "Parents", amount: "₦20K", tone: "ink" },
+  { label: "Savings", amount: "₦25K", tone: "lagoon" }
 ];
 
 export default function EssentialFirstFlow() {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return undefined;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisible(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <figure
-      className="ef-flow"
-      aria-label="On payday, rent, tithe, parents and savings are funded first. Only what's left becomes flex money you can spend without guilt."
+      ref={ref}
+      className={`feat-order__flow${visible ? " is-in" : ""}`}
+      aria-label="On payday, rent, tithe, parents and savings are funded first. Only what is left becomes flex money."
     >
-      <figcaption className="ef-flow__caption">Payday, in the right order</figcaption>
-
-      <div className="ef-flow__salary">
-        <Icon name="account_balance_wallet" />
-        <span>Salary lands</span>
-      </div>
-
-      <div className="ef-flow__arrow" aria-hidden="true" />
-
-      <div className="ef-flow__stage">
-        <span className="ef-flow__stage-label">1 · Essentials funded first</span>
-        <ul className="ef-flow__pills">
-          {essentials.map((e) => (
-            <li key={e.label} className={`ef-pill${e.locked ? " ef-pill--locked" : ""}`}>
-              {e.locked ? <Icon name="lock" /> : null}
-              <span className="ef-pill__label">{e.label}</span>
-              <span className="ef-pill__amt">{e.amount}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="ef-flow__arrow" aria-hidden="true" />
-
-      <div className="ef-flow__stage">
-        <span className="ef-flow__stage-label">2 · The rest is yours</span>
-        <div className="ef-pill ef-pill--flex">
-          <Icon name="favorite" />
-          <span className="ef-pill__label">Flex money, spend without guilt</span>
-        </div>
-      </div>
-
-      <p className="ef-flow__callout">
-        Rent, tithe, family and savings are filled <strong>before</strong> flex money exists. No
-        willpower required.
-      </p>
+      <ol>
+        {steps.map((step) => (
+          <li key={step.label} className={`feat-order__row feat-order__row--${step.tone}`}>
+            <Envelope className="feat-order__mark" />
+            <span>{step.label}</span>
+            <strong>{step.amount}</strong>
+          </li>
+        ))}
+        <li className="feat-order__row feat-order__row--lime">
+          <Envelope className="feat-order__mark" />
+          <span>Flex</span>
+          <strong>What's left</strong>
+        </li>
+      </ol>
     </figure>
   );
 }
