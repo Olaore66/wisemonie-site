@@ -3,97 +3,26 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { adminApi, adminPost, useAdminSession } from "@/components/admin/adminClient";
+import { AdminShell, Loading } from "@/components/admin/AdminShell";
 
-const API = "https://newmoniewise-6vpj.onrender.com";
-
-async function api(path, opts = {}) {
-  const res = await fetch(`${API}${path}`, {
-    ...opts,
-    headers: { "Content-Type": "application/json", ...opts.headers },
+// Blog calls go through this website's server (/api/admin/backend), which
+// holds the admin session. The browser never sees the backend token.
+function api(path, opts = {}) {
+  return adminApi(path.replace(/^\//, ""), {
+    method: opts.method || "GET",
+    body: opts.body === undefined ? undefined : JSON.parse(opts.body),
   });
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}));
-    throw new Error(body.error || body.message || `Request failed (${res.status})`);
-  }
-  return res.json();
 }
 
 async function revalidateBlog(slug) {
   try {
-    await fetch("/api/revalidate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug }),
-    });
+    await adminPost("/api/admin/revalidate", { slug });
   } catch {}
 }
 
-// ── Login ──
-function LoginScreen({ onLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      const data = await api("/blog/admin/login", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-      });
-      onLogin(data.token);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  return (
-    <div className="ba-login">
-      <div className="ba-login__card">
-        <div className="ba-login__logo">
-          <img src="/images/logo2.svg" alt="Wisemonie" />
-        </div>
-        <h1>Blog Admin</h1>
-        <p>Sign in with your admin credentials.</p>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoFocus
-              autoComplete="email"
-            />
-          </label>
-          <label>
-            Password
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
-          </label>
-          {error && <div className="ba-error">{error}</div>}
-          <button type="submit" className="ba-btn ba-btn--primary" disabled={loading}>
-            {loading ? "Signing in..." : "Sign in"}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
 // ── Post list ──
-function PostList({ token, onEdit, onCreate, onLogout }) {
+function PostList({ onEdit, onCreate }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -103,16 +32,14 @@ function PostList({ token, onEdit, onCreate, onLogout }) {
     setLoading(true);
     setError("");
     try {
-      const data = await api("/admin/blog?page=0&size=100", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const data = await api("/admin/blog?page=0&size=100");
       setPosts(data.content || []);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, []);
 
   useEffect(() => { loadPosts(); }, [loadPosts]);
 
@@ -120,10 +47,7 @@ function PostList({ token, onEdit, onCreate, onLogout }) {
     if (!confirm(`Delete "${post.title}"? This cannot be undone.`)) return;
     setDeleting(post.id);
     try {
-      await api(`/admin/blog/${post.id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await api(`/admin/blog/${post.id}`, { method: "DELETE" });
       setPosts((prev) => prev.filter((p) => p.id !== post.id));
       await revalidateBlog(post.slug);
     } catch (err) {
@@ -144,15 +68,11 @@ function PostList({ token, onEdit, onCreate, onLogout }) {
     <div className="ba-list">
       <header className="ba-header">
         <div className="ba-header__left">
-          <img src="/images/logo2.svg" alt="Wisemonie" className="ba-header__logo" />
           <h1>Blog Posts</h1>
         </div>
         <div className="ba-header__actions">
           <button className="ba-btn ba-btn--primary" onClick={onCreate}>
             + New Post
-          </button>
-          <button className="ba-btn ba-btn--ghost" onClick={onLogout}>
-            Sign out
           </button>
         </div>
       </header>
@@ -216,23 +136,14 @@ function PostList({ token, onEdit, onCreate, onLogout }) {
 }
 
 // ── Standalone upload (works for new + existing posts) ──
-async function uploadFile(token, file) {
+async function uploadFile(file) {
   const formData = new FormData();
   formData.append("file", file);
-  const res = await fetch(`${API}/admin/blog/upload`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}` },
-    body: formData,
-  });
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}));
-    throw new Error(body.error || body.message || `Upload failed (${res.status})`);
-  }
-  return res.json();
+  return adminApi("admin/blog/upload", { method: "POST", form: formData });
 }
 
 // ── Post editor ──
-function PostEditor({ token, post, onBack, onSaved }) {
+function PostEditor({ post, onBack, onSaved }) {
   const isNew = !post;
   const [title, setTitle] = useState(post?.title || "");
   const [excerpt, setExcerpt] = useState(post?.excerpt || "");
@@ -256,17 +167,9 @@ function PostEditor({ token, post, onBack, onSaved }) {
       const body = { title, content, excerpt, coverImageUrl, publish };
       let saved;
       if (isNew) {
-        saved = await api("/admin/blog", {
-          method: "POST",
-          headers: { Authorization: `Bearer ${token}` },
-          body: JSON.stringify(body),
-        });
+        saved = await api("/admin/blog", { method: "POST", body: JSON.stringify(body) });
       } else {
-        saved = await api(`/admin/blog/${post.id}`, {
-          method: "PUT",
-          headers: { Authorization: `Bearer ${token}` },
-          body: JSON.stringify(body),
-        });
+        saved = await api(`/admin/blog/${post.id}`, { method: "PUT", body: JSON.stringify(body) });
       }
       await revalidateBlog(saved?.slug || post?.slug);
       onSaved();
@@ -283,7 +186,7 @@ function PostEditor({ token, post, onBack, onSaved }) {
     setUploadingCover(true);
     setError("");
     try {
-      const data = await uploadFile(token, file);
+      const data = await uploadFile(file);
       setCoverImageUrl(data.url);
     } catch (err) {
       setError(`Cover upload failed: ${err.message}`);
@@ -299,7 +202,7 @@ function PostEditor({ token, post, onBack, onSaved }) {
     setUploadingInline(true);
     setError("");
     try {
-      const data = await uploadFile(token, file);
+      const data = await uploadFile(file);
       const isVideo = file.type.startsWith("video/");
       const md = isVideo
         ? `\n\n[Video: ${data.fileName || file.name}](${data.url})\n`
@@ -455,35 +358,26 @@ function PostEditor({ token, post, onBack, onSaved }) {
 
 // ── Main ──
 export default function BlogAdminPage() {
-  const [token, setToken] = useState(null);
+  const { session, signOut } = useAdminSession();
   const [view, setView] = useState("list");
   const [editPost, setEditPost] = useState(null);
 
-  function handleLogout() {
-    setToken(null);
-    setView("list");
-    setEditPost(null);
-  }
-
-  if (!token) return <LoginScreen onLogin={setToken} />;
-
-  if (view === "editor") {
-    return (
-      <PostEditor
-        token={token}
-        post={editPost}
-        onBack={() => { setView("list"); setEditPost(null); }}
-        onSaved={() => { setView("list"); setEditPost(null); }}
-      />
-    );
-  }
+  if (!session) return <Loading label="Checking your sign-in..." />;
 
   return (
-    <PostList
-      token={token}
-      onEdit={(post) => { setEditPost(post); setView("editor"); }}
-      onCreate={() => { setEditPost(null); setView("editor"); }}
-      onLogout={handleLogout}
-    />
+    <AdminShell session={session} onSignOut={signOut}>
+      {view === "editor" ? (
+        <PostEditor
+          post={editPost}
+          onBack={() => { setView("list"); setEditPost(null); }}
+          onSaved={() => { setView("list"); setEditPost(null); }}
+        />
+      ) : (
+        <PostList
+          onEdit={(post) => { setEditPost(post); setView("editor"); }}
+          onCreate={() => { setEditPost(null); setView("editor"); }}
+        />
+      )}
+    </AdminShell>
   );
 }
