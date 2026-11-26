@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 
 export class SignedOutError extends Error {}
 
+const SESSION_CHECK_MS = 15000;
+
 /** Calls the backend through this website's server. Path starts with "admin/aml", "admin/blog" or "admin/notifications". */
 export async function adminApi(path, { method = "GET", body, form } = {}) {
   const init = { method, credentials: "same-origin", cache: "no-store", headers: { Accept: "application/json" } };
@@ -41,22 +43,53 @@ export async function adminPost(path, body) {
 export function useAdminSession() {
   const router = useRouter();
   const [session, setSession] = useState(null);
+  const [failure, setFailure] = useState(null);
 
   useEffect(() => {
     let live = true;
-    fetch("/api/admin/session", { credentials: "same-origin", cache: "no-store" })
-      .then((r) => r.json())
-      .then((s) => {
+    const toLogin = () => router.replace(`/admin/login?next=${encodeURIComponent(window.location.pathname)}`);
+
+    async function check({ quiet = false } = {}) {
+      // Never wait forever on "Checking your sign-in...": give up after 15s.
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), SESSION_CHECK_MS);
+      try {
+        const res = await fetch("/api/admin/session", {
+          credentials: "same-origin", cache: "no-store", signal: controller.signal,
+        });
+        const s = await res.json();
         if (!live) return;
-        if (!s.signedIn) {
-          router.replace(`/admin/login?next=${encodeURIComponent(window.location.pathname)}`);
-        } else {
-          setSession(s);
+        if (!s.signedIn) toLogin();
+        else setSession((old) => (old && old.email === s.email ? old : s));
+      } catch (err) {
+        // A failed re-check (say, a tab waking with no network yet) keeps the page as it is.
+        if (live && !quiet) {
+          setFailure(new Error(err?.name === "AbortError"
+            ? "The sign-in check timed out. The server may be slow or offline."
+            : "Could not reach the server to check your sign-in."));
         }
-      })
-      .catch(() => live && router.replace("/admin/login"));
-    return () => { live = false; };
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    check();
+    // Browsers (Edge especially) put idle tabs to sleep. When the tab comes
+    // back, check the sign-in again so an ended session goes to sign-in.
+    let hiddenAt = 0;
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") hiddenAt = Date.now();
+      else if (hiddenAt && Date.now() - hiddenAt > 60_000) check({ quiet: true });
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      live = false;
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [router]);
+
+  // Hand the failure to the admin error screen instead of a grey page.
+  if (failure) throw failure;
 
   const signOut = useCallback(async () => {
     await adminPost("/api/admin/auth/logout").catch(() => null);
