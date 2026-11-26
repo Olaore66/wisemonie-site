@@ -1,11 +1,16 @@
 import { backendPost, json } from "@/lib/admin/backend";
 import { clearPending, readPending, sameOrigin, writeSession } from "@/lib/admin/session";
+import { NOT_CONFIGURED, sessionConfigured } from "@/lib/admin/session";
 
 export const dynamic = "force-dynamic";
 
 /** Step 2: the emailed code. The password comes from the encrypted step-1 cookie. */
 export async function POST(request) {
   if (!sameOrigin(request)) return json({ error: "Forbidden" }, 403);
+  if (!sessionConfigured()) {
+    console.error("[admin] ADMIN_SESSION_SECRET is missing or shorter than 32 characters");
+    return json({ error: NOT_CONFIGURED }, 503);
+  }
   const pending = await readPending();
   if (!pending) return json({ error: "Your sign-in timed out. Start again." }, 401);
   const { code } = await request.json().catch(() => ({}));
