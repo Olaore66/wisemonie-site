@@ -115,6 +115,7 @@ export default function NotificationsPage() {
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
   const [history, setHistory] = useState(null);
+  const [delivery, setDelivery] = useState(null);
   const [sendKey, setSendKey] = useState(newKey);
   const fileRef = useRef(null);
 
@@ -134,11 +135,26 @@ export default function NotificationsPage() {
 
   const loadHistory = useCallback(async () => {
     try {
-      setHistory(await adminApi("admin/notifications/history"));
+      const [rows, report] = await Promise.all([
+        adminApi("admin/notifications/history"),
+        adminApi("admin/notifications/delivery").catch(() => null),
+      ]);
+      setHistory(rows);
+      setDelivery(report);
     } catch (err) {
       if (!guard(err)) setError(err.message);
     }
   }, [guard]);
+
+  // While pushes are still going out, keep History up to date by itself.
+  const busy = Boolean(
+    delivery?.queue?.waiting > 0 || history?.some((row) => row.status === "SENDING"),
+  );
+  useEffect(() => {
+    if (!session || tab !== "history" || !busy) return undefined;
+    const timer = setInterval(loadHistory, 15000);
+    return () => clearInterval(timer);
+  }, [session, tab, busy, loadHistory]);
 
   useEffect(() => { if (session) loadAudience(); }, [session, loadAudience]);
   useEffect(() => { if (session && tab === "history") loadHistory(); }, [session, tab, loadHistory]);
@@ -425,7 +441,7 @@ export default function NotificationsPage() {
           </aside>
         </div>
       ) : (
-        <History rows={history} onRefresh={loadHistory} onReuse={reuse} />
+        <History rows={history} delivery={delivery} onRefresh={loadHistory} onReuse={reuse} />
       )}
 
       {confirming && (
@@ -461,21 +477,62 @@ export default function NotificationsPage() {
 
 const STATUS_TONE = { SENT: "ok", SENDING: "info", FAILED: "danger" };
 
-function History({ rows, onRefresh, onReuse }) {
+const n = (value) => Number(value || 0).toLocaleString();
+
+/** What happened to one send's pushes, from the server's delivery report. */
+function PushDelivery({ row, counts }) {
+  if (!row.sendPush) return <span className="ad-muted">No push</span>;
+  if (!counts) {
+    return (
+      <span className="ad-muted">
+        {n(row.pushQueued)} queued
+        <span className="ad-sub">Not tracked (sent before delivery reports)</span>
+      </span>
+    );
+  }
+  const rest = [
+    counts.waiting && `${n(counts.waiting)} waiting`,
+    counts.noPhone && `${n(counts.noPhone)} no phone`,
+    counts.failed && `${n(counts.failed)} failed`,
+    counts.expired && `${n(counts.expired)} expired`,
+  ].filter(Boolean);
+  return (
+    <span>
+      <strong>{n(counts.sent)}</strong> reached a phone
+      {rest.length > 0 && <span className="ad-sub">{rest.join(" · ")}</span>}
+    </span>
+  );
+}
+
+function History({ rows, delivery, onRefresh, onReuse }) {
   if (!rows) return <Loading />;
+  const queue = delivery?.queue;
   return (
     <>
       <div className="ad-toolbar">
         <span className="ad-muted">The last 100 sends, newest first.</span>
         <button type="button" className="ba-btn ba-btn--sm" onClick={onRefresh}>Refresh</button>
       </div>
+      {queue?.stuck && (
+        <div className="ba-error" role="alert">
+          {`${n(queue.waiting)} pushes have waited ${n(queue.oldestWaitingMinutes)} minutes without being sent. `}
+          The server&apos;s background sender is not running. Ask a developer to check the backend worker.
+        </div>
+      )}
+      {queue && !queue.stuck && queue.waiting > 0 && (
+        <div className="ad-info" role="status">{n(queue.waiting)} pushes are going out now. This page updates by itself.</div>
+      )}
+      <p className="ad-hint">
+        Reached a phone: Google accepted it for their phone. No phone: they have no phone signed in with
+        notifications on, so it waits in their app&apos;s notifications.
+      </p>
       {rows.length === 0 ? <p className="ad-empty">Nothing sent yet.</p> : (
         <div className="ba-table-wrap">
           <table className="ba-table ad-table">
             <thead>
               <tr>
                 <th>Sent</th><th>Message</th><th>Audience</th><th>Channels</th>
-                <th className="num">Reached</th><th>Status</th><th></th>
+                <th className="num">People</th><th>Push delivery</th><th>Status</th><th></th>
               </tr>
             </thead>
             <tbody>
@@ -500,13 +557,10 @@ function History({ rows, onRefresh, onReuse }) {
                     </span>
                   </td>
                   <td className="num">
-                    {row.recipients.toLocaleString()}
-                    <span className="ad-sub">
-                      {row.sendPush ? `${row.pushQueued.toLocaleString()} push` : ""}
-                      {row.sendPush && row.sendEmail ? " · " : ""}
-                      {row.sendEmail ? `${row.emailsQueued.toLocaleString()} email` : ""}
-                    </span>
+                    {n(row.recipients)}
+                    {row.sendEmail && <span className="ad-sub">{n(row.emailsQueued)} email</span>}
                   </td>
+                  <td className="nt-delivery"><PushDelivery row={row} counts={delivery?.broadcasts?.[String(row.id)]} /></td>
                   <td><Badge tone={STATUS_TONE[row.status] || "plain"}>{row.status === "SENDING" ? "Sending" : row.status === "SENT" ? "Sent" : row.status === "FAILED" ? "Failed" : row.status}</Badge></td>
                   <td><button type="button" className="ba-btn ba-btn--sm ad-nowrap" onClick={() => onReuse(row)}>Use again</button></td>
                 </tr>

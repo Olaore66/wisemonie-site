@@ -4599,6 +4599,7 @@ main.ad-main { overflow-x: clip; }
 .nt-dialog__warn { color: #8a5300; font-size: .85rem; font-weight: 600; margin: 12px 0 16px !important; }
 .nt-dialog__card .nt-actions { margin-bottom: 0; }
 
+.nt-delivery { min-width: 170px; }
 .nt-hist { display: flex; gap: 10px; align-items: flex-start; min-width: 220px; }
 .nt-hist img { width: 64px; height: 32px; object-fit: cover; border-radius: 6px; flex: none; background: #f4f6f8; }
 .nt-clip { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 360px; }
