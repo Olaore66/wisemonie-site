@@ -1,9 +1,18 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Template({ children }) {
   const reduce = useReducedMotion();
+  const pathname = usePathname() || "";
+
+  // The admin area renders without the fade-in. The fade starts the page at
+  // opacity 0 and needs JavaScript to reveal it, so a failed script load
+  // (for example an open tab after a redeploy) left admin pages blank.
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return children;
+  }
 
   return (
     <motion.div

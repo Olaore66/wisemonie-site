@@ -7,6 +7,7 @@ import { nameCheck } from "./adminClient";
 const NAV = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/reviews", label: "Payment reviews" },
+  { href: "/admin/notifications", label: "Push notifications" },
   { href: "/admin/blog", label: "Blog" },
 ];
 

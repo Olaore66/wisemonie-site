@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export class SignedOutError extends Error {}
 
-/** Calls the backend through this website's server. Path starts with "admin/aml" or "admin/blog". */
+/** Calls the backend through this website's server. Path starts with "admin/aml", "admin/blog" or "admin/notifications". */
 export async function adminApi(path, { method = "GET", body, form } = {}) {
   const init = { method, credentials: "same-origin", cache: "no-store", headers: { Accept: "application/json" } };
   if (form) {

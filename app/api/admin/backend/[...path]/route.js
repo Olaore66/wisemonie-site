@@ -7,17 +7,18 @@ export const dynamic = "force-dynamic";
 /**
  * The only way admin pages reach the backend. The browser sends its
  * encrypted session cookie here; this server adds the token and calls the
- * backend itself. Only /admin/aml and /admin/blog can be reached, and the
- * backend token never reaches the browser.
+ * backend itself. Only /admin/aml, /admin/blog and /admin/notifications can
+ * be reached, and the backend token never reaches the browser.
  */
+const ALLOWED_AREAS = new Set(["aml", "blog", "notifications"]);
 const SEGMENT = /^[A-Za-z0-9_~-][A-Za-z0-9._~-]*$/;
 const FORWARD_RESPONSE_HEADERS = ["content-type", "content-disposition"];
 
 async function forward(request, context) {
   const { path = [] } = await context.params;
   // Each decoded part is checked on its own, so "%2F" or ".." cannot
-  // escape /admin/aml or /admin/blog.
-  const allowed = path.length >= 2 && path[0] === "admin" && (path[1] === "aml" || path[1] === "blog")
+  // escape those areas.
+  const allowed = path.length >= 2 && path[0] === "admin" && ALLOWED_AREAS.has(path[1])
     && path.every((part) => SEGMENT.test(part));
   if (!allowed) {
     return json({ error: "Not found" }, 404);
