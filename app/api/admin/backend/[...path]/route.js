@@ -7,10 +7,10 @@ export const dynamic = "force-dynamic";
 /**
  * The only way admin pages reach the backend. The browser sends its
  * encrypted session cookie here; this server adds the token and calls the
- * backend itself. Only /admin/aml, /admin/blog and /admin/notifications can
+ * backend itself. Only /admin/aml, /admin/blog, /admin/notifications and /admin/budgets can
  * be reached, and the backend token never reaches the browser.
  */
-const ALLOWED_AREAS = new Set(["aml", "blog", "notifications"]);
+const ALLOWED_AREAS = new Set(["aml", "blog", "notifications", "budgets"]);
 const SEGMENT = /^[A-Za-z0-9_~-][A-Za-z0-9._~-]*$/;
 const FORWARD_RESPONSE_HEADERS = ["content-type", "content-disposition"];
 

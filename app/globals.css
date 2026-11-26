@@ -4614,17 +4614,14 @@ main.ad-main { overflow-x: clip; }
 }
 
 /* ── Admin: shown only if the admin's scripts never start ──────────────── */
-.ba-boot { display: none; }
-html:not(.admin-ready) .ba-boot {
+/* Built by the admin's boot script only when the admin fails to start. */
+.ba-boot {
   display: block;
   position: fixed; left: 16px; right: 16px; top: 16px; z-index: 100;
   max-width: 560px; margin: 0 auto; padding: 18px 20px;
   background: #fff; border: 1px solid #f5c46b; border-radius: 14px; color: #222;
   box-shadow: 0 10px 30px rgba(0,0,0,.08); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
-  /* Hidden for the first 8 seconds, so a normal start never flashes it. */
-  animation: ba-boot-show 0s linear 8s both;
 }
-@keyframes ba-boot-show { from { visibility: hidden; } to { visibility: visible; } }
 .ba-boot ol { margin: 8px 0; padding-left: 20px; }
 .ba-boot p { margin: 0 0 8px; }
 .ba-boot pre {
@@ -4632,3 +4629,26 @@ html:not(.admin-ready) .ba-boot {
   background: #f7f9fb; border-radius: 8px; font: 12px/1.45 ui-monospace, Consolas, monospace; color: #8a1c1c;
 }
 .ba-boot pre.ba-boot__ua { color: #6b7280; }
+
+/* ── Admin: cancel a budget ────────────────────────────────────────────── */
+.bg-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
+.bg-customer { display: flex; flex-direction: column; gap: 2px; margin: 8px 0 0; }
+.bg-list { display: grid; gap: 10px; margin-top: 10px; }
+.bg-item {
+  display: flex; flex-direction: column; gap: 6px; text-align: left; width: 100%; padding: 14px 16px;
+  border: 1px solid #dfe3e8; border-radius: 12px; background: #fff; font: inherit; color: #111; cursor: pointer;
+}
+.bg-item:hover { border-color: #b9c2cb; }
+.bg-item.is-on { border-color: #c62828; box-shadow: inset 0 0 0 1px #c62828; background: #fffafa; }
+.bg-item.is-blocked { cursor: not-allowed; background: #fbfbfc; }
+.bg-item:focus-visible { outline: 2px solid #02A399; outline-offset: 2px; }
+.bg-item__top { display: flex; justify-content: space-between; gap: 8px; }
+.bg-item__facts { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .85rem; color: #555; }
+.bg-item__refund { font-size: .88rem; font-weight: 600; color: #046b63; }
+.bg-confirm { position: sticky; top: 76px; }
+.bg-summary { font-size: .9rem; line-height: 1.5; margin: 8px 0 4px; }
+.bg-wide { width: 100%; margin-top: 10px; justify-content: center; }
+@media (max-width: 1000px) {
+  .bg-layout { grid-template-columns: 1fr; }
+  .bg-confirm { position: static; }
+}

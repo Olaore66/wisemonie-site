@@ -6,44 +6,51 @@ export const metadata = {
 };
 
 // Plain old JavaScript on purpose, so it runs even in a browser that cannot
-// run the site's own code. It notes what fails while the admin starts, and
-// the box below shows it if the admin has not started after 8 seconds.
+// run the site's own code. It notes what fails while the admin starts. If the
+// admin has not started after 8 seconds, it builds a help box itself. It never
+// touches the page React draws, so it cannot upset React's start-up.
 const BOOT_WATCH = `(function () {
   var seen = [];
-  function render() {
-    var list = document.getElementById("ba-boot-errors");
-    var ua = document.getElementById("ba-boot-ua");
-    if (list) list.textContent = seen.length ? seen.slice(-6).join("\\n") : "No error was reported.";
-    if (ua) ua.textContent = navigator.userAgent;
-  }
-  function note(text) { seen.push(String(text).slice(0, 300)); render(); }
   window.addEventListener("error", function (e) {
     var t = e.target;
-    if (t && t !== window && (t.src || t.href)) { note("Blocked or missing: " + (t.src || t.href)); return; }
+    if (t && t !== window && (t.src || t.href)) { seen.push("Blocked or missing: " + (t.src || t.href)); return; }
     var where = e.filename ? " (" + String(e.filename).split("/").pop() + ":" + e.lineno + ")" : "";
-    note((e.message || "Script error") + where);
+    seen.push((e.message || "Script error") + where);
   }, true);
   window.addEventListener("unhandledrejection", function (e) {
     var r = e.reason;
-    note("Unhandled: " + (r && (r.message || r)));
+    seen.push("Unhandled: " + (r && (r.message || r)));
   });
-  render();
+  setTimeout(function () {
+    if (document.documentElement.className.indexOf("admin-ready") !== -1) return;
+    var box = document.createElement("div");
+    box.className = "ba-boot";
+    box.setAttribute("role", "alert");
+    function add(tag, text, cls) {
+      var el = document.createElement(tag);
+      el.textContent = text;
+      if (cls) el.className = cls;
+      box.appendChild(el);
+      return el;
+    }
+    add("strong", "The admin didn't start in this browser.");
+    var list = document.createElement("ol");
+    ["Reload the page.",
+     "Try an InPrivate window. If that works, an extension is blocking it: allow wisemonie.app in it.",
+     "Update the browser (Edge: Settings, then About Microsoft Edge)."].forEach(function (s) {
+      var li = document.createElement("li"); li.textContent = s; list.appendChild(li);
+    });
+    box.appendChild(list);
+    add("p", "Send a screenshot of this box if it keeps happening.");
+    add("pre", seen.length ? seen.slice(-6).join("\\n") : "No error was reported.");
+    add("pre", navigator.userAgent, "ba-boot__ua");
+    document.body.appendChild(box);
+  }, 8000);
 })();`;
 
 export default function AdminLayout({ children }) {
   return (
     <div className="ba-root">
-      <div className="ba-boot" role="alert">
-        <strong>The admin didn&apos;t start in this browser.</strong>
-        <ol>
-          <li>Reload the page.</li>
-          <li>Try an InPrivate window. If that works, an extension is blocking it: allow wisemonie.app in it.</li>
-          <li>Update the browser (Edge: Settings, then About Microsoft Edge).</li>
-        </ol>
-        <p>Send a screenshot of this box if it keeps happening.</p>
-        <pre id="ba-boot-errors" />
-        <pre id="ba-boot-ua" className="ba-boot__ua" />
-      </div>
       <script dangerouslySetInnerHTML={{ __html: BOOT_WATCH }} />
       <AdminReady />
       {children}
