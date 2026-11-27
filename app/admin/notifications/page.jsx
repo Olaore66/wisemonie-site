@@ -14,6 +14,16 @@ const TYPES = [
 const TYPE_BY_API = Object.fromEntries(TYPES.map((t) => [t.api, t]));
 
 const MAX_IMAGE_BYTES = 1024 * 1024;
+const IMAGE_TYPES = ["image/png", "image/jpeg", "image/gif"];
+
+/** True when a pasted link points at a GIF file. */
+function isGifLink(link) {
+  try {
+    return new URL(link).pathname.toLowerCase().endsWith(".gif");
+  } catch {
+    return false;
+  }
+}
 // More people than this are sent to by a background job on the server.
 const INLINE_LIMIT = 50;
 const LOCK_SCREEN_CHARS = 180;
@@ -52,7 +62,7 @@ function Counter({ value, max }) {
   return <span className={`nt-count${value > max ? " is-over" : ""}`}>{value}/{max}</span>;
 }
 
-function Preview({ platform, title, message, imageUrl }) {
+function Preview({ platform, title, message, imageUrl, stillUrl }) {
   const shownTitle = title || "Wisemonie";
   const shownMessage = message || "Your message shows here.";
   if (platform === "ios") {
@@ -67,7 +77,11 @@ function Preview({ platform, title, message, imageUrl }) {
           </div>
           {imageUrl && <img className="nt-ios__thumb" src={imageUrl} alt="" />}
         </div>
-        {imageUrl && <p className="nt-phone__note">Press and hold to see the full picture.</p>}
+        {imageUrl && (
+          <p className="nt-phone__note">
+            {stillUrl ? "The GIF moves on iPhone. Press and hold to see it full size." : "Press and hold to see the full picture."}
+          </p>
+        )}
       </div>
     );
   }
@@ -80,9 +94,13 @@ function Preview({ platform, title, message, imageUrl }) {
         </div>
         <strong>{shownTitle}</strong>
         <p>{shownMessage}</p>
-        {imageUrl && <img className="nt-android__picture" src={imageUrl} alt="" />}
+        {imageUrl && <img className="nt-android__picture" src={stillUrl || imageUrl} alt="" />}
       </div>
-      {imageUrl && <p className="nt-phone__note">Shown when the notification is opened out.</p>}
+      {imageUrl && (
+        <p className="nt-phone__note">
+          {stillUrl ? "Android shows the GIF's first frame, without movement." : "Shown when the notification is opened out."}
+        </p>
+      )}
     </div>
   );
 }
@@ -95,6 +113,8 @@ export default function NotificationsPage() {
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  // For a GIF: its first frame, which Android shows instead.
+  const [stillUrl, setStillUrl] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [uploading, setUploading] = useState(false);
   const [ctaLabel, setCtaLabel] = useState("");
@@ -167,8 +187,8 @@ export default function NotificationsPage() {
   async function upload(file) {
     setError("");
     if (!file) return;
-    if (!["image/png", "image/jpeg"].includes(file.type)) {
-      setError("Use a JPG or PNG picture.");
+    if (!IMAGE_TYPES.includes(file.type)) {
+      setError("Use a JPG, PNG or GIF picture.");
       return;
     }
     if (file.size > MAX_IMAGE_BYTES) {
@@ -181,6 +201,7 @@ export default function NotificationsPage() {
       form.append("file", file);
       const saved = await adminApi("admin/notifications/image", { method: "POST", form });
       setImageUrl(saved.url);
+      setStillUrl(saved.stillUrl || "");
       setImageLink("");
     } catch (err) {
       if (!guard(err)) setError(err.message);
@@ -196,8 +217,14 @@ export default function NotificationsPage() {
       setError("The picture link must start with https://");
       return;
     }
+    if (isGifLink(link)) {
+      // Only an uploaded GIF gets the still frame that Android needs.
+      setError("Upload GIFs from your computer instead of pasting a link, so Android gets a picture too.");
+      return;
+    }
     setError("");
     setImageUrl(link);
+    setStillUrl("");
   }
 
   /** What stops a send, in plain words. Empty when ready. */
@@ -220,6 +247,7 @@ export default function NotificationsPage() {
       title: clean(title),
       message: message.trim(),
       imageUrl: imageUrl || undefined,
+      stillImageUrl: imageUrl && stillUrl ? stillUrl : undefined,
       ctaLabel: clean(ctaLabel),
       ctaUrl: clean(ctaUrl),
       emailSubject: sendEmail ? clean(emailSubject) : undefined,
@@ -283,6 +311,7 @@ export default function NotificationsPage() {
     setTitle(row.title || "");
     setMessage(row.message || "");
     setImageUrl(row.imageUrl || "");
+    setStillUrl(row.stillImageUrl || "");
     setCtaLabel(row.ctaLabel || "");
     setCtaUrl(row.ctaUrl || "");
     setSendFcm(row.sendPush);
@@ -344,15 +373,15 @@ export default function NotificationsPage() {
               </div>
 
               <div className="nt-field">
-                <label>Picture <span className="ad-muted">optional · JPG or PNG, up to 1 MB</span></label>
+                <label>Picture <span className="ad-muted">optional · JPG, PNG or GIF, up to 1 MB</span></label>
                 {imageUrl ? (
                   <div className="nt-image">
                     <img src={imageUrl} alt="Push picture" />
-                    <button type="button" className="ba-btn ba-btn--sm ba-btn--danger" onClick={() => setImageUrl("")}>Remove</button>
+                    <button type="button" className="ba-btn ba-btn--sm ba-btn--danger" onClick={() => { setImageUrl(""); setStillUrl(""); }}>Remove</button>
                   </div>
                 ) : (
                   <div className="nt-image-pick">
-                    <input ref={fileRef} type="file" accept="image/png,image/jpeg" hidden
+                    <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/gif" hidden
                            onChange={(e) => upload(e.target.files?.[0])} />
                     <button type="button" className="ba-btn ba-btn--sm" disabled={uploading}
                             onClick={() => fileRef.current?.click()}>
@@ -364,7 +393,11 @@ export default function NotificationsPage() {
                     <button type="button" className="ba-btn ba-btn--sm" disabled={!imageLink.trim()} onClick={applyLink}>Use</button>
                   </div>
                 )}
-                <p className="ad-hint">Wide pictures (2:1) look best.</p>
+                <p className="ad-hint">
+                  {stillUrl
+                    ? "GIF: it moves on iPhone and in the app. Android shows its first frame."
+                    : "Wide pictures (2:1) look best."}
+                </p>
               </div>
 
               <div className="nt-row2">
@@ -435,7 +468,7 @@ export default function NotificationsPage() {
                   <button type="button" role="tab" aria-selected={platform === "ios"} onClick={() => setPlatform("ios")}>iPhone</button>
                 </div>
               </div>
-              <Preview platform={platform} title={title.trim() || kind.title} message={message.trim()} imageUrl={imageUrl} />
+              <Preview platform={platform} title={title.trim() || kind.title} message={message.trim()} imageUrl={imageUrl} stillUrl={stillUrl} />
               {platform === "ios" && <p className="ad-hint">Ready for the iPhone app. Pictures show once it is released.</p>}
             </div>
           </aside>
@@ -455,7 +488,7 @@ export default function NotificationsPage() {
             </h3>
             <p className="ad-muted">
               {kind.label} · {[sendFcm && "push", sendEmail && "email"].filter(Boolean).join(" and ")}
-              {imageUrl ? " · with picture" : ""}
+              {imageUrl ? (stillUrl ? " · with GIF" : " · with picture") : ""}
             </p>
             {allUsers && sendFcm && audience && (
               <p className="ad-muted">{audience.reachableByPush.toLocaleString()} of them can get a push now.</p>
