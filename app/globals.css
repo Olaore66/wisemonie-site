@@ -4559,6 +4559,7 @@ main.ad-main { overflow-x: clip; }
 .nt-toggle.is-disabled { opacity: .5; cursor: not-allowed; }
 .nt-toggle.is-disabled input { cursor: not-allowed; }
 .nt-queued { margin: 0 0 12px; }
+.nt-image-error { margin: 8px 0 0; color: #b42318; font-size: .85rem; font-weight: 600; }
 .nt-email { padding: 0 0 12px; }
 .nt-email .nt-field:first-child { margin-top: 0; }
 

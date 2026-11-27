@@ -14,6 +14,8 @@ const TYPES = [
 const TYPE_BY_API = Object.fromEntries(TYPES.map((t) => [t.api, t]));
 
 const MAX_IMAGE_BYTES = 1024 * 1024;
+// GIFs may be bigger: Android gets a small still made from the first frame.
+const MAX_GIF_BYTES = 4 * 1024 * 1024;
 const IMAGE_TYPES = ["image/png", "image/jpeg", "image/gif"];
 
 /** True when a pasted link points at a GIF file. */
@@ -134,6 +136,14 @@ export default function NotificationsPage() {
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
+  // Picture problems show under the picture field, where the admin is looking.
+  const [imageError, setImageError] = useState("");
+  const errorRef = useRef(null);
+
+  // The general error box sits at the top of the page; bring it into view.
+  useEffect(() => {
+    if (error) errorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [error]);
   const [history, setHistory] = useState(null);
   const [delivery, setDelivery] = useState(null);
   const [sendKey, setSendKey] = useState(newKey);
@@ -185,14 +195,15 @@ export default function NotificationsPage() {
   }
 
   async function upload(file) {
-    setError("");
+    setImageError("");
     if (!file) return;
     if (!IMAGE_TYPES.includes(file.type)) {
-      setError("Use a JPG, PNG or GIF picture.");
+      setImageError("Use a JPG, PNG or GIF picture.");
       return;
     }
-    if (file.size > MAX_IMAGE_BYTES) {
-      setError("The picture must be 1 MB or smaller.");
+    const isGif = file.type === "image/gif";
+    if (file.size > (isGif ? MAX_GIF_BYTES : MAX_IMAGE_BYTES)) {
+      setImageError(isGif ? "GIFs must be 4 MB or smaller." : "JPG and PNG pictures must be 1 MB or smaller.");
       return;
     }
     setUploading(true);
@@ -204,7 +215,7 @@ export default function NotificationsPage() {
       setStillUrl(saved.stillUrl || "");
       setImageLink("");
     } catch (err) {
-      if (!guard(err)) setError(err.message);
+      if (!guard(err)) setImageError(err.message);
     } finally {
       setUploading(false);
       if (fileRef.current) fileRef.current.value = "";
@@ -214,15 +225,10 @@ export default function NotificationsPage() {
   function applyLink() {
     const link = imageLink.trim();
     if (!link.toLowerCase().startsWith("https://")) {
-      setError("The picture link must start with https://");
+      setImageError("The picture link must start with https://");
       return;
     }
-    if (isGifLink(link)) {
-      // Only an uploaded GIF gets the still frame that Android needs.
-      setError("Upload GIFs from your computer instead of pasting a link, so Android gets a picture too.");
-      return;
-    }
-    setError("");
+    setImageError("");
     setImageUrl(link);
     setStillUrl("");
   }
@@ -339,7 +345,7 @@ export default function NotificationsPage() {
       </div>
 
       {notice && <div className="ad-info" role="status">{notice}</div>}
-      {error && <div className="ba-error" role="alert">{error}</div>}
+      {error && <div className="ba-error" role="alert" ref={errorRef}>{error}</div>}
 
       {tab === "compose" ? (
         <div className="nt-layout">
@@ -373,11 +379,11 @@ export default function NotificationsPage() {
               </div>
 
               <div className="nt-field">
-                <label>Picture <span className="ad-muted">optional · JPG, PNG or GIF, up to 1 MB</span></label>
+                <label>Picture <span className="ad-muted">optional · JPG or PNG up to 1 MB, GIF up to 4 MB</span></label>
                 {imageUrl ? (
                   <div className="nt-image">
                     <img src={imageUrl} alt="Push picture" />
-                    <button type="button" className="ba-btn ba-btn--sm ba-btn--danger" onClick={() => { setImageUrl(""); setStillUrl(""); }}>Remove</button>
+                    <button type="button" className="ba-btn ba-btn--sm ba-btn--danger" onClick={() => { setImageUrl(""); setStillUrl(""); setImageError(""); }}>Remove</button>
                   </div>
                 ) : (
                   <div className="nt-image-pick">
@@ -393,10 +399,13 @@ export default function NotificationsPage() {
                     <button type="button" className="ba-btn ba-btn--sm" disabled={!imageLink.trim()} onClick={applyLink}>Use</button>
                   </div>
                 )}
+                {imageError && <p className="nt-image-error" role="alert">{imageError}</p>}
                 <p className="ad-hint">
                   {stillUrl
                     ? "GIF: it moves on iPhone and in the app. Android shows its first frame."
-                    : "Wide pictures (2:1) look best."}
+                    : imageUrl && isGifLink(imageUrl)
+                      ? "Pasted GIF: it moves in the app. Android may show only part of it, or no picture. Upload the file to give Android a clean still."
+                      : "Wide pictures (2:1) look best."}
                 </p>
               </div>
 
